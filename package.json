@@ -1,0 +1,19 @@
+{
+  "name": "toast",
+  "version": "0.0.1",
+  "description": "A toast tool written in JavaScript and CSS without any other dependencies.",
+  "main": "toast.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.sankuai.com/~wangzilong03/toast.git"
+  },
+  "keywords": [
+    "toast.js",
+    "javascript"
+  ],
+  "author": "wangzilong03",
+  "license": "ISC"
+}

@@ -1,0 +1,94 @@
+.toast-container * {
+  box-sizing: border-box;
+}
+
+.toast-container .toast-mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.toast-container .toast-content {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #333;
+  box-shadow: 0 0 7px rgba(40, 40, 40, 0.85);
+  text-align: center;
+  z-index: 2000;
+}
+
+.toast-container .toast-content.toast-msg {
+  width: 360px;
+  max-height: 200px;
+  margin-top: -100px;
+  margin-left: -180px;
+  overflow: hidden;
+}
+
+.toast-content .toast-header {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.toast-content .body {
+  text-align: left;
+  padding: 5px 15px;
+}
+
+.toast-content .footer {
+  position: relative;
+  line-height: 42px;
+  margin-top: 20px;
+}
+
+.toast-content .footer:after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid #D5D5D6;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+
+.toast-content .footer a {
+  color: #DD403B;
+  display: block;
+  border: none;
+  text-decoration: none;
+}
+
+.toast-content .footer a:hover {
+  color: #AC3429;
+}
+
+.toast-content .footer a:active {
+  background-color: #eee;
+}
+
+.toast-content .footer a[data-role="cancel"] {
+  display: inline-block;
+  width: 50%;
+  border-right: 1px solid #D5D5D6;
+  color: #555;
+}
+
+.toast-content .footer a[data-role="cancel"]:hover {
+  color: #333;
+}
+
+.toast-content .footer a[data-role="confirm"] {
+  display: inline-block;
+  width: 50%;
+}
