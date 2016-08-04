@@ -18,15 +18,20 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  background-color: #fff;
   border-radius: 5px;
-  color: #333;
   box-shadow: 0 0 7px rgba(40, 40, 40, 0.85);
   text-align: center;
   z-index: 2000;
 }
 
+.toast-container .toast-content.toast {
+  background-color: rgba(40, 40, 40, 0.85);
+  color: #fff;
+}
+
 .toast-container .toast-content.toast-msg {
+  background-color: #fff;
+  color: #333;
   width: 360px;
   max-height: 200px;
   margin-top: -100px;

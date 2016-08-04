@@ -23,7 +23,7 @@
     }
 
     return c;
-  }
+  };
 
   /**
    * 一个兼容的事件处理程序注册方法
@@ -39,7 +39,7 @@
     } else {
       element['on' + type] = handler;
     }
-  }
+  };
 
   Util.removeEventHandler = function(element, type, handler) {
     if (element.removeEventListener) {
@@ -49,14 +49,24 @@
     } else {
       element['on' + type] = null;
     }
-  }
+  };
+
+  Util.normalizeUserOption = function(option) {
+    var userOption = option || {};
+    if (typeof option === 'string') {
+      userOption = {
+        text: option
+      };
+    }
+    return userOption;
+  };
 
 
   var GLOBAL_TOAST_ID = 'global-toast';
 
   var defaultOption = {
     animation: true,
-    duration: 1500,
+    duration: 2000,
 
     // 只有 toast.alert 或者 toast.confirm 有标题
     title: '',
@@ -93,7 +103,10 @@
       '</div>' +
     '</div>';
 
-  var templateHTML_toast = '';
+  // 模板3，小长方形，没有icon，目的是显示小段文本，无遮罩层，无按钮，全局永远只有一个，会自动消失。toast 所用
+  var templateHTML_toast = '<div class="toast-content toast">' +
+      '<div class="body">{{text}}</div>' +
+    '</div>';
 
 
   // 一个非常简易的模板引擎
@@ -197,6 +210,12 @@
 
     var compiled = compileTemplate(TemplateEnum[templateType], option);
     _toast.html(compiled).show();
+
+    if (templateType === 'toast') {
+      flagTimeout = setTimeout(function() {
+        _toast.hide();
+      }, option.duration);
+    }
   }
 
 
@@ -204,15 +223,14 @@
    * 最终 export 的对象
    * @type {Object}
    */
-  var Toast = function() {};
+  var Toast = function(option) {
+    var userOption = Util.normalizeUserOption(option);
+    delete userOption.title;
+    addContentToToastDiv({}, userOption);
+  };
 
   Toast.alert = function(option) {
-    var userOption = option || {};
-    if (typeof option === 'string') {
-      userOption = {
-        text: option
-      };
-    }
+    var userOption = Util.normalizeUserOption(option);
 
     var presetOption = {
       title: '',
@@ -225,12 +243,7 @@
   };
 
   Toast.confirm = function(option) {
-    var userOption = option || {};
-    if (typeof option === 'string') {
-      userOption = {
-        text: option
-      };
-    }
+    var userOption = Util.normalizeUserOption(option);
 
     var presetOption = {
       title: '',
@@ -241,5 +254,6 @@
 
     addContentToToastDiv(presetOption, userOption, 'confirm');
   };
+
   return Toast;
 }));
