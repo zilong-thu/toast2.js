@@ -61,8 +61,29 @@
     return userOption;
   };
 
+  // remove an DOM element
+  Util.remove = function(element) {
+    // Polyfill
+    if (!('remove' in Element.prototype)) {
+      Element.prototype.remove = function() {
+        if (this.parentNode) {
+          this.parentNode.removeChild(this);
+        }
+      };
+    }
 
-  var GLOBAL_TOAST_ID = 'global-toast';
+    element.parentNode.removeChild(element);
+  };
+
+  Util.createElement = function(htmlStr) {
+    var div = document.createElement('div');
+    div.innerHTML = htmlStr;
+    return div.childNodes;
+  };
+
+
+  var GLOBAL_TOAST_ID = 'global-toast-container';
+  var GLOBAL_ERROR_STACK_ID = 'global-error-stack-container';
 
   var defaultOption = {
     animation: true,
@@ -108,6 +129,12 @@
       '<div class="body">{{text}}</div>' +
     '</div>';
 
+  // 模板4，中等尺寸的长方形。所有的 error-box 在屏幕的右侧形成一个 error stack.
+  var template_error_box = '<div class="error-box">' +
+      '<div class="banner"><i class="fa fa-times-circle"></i> 出错了...</div>' +
+      '<div class="body">{{text}}</div>' +
+    '</div>';
+
 
   // 一个非常简易的模板引擎
   function compileTemplate(tpl, data) {
@@ -119,6 +146,7 @@
     return tpl;
   }
 
+
   /**
    * 创建、初始化以及缓存 DOM 对象
    */
@@ -126,15 +154,15 @@
 
   var _toast = (function() {
     var $toast = document.getElementById(GLOBAL_TOAST_ID) || document.createElement('div');
-    var self = {};
 
     $toast.id = GLOBAL_TOAST_ID;
     $toast.className = 'toast-container';
     $toast.style = 'display: none';
     body.appendChild($toast);
 
-    self.element = $toast;
+    var self = {};
 
+    self.element = $toast;
     self.html = function(htmlStr) {
       $toast.innerHTML = htmlStr;
       return self;
@@ -218,6 +246,29 @@
     }
   }
 
+  /**
+   * @param [String] {text} 向错误栈中推送错误
+   */
+  function addError(text) {
+    var $errorStack = document.getElementById(GLOBAL_ERROR_STACK_ID);
+
+    if (!$errorStack) {
+      $errorStack = document.createElement('div');
+      $errorStack.className = 'toast-error-stack';
+      $errorStack.id = GLOBAL_ERROR_STACK_ID;
+      body.appendChild($errorStack);
+    }
+
+    var $errorBox = Util.createElement(compileTemplate(template_error_box, {text: text}));
+    $errorStack.appendChild($errorBox[0]);
+    // $errorBox[0] 现在将会变成 undefined
+    var length = $errorStack.childNodes.length;
+    var nowItBecomes = $errorStack.childNodes[length -1];
+    setTimeout(function() {
+      Util.remove(nowItBecomes);
+    }, 5000);
+  }
+
 
   /**
    * 最终 export 的对象
@@ -254,6 +305,11 @@
 
     addContentToToastDiv(presetOption, userOption, 'confirm');
   };
+
+
+  Toast.error = function(errMsg) {
+    addError(errMsg);
+  }
 
   return Toast;
 }));
