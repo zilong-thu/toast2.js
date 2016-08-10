@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.padding-box {
+  padding: 10px;
+}
+
 .toast-container .toast-mask {
   display: block;
   position: fixed;
@@ -21,11 +25,14 @@
   border-radius: 5px;
   box-shadow: 0 0 7px rgba(40, 40, 40, 0.85);
   text-align: center;
+  animation: pop 0.4s;
   z-index: 2000;
 }
 
 .toast-container .toast-content.toast {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.75);
+  font-size: 1.2em;
+  padding: 15px;
   color: #fff;
 }
 
@@ -33,11 +40,11 @@
   background-color: #fff;
   color: #333;
   width: 360px;
-  max-height: 200px;
   margin-top: -100px;
   margin-left: -180px;
   overflow: hidden;
 }
+
 
 .toast-content .toast-header {
   font-weight: bold;
@@ -47,12 +54,14 @@
 .toast-content .body {
   text-align: left;
   padding: 5px 15px;
+  max-height: 100px;
+  overflow: auto;
 }
 
 .toast-content .footer {
   position: relative;
   line-height: 42px;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .toast-content .footer:after {
@@ -138,3 +147,109 @@
   padding: 10px;
 }
 /* end error box */
+
+
+/* success styles */
+.toast-container .toast-content.toast-success {
+  background-color: #fff;
+  color: #333;
+  width: 360px;
+  height: 360px;
+  max-height: none;
+  margin-top: -180px;
+  margin-left: -180px;
+  overflow: hidden;
+}
+
+.toast-success .success-icon {
+  text-align: center;
+  padding: 25px;
+  background: #3ec59d;
+  color: #fff;
+}
+
+.toast-content.toast-success .footer {
+  line-height: 1.2;
+  padding: 5px 40px;
+}
+
+.toast-content.toast-success .footer:after {
+  border-top: none;
+}
+
+.toast-success .body {
+  height: 80px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.toast-success .fa {
+  font-size: 80px;
+}
+/* end success styles */
+
+/* toast btn */
+.toast-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.toast-btn-success {
+  background: #3ec59d;
+  color: #fff;
+}
+
+.toast-btn-success:hover {
+  background: #3abd96;
+}
+
+.toast-btn-success:active {
+  background: #30ab83;
+}
+/* end toast btn */
+
+
+/* animations */
+@keyframes pop {
+  0% {
+    -ms-transform: -ms-scale(0.8);
+        transform: scale(0.8);
+    opacity: 0;
+  }
+
+  40% {
+    -ms-transform: -ms-scale(1.1);
+        transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    -ms-transform: -ms-scale(1);
+        transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pop-hide {
+  0% {
+    -ms-transform: -ms-scale(0.8);
+        transform: scale(0.8);
+    opacity: 0;
+  }
+
+  90% {
+    -ms-transform: -ms-scale(1);
+        transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    -ms-transform: -ms-scale(0.9);
+        transform: scale(0.9);
+    opacity: 0;
+  }
+}
+/* end animations */

@@ -51,19 +51,24 @@
     }
   };
 
-  Util.normalizeUserOption = function(option) {
+  Util.normalizeUserOption = function(option, onClose) {
     var userOption = option || {};
     if (typeof option === 'string') {
       userOption = {
         text: option
       };
     }
+
+    if (typeof onClose === 'function') {
+      userOption.onClose = onClose;
+    }
+
     return userOption;
   };
 
   // remove an DOM element
   Util.remove = function(element) {
-    // Polyfill
+    // Polyfill, 目前看起来有些多余……
     if (!('remove' in Element.prototype)) {
       Element.prototype.remove = function() {
         if (this.parentNode) {
@@ -75,6 +80,11 @@
     element.parentNode.removeChild(element);
   };
 
+  /**
+   * 从 HTML 字符串来创建元素
+   * @param  {[type]} htmlStr [description]
+   * @return {[type]}         [description]
+   */
   Util.createElement = function(htmlStr) {
     var div = document.createElement('div');
     div.innerHTML = htmlStr;
@@ -93,6 +103,8 @@
     title: '',
     text: '',
     autoHide: true,
+
+    // onClose 被 alert、success 所用到
     onClose: null,
 
     // 下面两个是只有confirm对话框才支持的回调函数
@@ -133,6 +145,17 @@
   var template_error_box = '<div class="error-box">' +
       '<div class="banner"><i class="fa fa-times-circle"></i> 出错了...</div>' +
       '<div class="body">{{text}}</div>' +
+    '</div>';
+
+  // 模板5，大正方形，有icon，目的是提示操作成功，并且有小段文本展示，带有遮罩层、一个“确定”按钮。 success 所用
+  var templateHTML_success = '<div class="toast-mask"></div>' +
+    '<div class="toast-content toast-success">' +
+      '<div class="success-icon">' +
+        '<i class="fa fa-check-circle-o"></i>' +
+        '<div class="padding-box">SUCCESS</div>' +
+      '</div>' +
+      '<div class="body">{{text}}</div>' +
+      '<div class="footer"><buton class="toast-btn toast-btn-success" data-role="close"">好的</button></div>' +
     '</div>';
 
 
@@ -233,7 +256,8 @@
     var TemplateEnum = {
       toast: templateHTML_toast,
       alert: templateHTML_alert,
-      confirm: templateHTML_confirm
+      confirm: templateHTML_confirm,
+      success: templateHTML_success
     };
 
     var compiled = compileTemplate(TemplateEnum[templateType], option);
@@ -280,8 +304,8 @@
     addContentToToastDiv({}, userOption);
   };
 
-  Toast.alert = function(option) {
-    var userOption = Util.normalizeUserOption(option);
+  Toast.alert = function(option, onClose) {
+    var userOption = Util.normalizeUserOption(option, onClose);
 
     var presetOption = {
       title: '',
@@ -309,6 +333,19 @@
 
   Toast.error = function(errMsg) {
     addError(errMsg);
+  }
+
+  Toast.success = function(option, onClose) {
+    var userOption = Util.normalizeUserOption(option);
+
+    var presetOption = {
+      title: '',
+      text: '',
+      autoHide: false,
+      animation: false
+    };
+
+    addContentToToastDiv(presetOption, userOption, 'success');
   }
 
   return Toast;
