@@ -4,6 +4,13 @@
 
 This is a toast tool written in JavaScript and CSS without any other dependencies.
 
+## 说明
+
+本组件的设计，参考了诸多类似功能的插件、组件的设计思路。在此列出，不一而足。
+
++ [http://eve.uedmei.com/doc](http://eve.uedmei.com/doc)
++ [https://weui.io/](https://weui.io/#/)
+
 ## Usage
 
 ### React + Bable
@@ -18,7 +25,9 @@ import toast from 'toast';
 
 ```
 // 方式1:
-toast.alert('This is an alert.');
+toast.alert('This is an alert.', () => {
+  // do something after closing
+});
 
 // 方式2:
 toast.alert({
