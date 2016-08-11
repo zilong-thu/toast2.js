@@ -175,36 +175,6 @@
    */
   var body = document.body;
 
-  var _toast = (function() {
-    var $toast = document.getElementById(GLOBAL_TOAST_ID) || document.createElement('div');
-
-    $toast.id = GLOBAL_TOAST_ID;
-    $toast.className = 'toast-container';
-    $toast.style = 'display: none';
-    body.appendChild($toast);
-
-    var self = {};
-
-    self.element = $toast;
-    self.html = function(htmlStr) {
-      $toast.innerHTML = htmlStr;
-      return self;
-    },
-    self.hide = function() {
-      $toast.style = 'display: none';
-      return self;
-    },
-    self.show = function() {
-      $toast.style = 'display: block';
-      return self;     
-    },
-    self.fadeOut = function() {
-      $toast.setAttribute('data-animation', 'fade-out');
-      return self;
-    }
-
-    return self;
-  })();
 
   /**
    * @param {Object} [preOpt] [Toast 对象的每个内置方法都内置一个 proOpt]
@@ -223,12 +193,38 @@
         flagTimeout = null;
     }
 
-    Util.addEventHandler(_toast.element, 'click', function(e) {
+    var $toast = document.getElementById(GLOBAL_TOAST_ID);
+    if (!$toast) {
+      $toast = document.createElement('div');
+      $toast.id = GLOBAL_TOAST_ID;
+      $toast.className = 'toast-container';
+      $toast.style = 'display: none';
+      body.appendChild($toast);
+    }
+
+    var self = {};
+    self.element = $toast;
+    self.html = function(htmlStr) {
+      $toast.innerHTML = htmlStr;
+      return self;
+    };
+
+    self.hide = function() {
+      $toast.style = 'display: none';
+      return self;
+    };
+
+    self.show = function() {
+      $toast.style = 'display: block';
+      return self;     
+    };
+
+    Util.addEventHandler($toast, 'click', function(e) {
       var target = (e && e.target) || window.event.srcElement;
       var role = target.getAttribute('data-role');
 
       if (!role) return;
-      _toast.hide();
+      self.hide();
       
       switch(role) {
         case 'close':
@@ -261,11 +257,11 @@
     };
 
     var compiled = compileTemplate(TemplateEnum[templateType], option);
-    _toast.html(compiled).show();
+    self.html(compiled).show();
 
     if (templateType === 'toast') {
       flagTimeout = setTimeout(function() {
-        _toast.hide();
+        self.hide();
       }, option.duration);
     }
   }
