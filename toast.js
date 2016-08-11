@@ -286,7 +286,7 @@
     var nowItBecomes = $errorStack.childNodes[length -1];
     setTimeout(function() {
       Util.remove(nowItBecomes);
-    }, 5000);
+    }, 6000);
   }
 
 
@@ -327,7 +327,7 @@
   };
 
 
-  Toast.error = function(errMsg) {
+  Toast.postError = function(errMsg) {
     addError(errMsg);
   }
 

@@ -6,6 +6,14 @@
   padding: 10px;
 }
 
+.border-box {
+  box-sizing: border-box;
+}
+
+.border-box * {
+  box-sizing: border-box;
+}
+
 .toast-container .toast-mask {
   display: block;
   position: fixed;
@@ -112,38 +120,38 @@
   position: fixed;
   top: 80px;
   right: 10px;
-  overflow-x: hidden;
-  overflow-y: auto;
   z-index: 100;
+}
+
+.toast-error-stack * {
+  box-sizing: border-box;
 }
 
 .toast-error-stack .error-box {
   position: relative;
-  width: 240px;
-  height: 80px;
+  width: 300px;
   border-radius: 4px;
   overflow: hidden;
-  background-color: #f3f3f3;
-  font-weight: bold;
+  background-color: #fdfdee;
+  color: #333;
+  font-weight: normal;
   margin-bottom: 10px;
   box-shadow: 2px 2px 6px #aaa;
+  animation: slide-in 0.4s;
 }
 
 .error-box .banner {
   height: 40px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 40px;
   color: #fff;
   background-color: #d8606c;
 }
 
-.error-box .banner .fa {
-  font-size: 24px;
-  line-height: 40px;
-}
-
 .error-box .body {
   padding: 10px;
+  height: 70px;
+  overflow: auto;
 }
 /* end error box */
 
@@ -228,6 +236,23 @@
   100% {
     -ms-transform: -ms-scale(1);
         transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/*
+  从右向左滑入，带回弹
+ */
+@keyframes slide-in {
+  0% {
+    -ms-transform: -ms-translateX(100%);
+        transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    -ms-transform: -ms-translateX(0);
+        transform: translateX(0);
     opacity: 1;
   }
 }
