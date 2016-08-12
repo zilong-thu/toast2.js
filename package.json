@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy-master": "git checkout master && node build.js && git add --all && git commit -m 'source files update' && git push origin master",
-    "build": "node build.js && cp package.json ./_build && cp -r src/* ./_build && cp index.html ./_build",
+    "build": "node build.js && cp -f package.json ./_build && cp -rf src/* ./_build && cp -f index.html ./_build",
     "deploy-pages": "git checkout gh-pages && cp -r _build/* . && git add --all && git commit -m 'update gh-pages' && git push origin gh-pages && git co master",
     "deploy": "npm run deploy-master && npm run build && npm run deploy-pages"
   },
