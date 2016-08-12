@@ -318,7 +318,11 @@
       animation: false
     };
 
-    addContentToToastDiv(presetOption, userOption, 'alert');
+    try {
+      addContentToToastDiv(presetOption, userOption, 'alert');
+    } catch(err) {
+      alert(err);
+    }
   };
 
   Toast.confirm = function(option) {
