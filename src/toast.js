@@ -5,7 +5,7 @@
     typeof define === 'function' && define.amd ? define(factory) :
     global.toast = factory();
 }(this, function () {
-  'use strict';
+  // 'use strict';
 
   var Util = {};
   /**

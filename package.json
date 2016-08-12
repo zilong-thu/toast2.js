@@ -5,7 +5,9 @@
   "main": "toast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "node build.js && git add --all && git ci -m 'deploy' && git co gh-pages && git rebase master && git push origin gh-pages -f && git co master"
+    "deploy-master": "git co master && node build.js && git add --all && git ci -m 'deploy'",
+    "deploy-pages": "git co gh-pages && git rebase master && git push origin gh-pages -f && git co master",
+    "deploy": "npm run deploy-master && npm run deploy-pages"
   },
   "repository": {
     "type": "git",
