@@ -15,5 +15,10 @@
     "javascript"
   ],
   "author": "wangzilong03",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "marked": "^0.3.6",
+    "nunjucks": "^2.4.2"
+  }
 }
