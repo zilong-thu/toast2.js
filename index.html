@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toast.js</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="src/toast.css">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Toast.js</h1>
+    </div>
+    <h1 id="toast-js">Toast.js</h1>
+<h2 id="description">Description</h2>
+<p>This is a toast tool written in JavaScript and CSS without any other dependencies.</p>
+<h2 id="-">说明</h2>
+<p>本组件的设计，参考了诸多类似功能的插件、组件的设计思路。在此列出，不一而足。</p>
+<ul>
+<li><a href="http://eve.uedmei.com/doc">http://eve.uedmei.com/doc</a></li>
+<li><a href="https://weui.io/#/">https://weui.io/</a></li>
+<li><a href="http://daneden.github.io/animate.css/">animate.css</a></li>
+</ul>
+<h2 id="-">引用方式</h2>
+<h3 id="react-bable">React + Bable</h3>
+<p>首先，引入这个模块：</p>
+<pre><code>import toast from &#39;toast&#39;;
+</code></pre><h2 id="-">示例代码</h2>
+<h3 id="alert">alert</h3>
+<p>如果要显示一个 alert，可以这样写：</p>
+<pre><code>// 方式1:
+toast.alert(&#39;This is an alert.&#39;, () =&gt; {
+  // do something after closing
+});
+
+// 方式2:
+toast.alert({
+  title: &#39;提示&#39;,  // title 是可选的
+  text: &#39;This is an alert.&#39;,
+  onClose: function() {
+    ...
+  }
+});
+</code></pre><button class="btn btn-success" name="alert">toast.alert(&#39;hello&#39;)</button>
+
+
+<h3 id="confirm-">confirm 对话框：</h3>
+<pre><code>toast.confirm({
+  title: &#39;提示&#39;,  // title 是可选的
+  text: &#39;请问你真的要退出吗？&#39;,
+  onConfirm: function() {
+    // 点击“确定”后的回调函数
+    ...
+  },
+  onCancel: function() {
+    // 点击“取消”后的回调函数
+    ...
+  }
+})
+</code></pre><button class="btn btn-success" name="confirm">toast.confirm(&#39;hello&#39;)</button>
+
+
+<h3 id="success-">success 提示</h3>
+<pre><code>toast.success({
+  text: &#39;操作成功！&#39;,
+  onClose: function() {
+    // 点击“确定”后的回调函数
+    ...
+  }
+})
+</code></pre><button class="btn btn-success" name="success">toast.success(&#39;hello&#39;)</button>
+
+<h3 id="posterror">postError</h3>
+<pre><code>toast.postError({
+  title: &#39;提示&#39;,
+  text: &#39;server error...&#39;,
+  autoHide: true,
+  duration: 5000
+})
+</code></pre><button class="btn btn-success" name="postError">toast.postError(&#39;hello&#39;)</button>
+
+  <div>
+</body>
+</html>
+
+<script type="text/javascript" src="src/toast.js"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+  $('button[name]').click(function(event) {
+    switch($(this).attr('name')) {
+      case 'alert':
+        toast.alert('hello');
+        break;
+
+      case 'confirm':
+        toast.confirm({
+          title: '提示',
+          text: '请问你真的要退出吗？',
+          onConfirm: function() {
+            console.log('你点击了“确定”按钮');
+          },
+          onCancel: function() {
+            console.log('你点击了“取消”按钮');
+          }
+        })
+        break;
+
+      case 'success':
+        toast.success('hello');
+        break;
+
+      case 'postError':
+        toast.postError('hello');
+        break;
+      default: ;
+    }
+  });
+</script>

@@ -12,7 +12,7 @@ This is a toast tool written in JavaScript and CSS without any other dependencie
 + [https://weui.io/](https://weui.io/#/)
 + [animate.css](http://daneden.github.io/animate.css/)
 
-## Usage
+## 引用方式
 
 ### React + Bable
 
@@ -22,7 +22,11 @@ This is a toast tool written in JavaScript and CSS without any other dependencie
 import toast from 'toast';
 ```
 
-然后，如果要显示一个 alert，可以这样写：
+## 示例代码
+
+### alert
+
+如果要显示一个 alert，可以这样写：
 
 ```
 // 方式1:
@@ -37,10 +41,13 @@ toast.alert({
   onClose: function() {
     ...
   }
-})
+});
 ```
 
-confirm 对话框：
+<button class="btn btn-success" name="alert">toast.alert('hello')</button>
+
+
+### confirm 对话框：
 
 ```
 toast.confirm({
@@ -57,3 +64,32 @@ toast.confirm({
 })
 ```
 
+<button class="btn btn-success" name="confirm">toast.confirm('hello')</button>
+
+
+### success 提示
+
+```
+toast.success({
+  text: '操作成功！',
+  onClose: function() {
+    // 点击“确定”后的回调函数
+    ...
+  }
+})
+```
+
+<button class="btn btn-success" name="success">toast.success('hello')</button>
+
+### postError
+
+```
+toast.postError({
+  title: '提示',
+  text: 'server error...',
+  autoHide: true,
+  duration: 5000
+})
+```
+
+<button class="btn btn-success" name="postError">toast.postError('hello')</button>

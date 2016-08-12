@@ -100,9 +100,9 @@
 }
 
 .toast-content .footer a[data-role="cancel"] {
+  position: relative;
   display: inline-block;
   width: 50%;
-  border-right: 1px solid #D5D5D6;
   color: #555;
 }
 
@@ -113,6 +113,19 @@
 .toast-content .footer a[data-role="confirm"] {
   display: inline-block;
   width: 50%;
+}
+
+.toast-content .footer a[data-role="cancel"]:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  border-right: 1px solid #ccc;
+  transform: scaleX(0.5);
+  transform-origin: 0 0;
 }
 
 /* error box */
