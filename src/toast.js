@@ -244,9 +244,9 @@
             }
           break;
           default: ;
-        } catch(err) {
-          alert(err);
         }
+      } catch(err) {
+        alert(err);
       }
     });
 
