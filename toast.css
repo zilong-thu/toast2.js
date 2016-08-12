@@ -137,7 +137,7 @@
   font-weight: normal;
   margin-bottom: 10px;
   box-shadow: 2px 2px 6px #aaa;
-  animation: slide-in 0.4s;
+  animation: fadeInRight 0.35s;
 }
 
 .error-box .banner {
@@ -149,8 +149,9 @@
 }
 
 .error-box .body {
-  padding: 10px;
-  height: 70px;
+  padding: 10px 15px;
+  height: 80px;
+  text-align: left;
   overflow: auto;
 }
 /* end error box */
@@ -243,7 +244,7 @@
 /*
   从右向左滑入，带回弹
  */
-@keyframes slide-in {
+@keyframes fadeInRight {
   0% {
     -ms-transform: -ms-translateX(100%);
         transform: translateX(100%);

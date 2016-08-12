@@ -97,7 +97,9 @@
 
   var defaultOption = {
     animation: true,
-    duration: 2000,
+
+    // 对于 toast, postError, duration 规定了在多长时间（毫秒）后将其关闭
+    duration: 3000,
 
     // 只有 toast.alert 或者 toast.confirm 有标题
     title: '',
@@ -143,7 +145,7 @@
 
   // 模板4，中等尺寸的长方形。所有的 error-box 在屏幕的右侧形成一个 error stack.
   var template_error_box = '<div class="error-box">' +
-      '<div class="banner"><i class="fa fa-times-circle"></i> 出错了...</div>' +
+      '<div class="banner"><i class="fa fa-times-circle"></i> {{title}}</div>' +
       '<div class="body">{{text}}</div>' +
     '</div>';
 
@@ -269,7 +271,10 @@
   /**
    * @param [String] {text} 向错误栈中推送错误
    */
-  function addError(text) {
+  function addError(preOpt, userOpt) {
+    var opt = Util.mergeOjbects(preOpt, userOpt);
+    var option = Util.mergeOjbects(defaultOption, opt);
+
     var $errorStack = document.getElementById(GLOBAL_ERROR_STACK_ID);
 
     if (!$errorStack) {
@@ -279,14 +284,22 @@
       body.appendChild($errorStack);
     }
 
-    var $errorBox = Util.createElement(compileTemplate(template_error_box, {text: text}));
+    var $errorBox = Util.createElement(
+      compileTemplate(template_error_box, {
+        text: option.text,
+        title: option.title
+      })
+    );
     $errorStack.appendChild($errorBox[0]);
     // $errorBox[0] 现在将会变成 undefined
     var length = $errorStack.childNodes.length;
     var nowItBecomes = $errorStack.childNodes[length -1];
-    setTimeout(function() {
-      Util.remove(nowItBecomes);
-    }, 6000);
+
+    if (option.autoHide) {
+      setTimeout(function() {
+        Util.remove(nowItBecomes);
+      }, option.duration);
+    }
   }
 
 
@@ -326,11 +339,6 @@
     addContentToToastDiv(presetOption, userOption, 'confirm');
   };
 
-
-  Toast.postError = function(errMsg) {
-    addError(errMsg);
-  }
-
   Toast.success = function(option, onClose) {
     var userOption = Util.normalizeUserOption(option);
 
@@ -342,6 +350,20 @@
     };
 
     addContentToToastDiv(presetOption, userOption, 'success');
+  }
+
+
+  Toast.postError = function(errMsg) {
+    var userOption = Util.normalizeUserOption(errMsg);
+
+    var presetOption = {
+      title: '出错了...',
+      text: '',
+      autoHide: true,
+      duration: 7000
+    };
+
+    addError(presetOption, userOption);
   }
 
   return Toast;
