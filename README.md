@@ -10,6 +10,7 @@ This is a toast tool written in JavaScript and CSS without any other dependencie
 
 + [http://eve.uedmei.com/doc](http://eve.uedmei.com/doc)
 + [https://weui.io/](https://weui.io/#/)
++ [animate.css](http://daneden.github.io/animate.css/)
 
 ## Usage
 
