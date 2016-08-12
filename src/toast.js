@@ -12,8 +12,11 @@
    * 合并两个对象，其中以a的属性为基础，用b的属性来覆盖a
    * 然后返回一个新的对象
    */
-  Util.mergeOjbects = function(a, b) {
+  Util.mergeOjbects = function(_a, _b) {
     var c = {};
+    var a = _a || {};
+    var b = _b || {};
+
     for (var key in a) {
       c[key] = a[key];
     }
@@ -171,13 +174,6 @@
     return tpl;
   }
 
-
-  /**
-   * 创建、初始化以及缓存 DOM 对象
-   */
-  var body = document.body;
-
-
   /**
    * @param {Object} [preOpt] [Toast 对象的每个内置方法都内置一个 proOpt]
    * @param {String} [type] [type 可以为 'toast' | 'alert' | 'confirm' 之一]
@@ -201,11 +197,10 @@
       $toast.id = GLOBAL_TOAST_ID;
       $toast.className = 'toast-container';
       $toast.style = 'display: none';
-      body.appendChild($toast);
+      document.body.appendChild($toast);
     }
 
     var self = {};
-    self.element = $toast;
     self.html = function(htmlStr) {
       $toast.innerHTML = htmlStr;
       return self;
@@ -218,7 +213,7 @@
 
     self.show = function() {
       $toast.style = 'display: block';
-      return self;     
+      return self;
     };
 
     Util.addEventHandler($toast, 'click', function(e) {
@@ -281,7 +276,7 @@
       $errorStack = document.createElement('div');
       $errorStack.className = 'toast-error-stack';
       $errorStack.id = GLOBAL_ERROR_STACK_ID;
-      body.appendChild($errorStack);
+      document.body.appendChild($errorStack);
     }
 
     var $errorBox = Util.createElement(
