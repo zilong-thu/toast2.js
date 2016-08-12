@@ -4,7 +4,8 @@
   "description": "A toast tool written in JavaScript and CSS without any other dependencies.",
   "main": "toast.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "node build.js && git add --all && git ci -m 'deploy' && git co gh-pages && git rebase master && git push origin gh-pages -f && git co master"
   },
   "repository": {
     "type": "git",
