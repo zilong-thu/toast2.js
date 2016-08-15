@@ -13,6 +13,12 @@
     <div class="jumbotron">
       <h1>{{title}}</h1>
     </div>
+
+    <p>@author: <a href="https://github.com/zilong-thu/" target="_blank">zilong-thu</a></p>
+
+    <p>repo: <a href="https://github.com/zilong-thu/toast2.js" target="_blank">https://github.com/zilong-thu/toast2.js</a></p>
+    <p>最近更新于 {{moment().format('YYYY-MM-DD HH:mm:ss')}}</p>
+
     {% include "body.html" %}
   <div>
 </body>
