@@ -127,7 +127,7 @@
     '<div class="toast-content toast-msg">' +
       '<div class="toast-header">{{title}}</div>' +
       '<div class="body">{{text}}</div>' +
-      '<div class="footer"><a data-role="close" href="javascript: void(0);">确定</a></div>' +
+      '<div class="footer"><span data-role="close">确定</span></div>' +
     '</div>';
 
   // 模板2，长方形，没有icon，目的是显示大段文本以进行确认，带有遮罩层、两个按钮。confirm 所用
