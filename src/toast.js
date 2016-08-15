@@ -218,7 +218,6 @@
 
     Util.addEventHandler($toast, 'click', function(e) {
       var target = (e && e.target) || window.event.srcElement;
-      alert('target captured: ', String(target));
 
       var role = target.getAttribute('data-role');
 
