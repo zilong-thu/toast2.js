@@ -209,8 +209,9 @@
     };
 
     self.hide = function() {
-      $toast.style = 'display: none';
-      return self;
+      var _self = document.getElementById(GLOBAL_TOAST_ID);
+      _self.style = 'display: none';
+      return _self;
     };
 
     self.show = function() {
