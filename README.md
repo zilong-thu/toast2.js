@@ -59,6 +59,15 @@ toast.alert({
 
 <button class="btn btn-success" name="alert">toast.alert('hello')</button>
 
+### toast something
+
+```
+toast('this is a toast.');
+```
+
+任何时刻，toast 最多只能有一个。而且总是会自动消失。
+
+<button class="btn btn-success" name="toast">toast.toast('hello')</button>
 
 ### confirm 对话框：
 

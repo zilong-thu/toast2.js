@@ -17,7 +17,7 @@
     <p>@author: <a href="https://github.com/zilong-thu/" target="_blank">zilong-thu</a></p>
 
     <p>repo: <a href="https://github.com/zilong-thu/toast2.js" target="_blank">https://github.com/zilong-thu/toast2.js</a></p>
-    <p>最近更新于 2016-08-15 21:43:41</p>
+    <p>最近更新于 2016-08-15 21:54:57</p>
 
     <h2 id="-">简介</h2>
 <p>This is a toast tool written in JavaScript and CSS without any other dependencies.</p>
@@ -56,6 +56,10 @@ toast.alert({
 });
 </code></pre><button class="btn btn-success" name="alert">toast.alert(&#39;hello&#39;)</button>
 
+<h3 id="toast-something">toast something</h3>
+<pre><code>toast(&#39;this is a toast.&#39;);
+</code></pre><p>任何时刻，toast 最多只能有一个。而且总是会自动消失。</p>
+<button class="btn btn-success" name="toast">toast.toast(&#39;hello&#39;)</button>
 
 <h3 id="confirm-">confirm 对话框：</h3>
 <pre><code>toast.confirm({
@@ -109,6 +113,9 @@ toast.alert({
     switch($(this).attr('name')) {
       case 'alert':
         toast.alert('hello');
+        break;
+      case 'toast':
+        toast('this is a toast.');
         break;
 
       case 'confirm':

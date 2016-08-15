@@ -32,6 +32,9 @@
       case 'alert':
         toast.alert('hello');
         break;
+      case 'toast':
+        toast('this is a toast.');
+        break;
 
       case 'confirm':
         toast.confirm({
