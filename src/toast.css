@@ -84,8 +84,7 @@
   transform: scaleY(0.5);
 }
 
-.toast-content .footer a,
-.toast-content .footer span {
+.toast-content .footer a {
   color: #DD403B;
   display: block;
   border: none;
