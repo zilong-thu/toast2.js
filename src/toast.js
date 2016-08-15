@@ -218,7 +218,7 @@
 
     Util.addEventHandler($toast, 'click', function(e) {
       var target = (e && e.target) || window.event.srcElement;
-      console.log('target captured: ', target);
+      alert('target captured: ', target);
 
       var role = target.getAttribute('data-role');
 
@@ -323,7 +323,7 @@
     try {
       addContentToToastDiv(presetOption, userOption, 'alert');
     } catch(err) {
-      alert(err);
+      console.error(err);
     }
   };
 
