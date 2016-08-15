@@ -1,6 +1,4 @@
-# Toast.js
-
-## Description
+## 简介
 
 This is a toast tool written in JavaScript and CSS without any other dependencies.
 
@@ -13,6 +11,21 @@ This is a toast tool written in JavaScript and CSS without any other dependencie
 + [animate.css](http://daneden.github.io/animate.css/)
 
 ## 引用方式
+
+### 直接使用
+
+目前是依赖 font-awesome 字体的。
+
+```
+<link rel="stylesheet" type="text/css" href="toast.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+```
+
+```
+<script type="text/javascript" src="toast.js"></script>
+```
+
+toast.js 会将 toast 注册到 window 上面，成为全局变量。
 
 ### React + Bable
 
@@ -93,3 +106,9 @@ toast.postError({
 ```
 
 <button class="btn btn-success" name="postError">toast.postError('hello')</button>
+
+
+
+<br />
+<br />
+<br />

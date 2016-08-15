@@ -148,7 +148,9 @@
 
   // 模板4，中等尺寸的长方形。所有的 error-box 在屏幕的右侧形成一个 error stack.
   var template_error_box = '<div class="error-box">' +
-      '<div class="banner"><i class="fa fa-times-circle"></i> {{title}}</div>' +
+      '<div class="banner">' +
+        '<i class="fa fa-times-circle close" data-role="close" title="关闭"></i>' +
+      ' {{title}}</div>' +
       '<div class="body">{{text}}</div>' +
     '</div>';
 
@@ -160,7 +162,7 @@
         '<div class="padding-box">SUCCESS</div>' +
       '</div>' +
       '<div class="body">{{text}}</div>' +
-      '<div class="footer"><buton class="toast-btn toast-btn-success" data-role="close"">好的</button></div>' +
+      '<div class="footer"><buton class="toast-btn toast-btn-success" data-role="close">好的</button></div>' +
     '</div>';
 
 
@@ -217,11 +219,10 @@
     };
 
     Util.addEventHandler($toast, 'click', function(e) {
+      e.stopPropagation();
       var target = (e && e.target) || window.event.srcElement;
-
       var role = target.getAttribute('data-role');
 
-      if (!role) return;
       self.hide();
       
       switch(role) {
@@ -291,11 +292,23 @@
     var length = $errorStack.childNodes.length;
     var nowItBecomes = $errorStack.childNodes[length -1];
 
+    var errorTimeFlag = null;
     if (option.autoHide) {
-      setTimeout(function() {
+      errorTimeFlag = setTimeout(function() {
         Util.remove(nowItBecomes);
       }, option.duration);
     }
+
+    Util.addEventHandler(nowItBecomes, 'click', function(e) {
+      var target = (e && e.target) || window.event.srcElement;
+      var role = target.getAttribute('data-role');
+      e.stopPropagation();
+
+      if (role === 'close') {
+        Util.remove(nowItBecomes);
+        clearTimeout(errorTimeFlag);
+      }
+    });
   }
 
 

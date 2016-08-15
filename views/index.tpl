@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="src/toast.css">
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
   <div class="container">
@@ -45,7 +45,10 @@
         break;
 
       case 'postError':
-        toast.postError('hello');
+        toast.postError({
+          text: 'hello',
+          autoHide: false
+        });
         break;
       default: ;
     }

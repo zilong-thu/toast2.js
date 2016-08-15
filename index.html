@@ -6,15 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="src/toast.css">
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
   <div class="container">
     <div class="jumbotron">
       <h1>Toast.js</h1>
     </div>
-    <h1 id="toast-js">Toast.js</h1>
-<h2 id="description">Description</h2>
+    <h2 id="-">简介</h2>
 <p>This is a toast tool written in JavaScript and CSS without any other dependencies.</p>
 <h2 id="-">说明</h2>
 <p>本组件的设计，参考了诸多类似功能的插件、组件的设计思路。在此列出，不一而足。</p>
@@ -24,6 +23,12 @@
 <li><a href="http://daneden.github.io/animate.css/">animate.css</a></li>
 </ul>
 <h2 id="-">引用方式</h2>
+<h3 id="-">直接使用</h3>
+<p>目前是依赖 font-awesome 字体的。</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;toast.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css&quot;&gt;
+</code></pre><pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;toast.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>toast.js 会将 toast 注册到 window 上面，成为全局变量。</p>
 <h3 id="react-bable">React + Bable</h3>
 <p>首先，引入这个模块：</p>
 <pre><code>import toast from &#39;toast&#39;;
@@ -81,6 +86,12 @@ toast.alert({
 })
 </code></pre><button class="btn btn-success" name="postError">toast.postError(&#39;hello&#39;)</button>
 
+
+
+<p><br />
+<br />
+<br /></p>
+
   <div>
 </body>
 </html>
@@ -112,7 +123,10 @@ toast.alert({
         break;
 
       case 'postError':
-        toast.postError('hello');
+        toast.postError({
+          text: 'hello',
+          autoHide: false
+        });
         break;
       default: ;
     }
