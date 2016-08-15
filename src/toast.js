@@ -217,37 +217,34 @@
     };
 
     Util.addEventHandler($toast, 'click', function(e) {
-      alert('clicked');
-      try {
-        var target = (e && e.target) || window.event.srcElement;
-        var role = target.getAttribute('data-role');
+      var target = (e && e.target) || window.event.srcElement;
+      console.log('target captured: ', target);
 
-        if (!role) return;
-        self.hide();
-        
-        switch(role) {
-          case 'close':
-            if (typeof option.onClose === 'function') {
-              option.onClose();
-              option.onClose = null;
-            }
-            break;
-          case 'cancel':
-            if (typeof option.onCancel === 'function') {
-              option.onCancel();
-              option.onCancel = null;
-            }
-            break;
-          case 'confirm':
-            if (typeof option.onConfirm === 'function') {
-              option.onConfirm();
-              option.onConfirm = null;
-            }
+      var role = target.getAttribute('data-role');
+
+      if (!role) return;
+      self.hide();
+      
+      switch(role) {
+        case 'close':
+          if (typeof option.onClose === 'function') {
+            option.onClose();
+            option.onClose = null;
+          }
           break;
-          default: ;
-        }
-      } catch(err) {
-        alert(err);
+        case 'cancel':
+          if (typeof option.onCancel === 'function') {
+            option.onCancel();
+            option.onCancel = null;
+          }
+          break;
+        case 'confirm':
+          if (typeof option.onConfirm === 'function') {
+            option.onConfirm();
+            option.onConfirm = null;
+          }
+        break;
+        default: ;
       }
     });
 
