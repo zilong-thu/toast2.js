@@ -6,6 +6,9 @@
     global.toast = factory();
 }(this, function () {
   // 'use strict';
+  
+  // CSS3 动画的时常，目前默认都是 400ms，那么JS要在 350ms 后执行DOM操作
+  var ANIMATION_DURATION = 350;
 
   var Util = {};
   /**
@@ -147,7 +150,7 @@
     '</div>';
 
   // 模板4，中等尺寸的长方形。所有的 error-box 在屏幕的右侧形成一个 error stack.
-  var template_error_box = '<div class="error-box">' +
+  var template_error_box = '<div class="error-box a-fade-in-right">' +
       '<div class="banner">' +
         '<i class="fa fa-times-circle close" data-role="close" title="关闭"></i>' +
       ' {{title}}</div>' +
@@ -308,8 +311,12 @@
       e.stopPropagation();
 
       if (role === 'close') {
-        Util.remove(nowItBecomes);
         clearTimeout(errorTimeFlag);
+        nowItBecomes.className = 'error-box a-fade-out-right';
+
+        setTimeout(function() {
+          Util.remove(nowItBecomes);
+        }, ANIMATION_DURATION);
       }
     });
   }

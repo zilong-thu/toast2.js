@@ -39,7 +39,6 @@
 
 .toast-container .toast-content.toast {
   background-color: rgba(0, 0, 0, 0.8);
-  font-size: 1.2em;
   padding: 12px;
   color: #fff;
   width: 240px;
@@ -157,7 +156,6 @@
   font-weight: normal;
   margin-bottom: 10px;
   box-shadow: 2px 2px 6px #aaa;
-  animation: fadeInRight 0.35s;
 }
 
 .error-box .close {
@@ -184,7 +182,6 @@
 .error-box .banner {
   height: 40px;
   padding-left: 10px;
-  font-size: 16px;
   line-height: 40px;
   color: #fff;
   background-color: #d8606c;
@@ -262,6 +259,16 @@
 /* end toast btn */
 
 
+/* 定义动画 */
+.a-fade-in-right {
+  animation: fadeInRight 0.4s;
+}
+
+.a-fade-out-right {
+  animation: fadeOutRight 0.4s;
+}
+/* end 定义动画 */
+
 /* animations */
 @keyframes pop {
   0% {
@@ -297,6 +304,20 @@
     -ms-transform: -ms-translateX(0);
         transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    -ms-transform: -ms-translateX(0);
+        transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    -ms-transform: -ms-translateX(100%);
+        transform: translateX(100%);
+    opacity: 0;
   }
 }
 
