@@ -1,6 +1,6 @@
 {
   "name": "toast2",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A toast tool written in JavaScript and CSS without any other dependencies.",
   "main": "toast.js",
   "scripts": {
@@ -12,13 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.sankuai.com/~wangzilong03/toast.git"
+    "url": "git@github.com:zilong-thu/toast2.js.git"
   },
   "keywords": [
     "toast.js",
     "javascript"
   ],
-  "author": "wangzilong03",
+  "author": "zilong-thu",
   "license": "ISC",
   "devDependencies": {
     "bootstrap": "^3.3.7",
