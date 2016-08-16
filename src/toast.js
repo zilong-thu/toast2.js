@@ -382,7 +382,7 @@
     var presetOption = {
       title: '出错了...',
       text: '',
-      autoHide: true,
+      autoHide: false,
       duration: 7000
     };
 
