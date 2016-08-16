@@ -201,7 +201,6 @@
       $toast = document.createElement('div');
       $toast.id = GLOBAL_TOAST_ID;
       $toast.className = 'toast-container';
-      $toast.style = 'display: none';
       document.body.appendChild($toast);
     }
 
@@ -212,12 +211,13 @@
     };
 
     self.hide = function() {
-      Util.remove($toast);
+      // setAttribute will get a higher performance if toast's method is invoked more than once. Util.remove($toast)
+      $toast.setAttribute('style', 'display: none');
       return self;
     };
 
     self.show = function() {
-      $toast.style = 'display: block';
+      $toast.setAttribute('style', 'display: block');
       return self;
     };
 
