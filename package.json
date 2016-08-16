@@ -1,7 +1,7 @@
 {
   "name": "toast2",
   "version": "0.1.0",
-  "description": "A toast tool written in JavaScript and CSS without any other dependencies.",
+  "description": "A toast tool written in JavaScript and CSS with very little 3rd party dependencies.",
   "main": "toast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
