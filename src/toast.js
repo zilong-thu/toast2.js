@@ -212,15 +212,30 @@
     };
 
     self.hide = function() {
-      var _self = document.getElementById(GLOBAL_TOAST_ID);
-      _self.style = 'display: none';
-      return _self;
+      Util.remove($toast);
+      return self;
     };
 
     self.show = function() {
       $toast.style = 'display: block';
       return self;
     };
+
+    var TemplateEnum = {
+      toast: templateHTML_toast,
+      alert: templateHTML_alert,
+      confirm: templateHTML_confirm,
+      success: templateHTML_success
+    };
+
+    var compiled = compileTemplate(TemplateEnum[templateType], option);
+    self.html(compiled).show();
+
+    if (templateType === 'toast') {
+      flagTimeout = setTimeout(function() {
+        self.hide();
+      }, option.duration);
+    }
 
     Util.addEventHandler($toast, 'click', function(e) {
       e.stopPropagation();
@@ -253,22 +268,6 @@
         default: ;
       }
     });
-
-    var TemplateEnum = {
-      toast: templateHTML_toast,
-      alert: templateHTML_alert,
-      confirm: templateHTML_confirm,
-      success: templateHTML_success
-    };
-
-    var compiled = compileTemplate(TemplateEnum[templateType], option);
-    self.html(compiled).show();
-
-    if (templateType === 'toast') {
-      flagTimeout = setTimeout(function() {
-        self.hide();
-      }, option.duration);
-    }
   }
 
   /**
