@@ -213,6 +213,7 @@
   padding: 25px;
   background: #3ec59d;
   color: #fff;
+  height: 180px;
 }
 
 .toast-content.toast-success .footer {
@@ -228,10 +229,14 @@
   height: 80px;
   padding-top: 15px;
   text-align: center;
+  overflow: hidden;
+  word-break: break-all;
+  font-size: 1.2em;
+  line-height: 30px;
 }
 
 .toast-success .fa {
-  font-size: 80px;
+  font-size: 90px;
 }
 /* end success styles */
 
