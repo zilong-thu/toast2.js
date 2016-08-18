@@ -326,22 +326,22 @@
   }
 }
 
-@keyframes pop-hide {
+@keyframes shrink-out {
   0% {
-    -ms-transform: -ms-scale(0.8);
-        transform: scale(0.8);
-    opacity: 0;
+    -ms-transform: -ms-scale(1);
+        transform: scale(1);
+    opacity: 1;
   }
 
-  90% {
+  20% {
     -ms-transform: -ms-scale(1);
         transform: scale(1);
     opacity: 1;
   }
 
   100% {
-    -ms-transform: -ms-scale(0.9);
-        transform: scale(0.9);
+    -ms-transform: -ms-scale(0.8);
+        transform: scale(0.8);
     opacity: 0;
   }
 }

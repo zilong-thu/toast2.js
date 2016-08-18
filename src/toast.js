@@ -5,10 +5,14 @@
     typeof define === 'function' && define.amd ? define(factory) :
     global.toast = factory();
 }(this, function () {
-  // 'use strict';
+  'use strict';
   
   // CSS3 动画的时常，目前默认都是 400ms，那么JS要在 350ms 后执行DOM操作
-  var ANIMATION_DURATION = 350;
+  var CSS_ANIMATION_DURATION = 350;
+
+  // toast('') 的默认停留时间
+  var DURATION_TOAST = 2500;
+
 
   var Util = {};
   /**
@@ -97,6 +101,34 @@
     return div.childNodes;
   };
 
+
+  Util.addClass = function(element, newClassName) {
+    var oldClassName = element.className;
+    element.className = oldClassName + ' ' + newClassName;
+    return element;
+  };
+
+
+  /**
+   * 将元素淡出
+   * @param  {[type]} element [description]
+   */
+  Util.fadeOut = function(element) {
+    element.style.transition = 'opacity 0.35s';
+    element.style.opacity = '0';
+
+    setTimeout(function() {
+      element.style.display = 'none';
+    }, CSS_ANIMATION_DURATION);
+  };
+
+  /**
+   * 将元素缩小同时淡出
+   * @param  {[type]} element [description]
+   */
+  Util.shrinkOut = function(element) {
+    // TODO
+  }
 
   var GLOBAL_TOAST_ID = 'global-toast-container';
   var GLOBAL_ERROR_STACK_ID = 'global-error-stack-container';
@@ -212,7 +244,8 @@
 
     self.hide = function() {
       // setAttribute will get a higher performance if toast's method is invoked more than once. Util.remove($toast)
-      $toast.setAttribute('style', 'display: none');
+      // $toast.setAttribute('style', 'display: none');
+      Util.fadeOut($toast);
       return self;
     };
 
@@ -233,7 +266,7 @@
 
     if (templateType === 'toast') {
       flagTimeout = setTimeout(function() {
-        self.hide();
+        Util.fadeOut($toast);
       }, option.duration);
     }
 
@@ -315,7 +348,7 @@
 
         setTimeout(function() {
           Util.remove(nowItBecomes);
-        }, ANIMATION_DURATION);
+        }, CSS_ANIMATION_DURATION);
       }
     });
   }
@@ -328,7 +361,12 @@
   var Toast = function(option) {
     var userOption = Util.normalizeUserOption(option);
     delete userOption.title;
-    addContentToToastDiv({}, userOption);
+
+    var presetOption = {
+      autoHide: true,
+      duration: DURATION_TOAST
+    };
+    addContentToToastDiv(presetOption, userOption);
   };
 
   Toast.alert = function(option, onClose) {
