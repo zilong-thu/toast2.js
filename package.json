@@ -5,10 +5,10 @@
   "main": "src/toast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js",
-    "deploy-master": "git checkout master && node build.js && git add --all && git commit -m 'source files update' && git push github master",
+    "build": "node build.js && gulp css",
+    "deploy-master": "git checkout master && git add --all && git commit -m 'source files update' && git push github master",
     "deploy-pages": "git checkout master && git branch -D gh-pages && git checkout -b gh-pages && git push github gh-pages -f && git checkout master",
-    "deploy": "npm run deploy-master && npm run deploy-pages"
+    "deploy": "npm run build && npm run deploy-master && npm run deploy-pages"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,13 @@
   "author": "zilong-thu",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^6.4.0",
     "bootstrap": "^3.3.7",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.1.1",
     "marked": "^0.3.6",
     "moment": "^2.14.1",
-    "nunjucks": "^2.4.2"
+    "nunjucks": "^2.4.2",
+    "postcss": "^5.1.2"
   }
 }

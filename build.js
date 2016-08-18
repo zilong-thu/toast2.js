@@ -17,3 +17,5 @@ var rendered = nunjucks.render('index.tpl', {
 });
 
 fs.writeFileSync('index.html', rendered);
+
+fs.writeFileSync('./dist/toast.js', fs.readFileSync('./src/toast.js', 'utf-8'));
