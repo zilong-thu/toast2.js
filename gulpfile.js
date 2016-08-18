@@ -4,8 +4,9 @@ var autoprefixer = require('autoprefixer');
 
 
 var browserCompatibleOptions = [
-  'last 2 version',
-  'ie >= 9',
+  'last 3 version',
+  'ie >= 8',
+  'ios >= 6',
   'Android >= 4.3'
 ];
 
