@@ -1,8 +1,12 @@
 ## 简介
 
-This is a toast tool written in JavaScript and CSS without any other dependencies.
+本组件使用 JavaScript 和 CSS 写成。目标有如下若干：
 
-## 说明
++ 实现一个具有消息提示、成功提示、错误提示等功能的插件
++ 使用时，不依赖任何其他模块（目前还依赖于 font-awesome）
++ 浏览器兼容性：IE >= 9 ，Android >= 4.3，ios >= 6，其他浏览器 last 3 version
++ 响应式设计
+
 
 本组件的设计，参考了诸多类似功能的插件、组件的设计思路。在此列出，不一而足。
 
@@ -10,11 +14,12 @@ This is a toast tool written in JavaScript and CSS without any other dependencie
 + [https://weui.io/](https://weui.io/#/)
 + [animate.css](http://daneden.github.io/animate.css/)
 
-## 引用方式
 
-### 直接使用
+## 使用方式
 
-目前是依赖 font-awesome 字体的。
+目前是依赖 font-awesome 字体的。比较适合已经使用了 font-awesome 字体的项目。
+
+### 直接引用
 
 ```
 <link rel="stylesheet" type="text/css" href="toast.css">
@@ -33,6 +38,12 @@ toast.js 会将 toast 注册到 window 上面，成为全局变量。
 
 ```
 import toast from 'toast';
+```
+
+然后，还需要引用一下CSS文件，如果使用了诸如 less、sass、stylus或者postcss 等编译工具，可以像这样引用（以less为例）：
+
+```
+@import "node_modules/toast2/dist/toast.css";
 ```
 
 ## 示例代码
