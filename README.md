@@ -133,13 +133,18 @@ toast.postError({
 先调用 confirm 方法，在点击确定后，立即用 toast('text') 提示点击了“确定”按钮。
 
 ```
+toast.confirm({
+  text: '点击确定吧~~',
+  onConfirm: function() {
+    toast('谢谢！');
+  }
+});
 ```
 
 <button class="btn btn-success" name="confirm-and-toast">组合使用示例: confirm + toast</button>
 
+<br />
 
-<button class="btn btn-success" name="alert-and-toast">组合使用示例: alert + toast</button>
+---------------------------
 
-<br />
-<br />
-<br />
+

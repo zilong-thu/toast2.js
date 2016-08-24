@@ -4,6 +4,8 @@ var nunjucks = require('nunjucks');
 var markdown = require('marked');
 var moment = require('moment');
 
+var packageFile = require('./package.json');
+
 
 nunjucks.configure('views', { autoescape: true });
 
@@ -13,7 +15,8 @@ fs.writeFileSync('./views/body.html', README);
 
 var rendered = nunjucks.render('index.tpl', {
   title: 'Toast.js',
-  moment: moment
+  moment: moment,
+  app: packageFile
 });
 
 fs.writeFileSync('index.html', rendered);

@@ -85,12 +85,13 @@ toast.alert({
 
 <h3 id="-">组合使用</h3>
 <p>先调用 confirm 方法，在点击确定后，立即用 toast(&#39;text&#39;) 提示点击了“确定”按钮。</p>
-<pre><code>
+<pre><code>toast.confirm({
+  text: &#39;点击确定吧~~&#39;,
+  onConfirm: function() {
+    toast(&#39;谢谢！&#39;);
+  }
+});
 </code></pre><button class="btn btn-success" name="confirm-and-toast">组合使用示例: confirm + toast</button>
 
-
-<button class="btn btn-success" name="alert-and-toast">组合使用示例: alert + toast</button>
-
-<p><br />
-<br />
-<br /></p>
+<p><br /></p>
+<hr>
