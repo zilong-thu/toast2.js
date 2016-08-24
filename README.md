@@ -128,6 +128,17 @@ toast.postError({
 <button class="btn btn-success" name="postError">toast.postError('hello')</button>
 
 
+### 组合使用
+
+先调用 confirm 方法，在点击确定后，立即用 toast('text') 提示点击了“确定”按钮。
+
+```
+```
+
+<button class="btn btn-success" name="confirm-and-toast">组合使用示例: confirm + toast</button>
+
+
+<button class="btn btn-success" name="alert-and-toast">组合使用示例: alert + toast</button>
 
 <br />
 <br />

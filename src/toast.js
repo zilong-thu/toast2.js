@@ -13,6 +13,7 @@
   // toast('') 的默认停留时间
   var DURATION_TOAST = 2500;
 
+  var toastTimerId = null;
 
   var Util = {};
   /**
@@ -114,10 +115,12 @@
    * @param  {[type]} element [description]
    */
   Util.fadeOut = function(element) {
+    clearTimeout(toastTimerId);
+
     element.style.transition = 'opacity 0.35s';
     element.style.opacity = '0';
 
-    setTimeout(function() {
+    toastTimerId = setTimeout(function() {
       element.style.display = 'none';
     }, CSS_ANIMATION_DURATION);
   };
@@ -154,7 +157,6 @@
     onConfirm: null
   };
 
-  var flagTimeout = null;
 
 
   // 模板1，长方形，没有icon，目的是显示大段文本，带有遮罩层、一个“确定”按钮。alert 所用
@@ -216,17 +218,18 @@
    * @param {String} [type] [type 可以为 'toast' | 'alert' | 'confirm' 之一]
    */
   function addContentToToastDiv(preOpt, userOpt, templateType) {
+    // 在加入新的Toast之前先清除之前的setTimeout
+    if (toastTimerId) {
+        clearTimeout(toastTimerId);
+        toastTimerId = null;
+    }
+
     templateType = templateType || 'toast';
 
     var opt = Util.mergeOjbects(preOpt, userOpt);
 
     var option = Util.mergeOjbects(defaultOption, opt);
 
-    // 在加入新的Toast之前先清除之前的setTimeout
-    if (flagTimeout) {
-        clearTimeout(flagTimeout);
-        flagTimeout = null;
-    }
 
     var $toast = document.getElementById(GLOBAL_TOAST_ID);
     if (!$toast) {
@@ -239,13 +242,6 @@
     var self = {};
     self.html = function(htmlStr) {
       $toast.innerHTML = htmlStr;
-      return self;
-    };
-
-    self.hide = function() {
-      // setAttribute will get a higher performance if toast's method is invoked more than once. Util.remove($toast)
-      // $toast.setAttribute('style', 'display: none');
-      Util.fadeOut($toast);
       return self;
     };
 
@@ -265,7 +261,7 @@
     self.html(compiled).show();
 
     if (templateType === 'toast') {
-      flagTimeout = setTimeout(function() {
+      toastTimerId = setTimeout(function() {
         Util.fadeOut($toast);
       }, option.duration);
     }
@@ -276,7 +272,7 @@
       var role = target.getAttribute('data-role');
 
       if (['close', 'cancel', 'confirm'].indexOf(role) > -1) {
-        self.hide();
+        Util.fadeOut($toast);
       }
       
       switch(role) {

@@ -59,6 +59,22 @@
           autoHide: false
         });
         break;
+      case 'confirm-and-toast':
+        toast.confirm({
+          text: '点击确定吧~~',
+          onConfirm: function() {
+            toast('谢谢！');
+          }
+        });
+        break;
+      case 'alert-and-toast':
+        toast.alert({
+          text: '点击确定吧~~',
+          onClose: function() {
+            toast('谢谢！');
+          }
+        });
+        break;
       default: ;
     }
   });

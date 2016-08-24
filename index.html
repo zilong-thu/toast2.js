@@ -7,35 +7,39 @@
   <link rel="stylesheet" type="text/css" href="dist/toast.css">
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<style type="text/css">
+  header .jumbotron {
+    text-align: center;
+    color: #fff;
+    background-color: #5286b3;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
+  <header>
     <div class="jumbotron">
       <h1>Toast.js</h1>
     </div>
-
+  </header>
+  <div class="container">
     <p>@author: <a href="https://github.com/zilong-thu/" target="_blank">zilong-thu</a></p>
 
     <p>repo: <a href="https://github.com/zilong-thu/toast2.js" target="_blank">https://github.com/zilong-thu/toast2.js</a></p>
-    <p>最近更新于 2016-08-22 23:57:24</p>
+    <p>当前版本：<span class="label label-primary">0.1.4</span></p>
+    <p>最近更新于 2016-08-24 20:19:41</p>
 
     <h2 id="-">简介</h2>
-<p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
-<ul>
-<li>实现一个具有消息提示、成功提示、错误提示等功能的插件</li>
-<li>使用时，不依赖任何其他模块（目前还依赖于 font-awesome）</li>
-<li>浏览器兼容性：IE &gt;= 9 ，Android &gt;= 4.3，ios &gt;= 6，其他浏览器 last 3 version</li>
-<li>响应式设计</li>
-</ul>
+<p>This is a toast tool written in JavaScript and CSS without any other dependencies.</p>
+<h2 id="-">说明</h2>
 <p>本组件的设计，参考了诸多类似功能的插件、组件的设计思路。在此列出，不一而足。</p>
 <ul>
 <li><a href="http://eve.uedmei.com/doc">http://eve.uedmei.com/doc</a></li>
 <li><a href="https://weui.io/#/">https://weui.io/</a></li>
 <li><a href="http://daneden.github.io/animate.css/">animate.css</a></li>
 </ul>
-<h2 id="-">使用方式</h2>
-<p>目前是依赖 font-awesome 字体的。比较适合已经使用了 font-awesome 字体的项目。</p>
-<h3 id="-">直接引用</h3>
+<h2 id="-">引用方式</h2>
+<h3 id="-">直接使用</h3>
+<p>目前是依赖 font-awesome 字体的。</p>
 <pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;toast.css&quot;&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css&quot;&gt;
 </code></pre><pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;toast.js&quot;&gt;&lt;/script&gt;
@@ -43,8 +47,6 @@
 <h3 id="react-bable">React + Bable</h3>
 <p>首先，引入这个模块：</p>
 <pre><code>import toast from &#39;toast&#39;;
-</code></pre><p>然后，还需要引用一下CSS文件，如果使用了诸如 less、sass、stylus或者postcss 等编译工具，可以像这样引用（以less为例）：</p>
-<pre><code>@import &quot;node_modules/toast2/dist/toast.css&quot;;
 </code></pre><h2 id="-">示例代码</h2>
 <h3 id="alert">alert</h3>
 <p>如果要显示一个 alert，可以这样写：</p>
@@ -104,10 +106,18 @@ toast.alert({
 </code></pre><button class="btn btn-success" name="postError">toast.postError(&#39;hello&#39;)</button>
 
 
+<h3 id="-">组合使用</h3>
+<p>先调用 confirm 方法，在点击确定后，立即用 toast(&#39;text&#39;) 提示点击了“确定”按钮。</p>
+<pre><code>toast.confirm({
+  text: &#39;点击确定吧~~&#39;,
+  onConfirm: function() {
+    toast(&#39;谢谢！&#39;);
+  }
+});
+</code></pre><button class="btn btn-success" name="confirm-and-toast">组合使用示例: confirm + toast</button>
 
-<p><br />
-<br />
-<br /></p>
+<p><br /></p>
+<hr>
 
   <div>
 </body>
@@ -146,6 +156,22 @@ toast.alert({
         toast.postError({
           text: 'hello',
           autoHide: false
+        });
+        break;
+      case 'confirm-and-toast':
+        toast.confirm({
+          text: '点击确定吧~~',
+          onConfirm: function() {
+            toast('谢谢！');
+          }
+        });
+        break;
+      case 'alert-and-toast':
+        toast.alert({
+          text: '点击确定吧~~',
+          onClose: function() {
+            toast('谢谢！');
+          }
         });
         break;
       default: ;
