@@ -8,10 +8,14 @@
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
 <style type="text/css">
+  html, body {
+    font-size: 14px;
+  }
+
   header .jumbotron {
     text-align: center;
     color: #fff;
-    background-color: #5286b3;
+    background-color: #337ab7;
   }
 </style>
 </head>
@@ -22,9 +26,14 @@
     </div>
   </header>
   <div class="container">
-    <p>@author: <a href="https://github.com/zilong-thu/" target="_blank">zilong-thu</a></p>
+    <p>
+      <i class="fa fa-user" aria-hidden="true"></i> <a href="https://github.com/zilong-thu/" target="_blank">zilong-thu</a>
+    </p>
 
-    <p>repo: <a href="https://github.com/zilong-thu/toast2.js" target="_blank">https://github.com/zilong-thu/toast2.js</a></p>
+    <p>
+      <i class="fa fa-github" aria-hidden="true"></i>
+      <a href="https://github.com/zilong-thu/toast2.js" target="_blank">https://github.com/zilong-thu/toast2.js</a>
+    </p>
     <p>当前版本：<span class="label label-primary">{{app.version}}</span></p>
     <p>最近更新于 {{moment().format('YYYY-MM-DD HH:mm:ss')}}</p>
 

@@ -68,7 +68,7 @@ toast.alert({
 });
 ```
 
-<button class="btn btn-success" name="alert">toast.alert('hello')</button>
+<button class="btn btn-primary" name="alert">toast.alert('hello')</button>
 
 ### toast something
 
@@ -78,7 +78,7 @@ toast('this is a toast.');
 
 任何时刻，toast 最多只能有一个。而且总是会自动消失。
 
-<button class="btn btn-success" name="toast">toast.toast('hello')</button>
+<button class="btn btn-primary" name="toast">toast.toast('hello')</button>
 
 ### confirm 对话框：
 
@@ -97,7 +97,7 @@ toast.confirm({
 })
 ```
 
-<button class="btn btn-success" name="confirm">toast.confirm('hello')</button>
+<button class="btn btn-primary" name="confirm">toast.confirm('hello')</button>
 
 
 ### success 提示
@@ -112,7 +112,7 @@ toast.success({
 })
 ```
 
-<button class="btn btn-success" name="success">toast.success('hello')</button>
+<button class="btn btn-primary" name="success">toast.success('hello')</button>
 
 ### postError
 
@@ -125,7 +125,7 @@ toast.postError({
 })
 ```
 
-<button class="btn btn-success" name="postError">toast.postError('hello')</button>
+<button class="btn btn-primary" name="postError">toast.postError('hello')</button>
 
 
 ### 组合使用
@@ -141,7 +141,7 @@ toast.confirm({
 });
 ```
 
-<button class="btn btn-success" name="confirm-and-toast">组合使用示例: confirm + toast</button>
+<button class="btn btn-primary" name="confirm-and-toast">组合使用示例: confirm + toast</button>
 
 <br />
 
