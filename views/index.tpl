@@ -34,7 +34,10 @@
       <i class="fa fa-github" aria-hidden="true"></i>
       <a href="https://github.com/zilong-thu/toast2.js" target="_blank">https://github.com/zilong-thu/toast2.js</a>
     </p>
-    <p>当前版本：<span class="label label-primary">{{app.version}}</span></p>
+    <p>
+      <i class="fa fa-tag" aria-hidden="true"></i> 
+      当前版本：<span class="label label-primary">{{app.version}}</span>
+    </p>
     <p>最近更新于 {{moment().format('YYYY-MM-DD HH:mm:ss')}}</p>
 
     {% include "body.html" %}
