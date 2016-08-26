@@ -20,7 +20,7 @@
 .toast-container .toast-content {
   display: block;
   position: fixed;
-  top: 50%;
+  top: 52%;
   left: 50%;
   border-radius: 5px;
   box-shadow: 0 0 7px rgba(40, 40, 40, 0.85);
@@ -192,6 +192,7 @@
 .toast-container .toast-content.toast-success {
   background-color: #fff;
   color: #333;
+  top: 50%;
   width: 360px;
   height: 360px;
   max-height: none;
@@ -326,6 +327,10 @@
 
 /* media queries */
 @media screen and (max-width: 360px){
+  .toast-container .toast-content {
+    top: auto;
+    bottom: 45%;
+  }
   .toast-container .toast-content.toast-msg {
     width: 90%;
     margin-left: -45%;
