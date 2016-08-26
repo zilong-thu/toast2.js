@@ -8,7 +8,10 @@
   'use strict';
   
   // CSS3 动画的时常，目前默认都是 400ms，那么JS要在 350ms 后执行DOM操作
-  var CSS_ANIMATION_DURATION = 350;
+  var CSS_ANIMATION_DURATION = 410;
+
+  // postError 的 div 是350毫秒内就得删掉的
+  var ERROR_OUT_ANIMATION_DURATION = 350;
 
   // toast('') 的默认停留时间
   var DURATION_TOAST = 2500;
@@ -344,7 +347,7 @@
 
         setTimeout(function() {
           Util.remove(nowItBecomes);
-        }, CSS_ANIMATION_DURATION);
+        }, ERROR_OUT_ANIMATION_DURATION);
       }
     });
   }
