@@ -18,13 +18,12 @@
 
 ## 使用方式
 
-目前是依赖 font-awesome 字体的。比较适合已经使用了 font-awesome 字体的项目。
+**自0.1.6版本及之后，不再依赖 font-awesome 字体了**
 
 ### 直接引用
 
 ```
 <link rel="stylesheet" type="text/css" href="toast.css">
-<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
 ```
 
 ```
