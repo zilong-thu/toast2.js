@@ -14,7 +14,7 @@ fs.writeFileSync('./views/body.html', README);
 
 
 var rendered = nunjucks.render('index.tpl', {
-  title: 'Toast.js',
+  title: 'Toast2.js',
   moment: moment,
   app: packageFile
 });

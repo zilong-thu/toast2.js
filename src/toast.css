@@ -228,8 +228,8 @@
   line-height: 30px;
 }
 
-.toast-success .fa {
-  font-size: 90px;
+.toast-success .ticon-check-circle {
+  font-size: 80px;
 }
 /* end success styles */
 
@@ -360,3 +360,64 @@
 
 }
 /* end media queries */
+
+
+/* icons */
+[class^="ticon-"] {
+  display: inline-block;
+  position: relative;
+}
+
+[class*=ticon][class*=circle] {
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+}
+
+[class*=ticon][class*=check],
+[class*=ticon][class*=cross] {
+  transform: rotate(-45deg);
+  border: 2px solid;
+}
+
+[class*=ticon][class*=check]:before {
+  content: ' ';
+  position: absolute;
+  bottom: 0.35em;
+  left: 0.25em;
+  width: 0.5em;
+  height: 2px;
+  background-color: #fff;
+}
+[class*=ticon][class*=check]:after {
+  content: ' ';
+  position: absolute;
+  bottom: 0.35em;
+  left: 0.25em;
+  width: 2px;
+  height: 0.25em;
+  background-color: #fff;
+}
+
+[class*=ticon][class*=cross]:before {
+  content: ' ';
+  position: absolute;
+  bottom: 50%;
+  height: 2px;
+  left: 0.2em;
+  right: 0.2em;
+  margin-bottom: -1px;
+  background-color: #fff;
+}
+[class*=ticon][class*=cross]:after {
+  content: ' ';
+  position: absolute;
+  top: 0.2em;
+  bottom: 0.2em;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  background-color: #fff;
+}
+
+/* end of icons */

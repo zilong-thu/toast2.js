@@ -189,7 +189,7 @@
   // 模板4，中等尺寸的长方形。所有的 error-box 在屏幕的右侧形成一个 error stack.
   var template_error_box = '<div class="error-box a-fade-in-right">' +
       '<div class="banner">' +
-        '<i class="fa fa-times-circle close" data-role="close" title="关闭"></i>' +
+        '<i class="ticon-cross-circle close" data-role="close" title="关闭"></i>' +
       ' {{title}}</div>' +
       '<div class="body">{{text}}</div>' +
     '</div>';
@@ -198,7 +198,7 @@
   var templateHTML_success = '<div class="toast-mask"></div>' +
     '<div class="toast-content toast-success">' +
       '<div class="success-icon">' +
-        '<i class="fa fa-check-circle-o"></i>' +
+        '<i class="ticon-check-circle"></i>' +
         '<div class="padding-box">SUCCESS</div>' +
       '</div>' +
       '<div class="body">{{text}}</div>' +

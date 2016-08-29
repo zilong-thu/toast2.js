@@ -10,9 +10,10 @@
 
 本组件的设计，参考了诸多类似功能的插件、组件的设计思路。在此列出，不一而足。
 
-+ [http://eve.uedmei.com/doc](http://eve.uedmei.com/doc)
-+ [https://weui.io/](https://weui.io/#/)
-+ [animate.css](http://daneden.github.io/animate.css/)
++ [https://weui.io/](https://weui.io/#/)，参考了部分基本的样式设计方案
++ [http://eve.uedmei.com/doc](http://eve.uedmei.com/doc)，参考了部分动画解决方案
++ [animate.css](http://daneden.github.io/animate.css/)，参考了部分动画的解决方案
++ [ICONO](http://saeedalipoor.github.io/icono/)，参考其中若干图标的纯CSS解决方案，替换掉最开始由 font-awesome 实现的图标
 
 
 ## 使用方式
