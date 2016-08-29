@@ -74,6 +74,10 @@
         toast.success('hello');
         break;
 
+      case 'error':
+        toast.error('操作失败！');
+        break;
+
       case 'postError':
         toast.postError({
           text: 'hello',

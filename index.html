@@ -36,9 +36,9 @@
     </p>
     <p>
       <i class="fa fa-tag" aria-hidden="true"></i> 
-      当前版本：<span class="label label-primary">0.1.6</span>
+      当前版本：<span class="label label-primary">0.1.7</span>
     </p>
-    <p>最近更新于 2016-08-29 23:51:49</p>
+    <p>最近更新于 2016-08-30 01:08:05</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -115,6 +115,18 @@ toast.alert({
 })
 </code></pre><button class="btn btn-primary" name="success">toast.success(&#39;hello&#39;)</button>
 
+
+<h3 id="error-">error 提示</h3>
+<pre><code>toast.error({
+  text: &#39;操作失败！&#39;,
+  onClose: function() {
+    // 点击“确定”后的回调函数
+    ...
+  }
+})
+</code></pre><button class="btn btn-primary" name="error">toast.error(&#39;操作失败！&#39;)</button>
+
+
 <h3 id="posterror">postError</h3>
 <pre><code>toast.postError({
   title: &#39;提示&#39;,
@@ -169,6 +181,10 @@ toast.alert({
 
       case 'success':
         toast.success('hello');
+        break;
+
+      case 'error':
+        toast.error('操作失败！');
         break;
 
       case 'postError':

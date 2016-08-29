@@ -114,6 +114,22 @@ toast.success({
 
 <button class="btn btn-primary" name="success">toast.success('hello')</button>
 
+
+### error 提示
+
+```
+toast.error({
+  text: '操作失败！',
+  onClose: function() {
+    // 点击“确定”后的回调函数
+    ...
+  }
+})
+```
+
+<button class="btn btn-primary" name="error">toast.error('操作失败！')</button>
+
+
 ### postError
 
 ```

@@ -188,6 +188,9 @@
   color: #fff;
   height: 180px;
 }
+.toast-success.error .success-icon {
+  background: #d8606c;
+}
 .toast-content.toast-success .footer {
   line-height: 1.2;
   padding: 5px 40px;
@@ -204,7 +207,9 @@
   font-size: 1.2em;
   line-height: 30px;
 }
-.toast-success .ticon-check-circle {
+.toast-success .ticon-check-circle,
+.toast-success .ticon-cross-circle,
+.toast-success .ticon-frown-circle {
   font-size: 80px;
 }
 /* end success styles */
@@ -225,6 +230,16 @@
 }
 .toast-btn-success:active {
   background: #30ab83;
+}
+.toast-btn-error {
+  background: #d8606c;
+  color: #fff;
+}
+.toast-btn-error:hover {
+  background: #ca5762;
+}
+.toast-btn-error:active {
+  background: #bb4d58;
 }
 /* end toast btn */
 /* 定义动画 */
@@ -353,13 +368,13 @@
   border-radius: 50%;
   width: 1em;
   height: 1em;
+  border: 2px solid;
 }
 [class*=ticon][class*=check],
 [class*=ticon][class*=cross] {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  border: 2px solid;
 }
 [class*=ticon][class*=check]:before,
 [class*=ticon][class*=check]:after {
@@ -396,6 +411,30 @@
   left: 50%;
   width: 2px;
   margin-left: -1px;
+}
+[class*=ticon][class*=frown]:before,
+[class*=ticon][class*=frown]:after {
+  content: ' ';
+  position: absolute;
+}
+[class*=ticon][class*=frown]:before {
+  border-radius: 50%;
+  height: 0.15em;
+  width: 0.15em;
+  box-shadow: 0.4em 0 0 0,0 0 0 0.3em inset;
+  left: 0.2em;
+  top: 0.3em;
+}
+[class*=ticon][class*=frown]:after {
+  border: 2px solid;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  left: 25%;
+  top: 70%;
+  height: 0.5em;
+  width: 0.5em;
+  border-radius: 50%;
 }
 /* end of icons */
 /* media queries */

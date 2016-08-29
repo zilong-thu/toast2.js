@@ -205,6 +205,17 @@
       '<div class="footer"><buton class="toast-btn toast-btn-success" data-role="close">好的</button></div>' +
     '</div>';
 
+  // 模板6，大正方形，有icon，目的是提示操作失败，并且有小段文本展示，带有遮罩层、一个“确定”按钮。 error 所用
+  var templateHTML_error = '<div class="toast-mask"></div>' +
+    '<div class="toast-content toast-success error">' +
+      '<div class="success-icon">' +
+        '<i class="ticon-frown-circle"></i>' +
+        '<div class="padding-box">ERROR</div>' +
+      '</div>' +
+      '<div class="body">{{text}}</div>' +
+      '<div class="footer"><buton class="toast-btn toast-btn-error" data-role="close">好的</button></div>' +
+    '</div>';
+
 
   // 一个非常简易的模板引擎
   function compileTemplate(tpl, data) {
@@ -257,7 +268,8 @@
       toast: templateHTML_toast,
       alert: templateHTML_alert,
       confirm: templateHTML_confirm,
-      success: templateHTML_success
+      success: templateHTML_success,
+      error: templateHTML_error
     };
 
     var compiled = compileTemplate(TemplateEnum[templateType], option);
@@ -405,10 +417,23 @@
       title: '',
       text: '',
       autoHide: false,
-      animation: false
+      theme: 'success'
     };
 
     addContentToToastDiv(presetOption, userOption, 'success');
+  }
+
+  Toast.error = function(option, onClose) {
+    var userOption = Util.normalizeUserOption(option);
+
+    var presetOption = {
+      title: '',
+      text: '',
+      autoHide: false,
+      theme: 'error'
+    };
+
+    addContentToToastDiv(presetOption, userOption, 'error');
   }
 
 

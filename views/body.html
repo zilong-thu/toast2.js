@@ -73,6 +73,18 @@ toast.alert({
 })
 </code></pre><button class="btn btn-primary" name="success">toast.success(&#39;hello&#39;)</button>
 
+
+<h3 id="error-">error 提示</h3>
+<pre><code>toast.error({
+  text: &#39;操作失败！&#39;,
+  onClose: function() {
+    // 点击“确定”后的回调函数
+    ...
+  }
+})
+</code></pre><button class="btn btn-primary" name="error">toast.error(&#39;操作失败！&#39;)</button>
+
+
 <h3 id="posterror">postError</h3>
 <pre><code>toast.postError({
   title: &#39;提示&#39;,

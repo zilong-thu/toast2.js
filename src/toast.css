@@ -1,3 +1,9 @@
+@suc-width: 350px;
+@suc-height: 360px;
+@suc-color: #3ec59d;
+@error-color: #d8606c;
+
+
 .toast-container * {
   box-sizing: border-box;
 }
@@ -177,7 +183,7 @@
     padding-left: 10px;
     line-height: 40px;
     color: #fff;
-    background-color: #d8606c;
+    background-color: @error-color;
   }
 
   .body {
@@ -190,9 +196,6 @@
 /* end error box */
 
 /* success styles */
-@suc-width: 350px;
-@suc-height: 360px;
-
 .toast-container .toast-content.toast-success {
   background-color: #fff;
   color: #333;
@@ -208,9 +211,15 @@
 .toast-success .success-icon {
   text-align: center;
   padding: 30px 0;
-  background: #3ec59d;
+  background: @suc-color;
   color: #fff;
   height: 180px;
+}
+
+.toast-success.error {
+  .success-icon {
+    background: @error-color;
+  }
 }
 
 .toast-content.toast-success .footer {
@@ -233,7 +242,9 @@
     line-height: 30px;
   }
 
-  .ticon-check-circle {
+  .ticon-check-circle,
+  .ticon-cross-circle,
+  .ticon-frown-circle {
     font-size: 80px;
   }
 }
@@ -249,7 +260,7 @@
 }
 
 .toast-btn-success {
-  background: #3ec59d;
+  background: @suc-color;
   color: #fff;
 
   &:hover {
@@ -258,6 +269,19 @@
 
   &:active {
     background: #30ab83;
+  }
+}
+
+.toast-btn-error {
+  background: @error-color;
+  color: #fff;
+
+  &:hover {
+    background: #ca5762;
+  }
+
+  &:active {
+    background: #bb4d58;
   }
 }
 /* end toast btn */
