@@ -1,11 +1,9 @@
 .toast-container * {
   box-sizing: border-box;
 }
-
 .padding-box {
   padding: 10px;
 }
-
 .toast-container .toast-mask {
   display: block;
   position: fixed;
@@ -16,7 +14,6 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
-
 .toast-container .toast-content {
   display: block;
   position: fixed;
@@ -29,7 +26,6 @@
           animation: pop 0.4s;
   z-index: 2000;
 }
-
 .toast-container .toast-content.toast {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 12px;
@@ -38,7 +34,6 @@
   margin-top: -100px;
   margin-left: -120px;
 }
-
 .toast-container .toast-content.toast-msg {
   background-color: #fff;
   color: #333;
@@ -47,30 +42,24 @@
   margin-left: -180px;
   overflow: hidden;
 }
-
-
 .toast-content .toast-header {
   font-weight: bold;
   padding: 10px;
 }
-
 .toast-content .body {
   text-align: left;
   padding: 5px 15px;
   max-height: 100px;
   overflow: auto;
 }
-
 .toast-content.toast .body {
   text-align: center;
 }
-
 .toast-content .footer {
   position: relative;
   line-height: 42px;
   margin-top: 15px;
 }
-
 .toast-content .footer:after {
   content: ' ';
   position: absolute;
@@ -86,38 +75,31 @@
       -ms-transform: scaleY(0.5);
           transform: scaleY(0.5);
 }
-
 .toast-content .footer a {
   color: #DD403B;
   display: block;
   border: none;
   text-decoration: none;
 }
-
 .toast-content .footer a:hover {
   color: #AC3429;
 }
-
 .toast-content .footer a:active {
   background-color: #eee;
 }
-
 .toast-content .footer a[data-role="cancel"] {
   position: relative;
   display: inline-block;
   width: 50%;
   color: #555;
 }
-
 .toast-content .footer a[data-role="cancel"]:hover {
   color: #333;
 }
-
 .toast-content .footer a[data-role="confirm"] {
   display: inline-block;
   width: 50%;
 }
-
 .toast-content .footer a[data-role="cancel"]:after {
   content: ' ';
   display: block;
@@ -134,7 +116,6 @@
       -ms-transform-origin: 0 0;
           transform-origin: 0 0;
 }
-
 /* error box */
 .toast-error-stack {
   position: fixed;
@@ -142,11 +123,9 @@
   right: 10px;
   z-index: 100;
 }
-
 .toast-error-stack * {
   box-sizing: border-box;
 }
-
 .toast-error-stack .error-box {
   position: relative;
   width: 300px;
@@ -158,7 +137,6 @@
   margin-bottom: 10px;
   box-shadow: 2px 2px 6px #aaa;
 }
-
 .error-box .close {
   float: right;
   font-size: 20px;
@@ -167,7 +145,6 @@
   text-shadow: 0 1px 0 #666;
   opacity: .9;
 }
-
 .error-box .close:focus,
 .error-box .close:hover {
   color: #fff;
@@ -175,11 +152,9 @@
   cursor: pointer;
   opacity: 1;
 }
-
 .error-box .close:active {
   text-shadow: none;
 }
-
 .error-box .banner {
   height: 40px;
   padding-left: 10px;
@@ -187,7 +162,6 @@
   color: #fff;
   background-color: #d8606c;
 }
-
 .error-box .body {
   padding: 10px;
   height: 80px;
@@ -195,38 +169,32 @@
   overflow: auto;
 }
 /* end error box */
-
-
 /* success styles */
 .toast-container .toast-content.toast-success {
   background-color: #fff;
   color: #333;
   top: 50%;
-  width: 360px;
+  width: 350px;
   height: 360px;
   max-height: none;
   margin-top: -180px;
-  margin-left: -180px;
+  margin-left: -175px;
   overflow: hidden;
 }
-
 .toast-success .success-icon {
   text-align: center;
-  padding: 25px;
+  padding: 30px 0;
   background: #3ec59d;
   color: #fff;
   height: 180px;
 }
-
 .toast-content.toast-success .footer {
   line-height: 1.2;
   padding: 5px 40px;
 }
-
 .toast-content.toast-success .footer:after {
   border-top: none;
 }
-
 .toast-success .body {
   height: 80px;
   padding-top: 15px;
@@ -236,12 +204,10 @@
   font-size: 1.2em;
   line-height: 30px;
 }
-
 .toast-success .ticon-check-circle {
   font-size: 80px;
 }
 /* end success styles */
-
 /* toast btn */
 .toast-btn {
   display: block;
@@ -250,53 +216,44 @@
   border-radius: 20px;
   cursor: pointer;
 }
-
 .toast-btn-success {
   background: #3ec59d;
   color: #fff;
 }
-
 .toast-btn-success:hover {
   background: #3abd96;
 }
-
 .toast-btn-success:active {
   background: #30ab83;
 }
 /* end toast btn */
-
-
 /* 定义动画 */
 .a-fade-in-right {
   -webkit-animation: fadeInRight 0.4s;
           animation: fadeInRight 0.4s;
 }
-
 .a-fade-out-right {
   -webkit-animation: fadeOutRight 0.4s;
           animation: fadeOutRight 0.4s;
 }
 /* end 定义动画 */
-
 /* animations */
 @-webkit-keyframes pop {
   0% {
     -ms-transform: -ms-scale(0.8);
-        -webkit-transform: scale(0.8);
+    -webkit-transform: scale(0.8);
             transform: scale(0.8);
     opacity: 0;
   }
-
   40% {
     -ms-transform: -ms-scale(1.1);
-        -webkit-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
             transform: scale(1.1);
     opacity: 1;
   }
-
   100% {
     -ms-transform: -ms-scale(1);
-        -webkit-transform: scale(1);
+    -webkit-transform: scale(1);
             transform: scale(1);
     opacity: 1;
   }
@@ -304,40 +261,36 @@
 @keyframes pop {
   0% {
     -ms-transform: -ms-scale(0.8);
-        -webkit-transform: scale(0.8);
+    -webkit-transform: scale(0.8);
             transform: scale(0.8);
     opacity: 0;
   }
-
   40% {
     -ms-transform: -ms-scale(1.1);
-        -webkit-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
             transform: scale(1.1);
     opacity: 1;
   }
-
   100% {
     -ms-transform: -ms-scale(1);
-        -webkit-transform: scale(1);
+    -webkit-transform: scale(1);
             transform: scale(1);
     opacity: 1;
   }
 }
-
 /*
   从右向左滑入，带回弹
  */
 @-webkit-keyframes fadeInRight {
   0% {
     -ms-transform: -ms-translateX(100%);
-        -webkit-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
             transform: translateX(100%);
     opacity: 0;
   }
-
   100% {
     -ms-transform: -ms-translateX(0);
-        -webkit-transform: translateX(0);
+    -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: 1;
   }
@@ -345,63 +298,108 @@
 @keyframes fadeInRight {
   0% {
     -ms-transform: -ms-translateX(100%);
-        -webkit-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
             transform: translateX(100%);
     opacity: 0;
   }
-
   100% {
     -ms-transform: -ms-translateX(0);
-        -webkit-transform: translateX(0);
+    -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fadeOutRight {
   0% {
     -ms-transform: -ms-translateX(0);
-        -webkit-transform: translateX(0);
+    -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: 1;
   }
-
   100% {
     -ms-transform: -ms-translateX(100%);
-        -webkit-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
             transform: translateX(100%);
     opacity: 0;
   }
 }
-
 @keyframes fadeOutRight {
   0% {
     -ms-transform: -ms-translateX(0);
-        -webkit-transform: translateX(0);
+    -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: 1;
   }
-
   100% {
     -ms-transform: -ms-translateX(100%);
-        -webkit-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
             transform: translateX(100%);
     opacity: 0;
   }
 }
-
 @-webkit-keyframes shrink-out {
   /* TODO */
 }
-
 @keyframes shrink-out {
   /* TODO */
 }
 /* end animations */
-
-
+/* icons */
+[class^="ticon-"] {
+  display: inline-block;
+  position: relative;
+}
+[class*=ticon][class*=circle] {
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+}
+[class*=ticon][class*=check],
+[class*=ticon][class*=cross] {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  border: 2px solid;
+}
+[class*=ticon][class*=check]:before,
+[class*=ticon][class*=check]:after {
+  content: ' ';
+  position: absolute;
+  bottom: 0.35em;
+  left: 0.25em;
+  background-color: #fff;
+}
+[class*=ticon][class*=check]:before {
+  width: 0.5em;
+  height: 2px;
+}
+[class*=ticon][class*=check]:after {
+  width: 2px;
+  height: 0.25em;
+}
+[class*=ticon][class*=cross]:before,
+[class*=ticon][class*=cross]:after {
+  content: ' ';
+  position: absolute;
+  background-color: #fff;
+}
+[class*=ticon][class*=cross]:before {
+  bottom: 50%;
+  height: 2px;
+  left: 0.2em;
+  right: 0.2em;
+  margin-bottom: -1px;
+}
+[class*=ticon][class*=cross]:after {
+  top: 0.2em;
+  bottom: 0.2em;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+}
+/* end of icons */
 /* media queries */
-@media screen and (max-width: 360px){
+@media screen and (max-width: 388px) {
   .toast-container .toast-content {
     top: auto;
     bottom: 45%;
@@ -410,91 +408,23 @@
     width: 90%;
     margin-left: -45%;
   }
-
   .toast-container .toast-content.toast-success {
     width: 90%;
-    height: 66%;
-    max-height: 360px;
-    margin-top: -60%;
     margin-left: -45%;
   }
-
   .toast-error-stack .error-box {
     width: 240px;
   }
-
   .error-box .body {
     height: 60px;
   }
-
   .error-box .banner {
     height: 30px;
     line-height: 30px;
     font-size: 14px;
   }
-
+  .error-box .close {
+    margin: 0.2em;
+  }
 }
 /* end media queries */
-
-
-/* icons */
-[class^="ticon-"] {
-  display: inline-block;
-  position: relative;
-}
-
-[class*=ticon][class*=circle] {
-  border-radius: 50%;
-  width: 1em;
-  height: 1em;
-}
-
-[class*=ticon][class*=check],
-[class*=ticon][class*=cross] {
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  border: 2px solid;
-}
-
-[class*=ticon][class*=check]:before {
-  content: ' ';
-  position: absolute;
-  bottom: 0.35em;
-  left: 0.25em;
-  width: 0.5em;
-  height: 2px;
-  background-color: #fff;
-}
-[class*=ticon][class*=check]:after {
-  content: ' ';
-  position: absolute;
-  bottom: 0.35em;
-  left: 0.25em;
-  width: 2px;
-  height: 0.25em;
-  background-color: #fff;
-}
-
-[class*=ticon][class*=cross]:before {
-  content: ' ';
-  position: absolute;
-  bottom: 50%;
-  height: 2px;
-  left: 0.2em;
-  right: 0.2em;
-  margin-bottom: -1px;
-  background-color: #fff;
-}
-[class*=ticon][class*=cross]:after {
-  content: ' ';
-  position: absolute;
-  top: 0.2em;
-  bottom: 0.2em;
-  left: 50%;
-  width: 2px;
-  margin-left: -1px;
-  background-color: #fff;
-}
-
-/* end of icons */

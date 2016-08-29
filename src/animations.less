@@ -1,0 +1,66 @@
+/* 定义动画 */
+.a-fade-in-right {
+  animation: fadeInRight 0.4s;
+}
+
+.a-fade-out-right {
+  animation: fadeOutRight 0.4s;
+}
+/* end 定义动画 */
+
+/* animations */
+@keyframes pop {
+  0% {
+    -ms-transform: -ms-scale(0.8);
+        transform: scale(0.8);
+    opacity: 0;
+  }
+
+  40% {
+    -ms-transform: -ms-scale(1.1);
+        transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    -ms-transform: -ms-scale(1);
+        transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/*
+  从右向左滑入，带回弹
+ */
+@keyframes fadeInRight {
+  0% {
+    -ms-transform: -ms-translateX(100%);
+        transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    -ms-transform: -ms-translateX(0);
+        transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    -ms-transform: -ms-translateX(0);
+        transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    -ms-transform: -ms-translateX(100%);
+        transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes shrink-out {
+  /* TODO */
+}
+/* end animations */

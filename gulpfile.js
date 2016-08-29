@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var less = require('gulp-less');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 
@@ -15,7 +16,8 @@ gulp.task('css', function () {
     autoprefixer({browsers: browserCompatibleOptions})
   ];
 
-  return gulp.src('./src/*.css')
+  return gulp.src('./src/toast.css')
+    .pipe(less())
     .pipe(postcss(processors))
     .pipe(gulp.dest('./dist'));
 });
