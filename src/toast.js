@@ -369,8 +369,8 @@
    * 最终 export 的对象
    * @type {Object}
    */
-  var Toast = function(option) {
-    var userOption = Util.normalizeUserOption(option);
+  var Toast = function(option, onClose) {
+    var userOption = Util.normalizeUserOption(option, onClose);
     delete userOption.title;
 
     var presetOption = {
@@ -411,7 +411,7 @@
   };
 
   Toast.success = function(option, onClose) {
-    var userOption = Util.normalizeUserOption(option);
+    var userOption = Util.normalizeUserOption(option, onClose);
 
     var presetOption = {
       title: '',
@@ -424,7 +424,7 @@
   }
 
   Toast.error = function(option, onClose) {
-    var userOption = Util.normalizeUserOption(option);
+    var userOption = Util.normalizeUserOption(option, onClose);
 
     var presetOption = {
       title: '',
