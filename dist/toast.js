@@ -187,11 +187,13 @@
     '</div>';
 
   // 模板4，中等尺寸的长方形。所有的 error-box 在屏幕的右侧形成一个 error stack.
-  var template_error_box = '<div class="error-box a-fade-in-right">' +
-      '<div class="banner">' +
-        '<i class="ticon-cross-circle close" data-role="close" title="关闭"></i>' +
-      ' {{title}}</div>' +
-      '<div class="body">{{text}}</div>' +
+  var template_error_box = '' +
+    '<div class="error-box a-fade-in-right">' +
+      '<div class="body">' +
+        '<div><strong>{{title}}</strong></div>' +
+        '<div>{{text}}</div>' +
+      '</div>' +
+      '<div class="close" data-role="close">关闭</div>' +
     '</div>';
 
   // 模板5，大正方形，有icon，目的是提示操作成功，并且有小段文本展示，带有遮罩层、一个“确定”按钮。 success 所用

@@ -2,6 +2,8 @@
 @suc-height: 360px;
 @suc-color: #3ec59d;
 @error-color: #d8606c;
+@error-box-width: 320px;
+@error-box-height: 60px;
 
 
 .toast-container * {
@@ -138,57 +140,58 @@
   top: 80px;
   right: 10px;
   z-index: 100;
-}
 
-.toast-error-stack * {
-  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .toast-error-stack .error-box {
   position: relative;
-  width: 300px;
+  width: @error-box-width;
   border-radius: 4px;
   overflow: hidden;
-  background-color: #fdfdee;
+  /*background-color: #fdfdee;*/
+  background-color: #fff;
   color: #333;
   font-weight: normal;
   margin-bottom: 10px;
-  box-shadow: 2px 2px 6px #aaa;
-}
+  box-shadow: 1px 1px 6px #999;
 
-.error-box .close {
-  float: right;
-  font-size: 20px;
-  margin: 7px 8px;
-  color: #fff;
-  text-shadow: 0 1px 0 #666;
-  opacity: .9;
-
-  &:focus,
-  &:hover {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: @error-box-height;
+    height: @error-box-height;
+    line-height: @error-box-height;
+    border-left: 1px solid #eee;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
     opacity: 1;
-  }
 
-  &:active {
-    text-shadow: none;
-  }
-}
+    &:focus,
+    &:hover {
+      color: #333;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 1;
+      background-color: #f3f3f3;
+    }
 
-.error-box {
-  .banner {
-    height: 40px;
-    padding-left: 10px;
-    line-height: 40px;
-    color: #fff;
-    background-color: @error-color;
+    &:active {
+      text-shadow: none;
+      background-color: #ececec;
+    }
   }
 
   .body {
+    width: @error-box-width - @error-box-height;
+    float: left;
     padding: 10px;
-    height: 80px;
+    height: @error-box-height;
     text-align: left;
     overflow: auto;
   }
