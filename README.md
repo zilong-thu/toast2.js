@@ -15,6 +15,9 @@
 + [animate.css](http://daneden.github.io/animate.css/)，参考了部分动画的解决方案
 + [ICONO](http://saeedalipoor.github.io/icono/)，参考其中若干图标的纯CSS解决方案，替换掉最开始由 font-awesome 实现的图标
 
+## Demo地址
+
+[http://borninsummer.com/toast2.js/](http://borninsummer.com/toast2.js/)
 
 ## 使用方式
 
@@ -69,6 +72,10 @@ toast.alert({
 ```
 
 <button class="btn btn-primary" name="alert">toast.alert('hello')</button>
+
+带有 title 的 alert：
+
+<button class="btn btn-primary" name="alert-title">toast.alert('hello')</button>
 
 ### toast something
 

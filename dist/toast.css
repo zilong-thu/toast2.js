@@ -179,18 +179,11 @@
   color: #333;
   top: 50%;
   width: 350px;
-  height: 360px;
+  height: 330px;
   max-height: none;
-  margin-top: -180px;
+  margin-top: -165px;
   margin-left: -175px;
   overflow: hidden;
-}
-.toast-success .success-icon {
-  text-align: center;
-  padding: 30px 0;
-  background: #3ec59d;
-  color: #fff;
-  height: 180px;
 }
 .toast-success.error .success-icon {
   background: #d8606c;
@@ -202,8 +195,15 @@
 .toast-content.toast-success .footer:after {
   border-top: none;
 }
+.toast-success .success-icon {
+  text-align: center;
+  padding: 25px 0;
+  background: #3ec59d;
+  color: #fff;
+  height: 170px;
+}
 .toast-success .body {
-  height: 80px;
+  height: 60px;
   padding-top: 15px;
   text-align: center;
   overflow: hidden;

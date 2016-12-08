@@ -53,6 +53,13 @@
       case 'alert':
         toast.alert('hello');
         break;
+      case 'alert-title':
+        toast.alert({
+          title: '提示',
+          text: 'This is an alert with title.'
+        });
+      break;
+
       case 'toast':
         toast('this is a toast.');
         break;

@@ -1,5 +1,5 @@
 @suc-width: 350px;
-@suc-height: 360px;
+@suc-height: 330px;
 @suc-color: #3ec59d;
 @error-color: #d8606c;
 @error-box-width: 320px;
@@ -211,14 +211,6 @@
   overflow: hidden;
 }
 
-.toast-success .success-icon {
-  text-align: center;
-  padding: 30px 0;
-  background: @suc-color;
-  color: #fff;
-  height: 180px;
-}
-
 .toast-success.error {
   .success-icon {
     background: @error-color;
@@ -235,8 +227,16 @@
 }
 
 .toast-success {
+  .success-icon {
+    text-align: center;
+    padding: 25px 0;
+    background: @suc-color;
+    color: #fff;
+    height: 170px;
+  }
+
   .body {
-    height: 80px;
+    height: 60px;
     padding-top: 15px;
     text-align: center;
     overflow: hidden;
