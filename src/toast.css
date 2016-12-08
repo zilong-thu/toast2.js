@@ -2,8 +2,6 @@
 @suc-height: 330px;
 @suc-color: #3ec59d;
 @error-color: #d8606c;
-@error-box-width: 320px;
-@error-box-height: 60px;
 
 
 .toast-container * {
@@ -134,69 +132,6 @@
   transform-origin: 0 0;
 }
 
-/* error box */
-.toast-error-stack {
-  position: fixed;
-  top: 80px;
-  right: 10px;
-  z-index: 100;
-
-  * {
-    box-sizing: border-box;
-  }
-}
-
-.toast-error-stack .error-box {
-  position: relative;
-  width: @error-box-width;
-  border-radius: 4px;
-  overflow: hidden;
-  /*background-color: #fdfdee;*/
-  background-color: #fff;
-  color: #333;
-  font-weight: normal;
-  margin-bottom: 10px;
-  box-shadow: 1px 1px 6px #999;
-
-  .close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: @error-box-height;
-    height: @error-box-height;
-    line-height: @error-box-height;
-    border-left: 1px solid #eee;
-    font-size: 14px;
-    text-align: center;
-    color: #666;
-    opacity: 1;
-
-    &:focus,
-    &:hover {
-      color: #333;
-      text-decoration: none;
-      cursor: pointer;
-      opacity: 1;
-      background-color: #f3f3f3;
-    }
-
-    &:active {
-      text-shadow: none;
-      background-color: #ececec;
-    }
-  }
-
-  .body {
-    width: @error-box-width - @error-box-height;
-    float: left;
-    padding: 10px;
-    height: @error-box-height;
-    text-align: left;
-    overflow: auto;
-  }
-}
-/* end error box */
 
 /* success styles */
 .toast-container .toast-content.toast-success {
@@ -293,3 +228,4 @@
 @import "animations.less";
 @import "icons.less";
 @import "media.less";
+@import "message.less";

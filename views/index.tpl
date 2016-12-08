@@ -91,6 +91,27 @@
           autoHide: false
         });
         break;
+
+      case 'message':
+        toast.message({
+          text: 'It seems something is wrong...',
+          autoHide: false
+        });
+        break;
+      case 'message-danger':
+        toast.danger({
+          text: 'It seems something is wrong...',
+          autoHide: false
+        });
+        break;
+
+      case 'message-info':
+        toast.info({
+          text: 'It seems something is wrong...',
+          autoHide: false
+        });
+        break;
+
       case 'confirm-and-toast':
         toast.confirm({
           text: '点击确定吧~~',

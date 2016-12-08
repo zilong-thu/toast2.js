@@ -151,6 +151,34 @@ toast.postError({
 <button class="btn btn-primary" name="postError">toast.postError('hello')</button>
 
 
+### Toast.message()
+
+目前有2类 message：
+
++ danger，比较醒目的红色，用于表示出错了
++ info，清爽的天蓝色，表示有值得注意的信息出现了
+
+<div class="row">
+  <div class="col-sm-4">
+    <pre>toast.message('hello');</pre>
+    <div>
+      <button class="btn btn-warning" name="message">toast.message('hello')</button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <pre>toast.danger('hello');</pre>
+    <div>
+      <button class="btn btn-danger" name="message-danger">toast.danger('hello')</button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <pre>toast.info('hello');</pre>
+    <div>
+      <button class="btn btn-info" name="message-info">toast.info('hello')</button>
+    </div>
+  </div>
+</div>
+
 ### 组合使用
 
 先调用 confirm 方法，在点击确定后，立即用 toast('text') 提示点击了“确定”按钮。

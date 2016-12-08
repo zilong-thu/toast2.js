@@ -137,7 +137,7 @@
   }
 
   var GLOBAL_TOAST_ID = 'global-toast-container';
-  var GLOBAL_ERROR_STACK_ID = 'global-error-stack-container';
+  var GLOBAL_MESSAGE_STACK_ID = 'global-message-stack-container';
 
   var defaultOption = {
     animation: true,
@@ -186,9 +186,9 @@
       '<div class="body">{{text}}</div>' +
     '</div>';
 
-  // 模板4，中等尺寸的长方形。所有的 error-box 在屏幕的右侧形成一个 error stack.
-  var template_error_box = '' +
-    '<div class="error-box a-fade-in-right">' +
+  // 模板4，中等尺寸的长方形。所有的 msg-box 在屏幕的右侧形成一个 error stack.
+  var template_msg_box = '' +
+    '<div class="msg-box a-fade-in-right theme-{{theme}}">' +
       '<div class="body">' +
         '<div><strong>{{title}}</strong></div>' +
         '<div>{{text}}</div>' +
@@ -319,29 +319,35 @@
   /**
    * @param [String] {text} 向错误栈中推送错误
    */
-  function addError(preOpt, userOpt) {
+  function addMessage(preOpt, userOpt) {
     var opt = Util.mergeOjbects(preOpt, userOpt);
     var option = Util.mergeOjbects(defaultOption, opt);
 
-    var $errorStack = document.getElementById(GLOBAL_ERROR_STACK_ID);
+    var $msgStack = document.getElementById(GLOBAL_MESSAGE_STACK_ID);
 
-    if (!$errorStack) {
-      $errorStack = document.createElement('div');
-      $errorStack.className = 'toast-error-stack';
-      $errorStack.id = GLOBAL_ERROR_STACK_ID;
-      document.body.appendChild($errorStack);
+    if (!$msgStack) {
+      $msgStack = document.createElement('div');
+      $msgStack.className = 'toast-msg-stack';
+      $msgStack.id = GLOBAL_MESSAGE_STACK_ID;
+      document.body.appendChild($msgStack);
     }
 
     var $errorBox = Util.createElement(
-      compileTemplate(template_error_box, {
+      compileTemplate(template_msg_box, {
         text: option.text,
-        title: option.title
+        title: option.title,
+        theme: option.theme,
       })
     );
-    $errorStack.appendChild($errorBox[0]);
-    // $errorBox[0] 现在将会变成 undefined
-    var length = $errorStack.childNodes.length;
-    var nowItBecomes = $errorStack.childNodes[length -1];
+
+    // 消息队列遵循“后来居上”的原则
+    // 下面要在消息队列的第一个子节点之前插入新的message box
+    var theFirstMsgBox = $msgStack.firstChild;
+    $msgStack.insertBefore($errorBox[0], theFirstMsgBox);
+    // => $errorBox[0] 现在将会变成 undefined
+
+    // var length = $msgStack.childNodes.length;
+    var nowItBecomes = $msgStack.childNodes[0];
 
     var errorTimeFlag = null;
     if (option.autoHide) {
@@ -357,7 +363,7 @@
 
       if (role === 'close') {
         clearTimeout(errorTimeFlag);
-        nowItBecomes.className = 'error-box a-fade-out-right';
+        nowItBecomes.className = 'msg-box a-fade-out-right';
 
         setTimeout(function() {
           Util.remove(nowItBecomes);
@@ -438,7 +444,6 @@
     addContentToToastDiv(presetOption, userOption, 'error');
   }
 
-
   Toast.postError = function(errMsg) {
     var userOption = Util.normalizeUserOption(errMsg);
 
@@ -449,8 +454,34 @@
       duration: 7000
     };
 
-    addError(presetOption, userOption);
+    addMessage(presetOption, userOption);
   }
+
+  function toastMessage(option, theme) {
+    theme = theme || 'message';
+
+    var presetOption = {
+      title: '提示',
+      text: '',
+      autoHide: false,
+      duration: 7000,
+      theme: theme
+    };
+
+    addMessage(presetOption, option);
+  };
+
+  Toast.message = function(option) {
+    toastMessage(option, 'message');
+  };
+
+  Toast.danger = function(option) {
+    toastMessage(option, 'danger');
+  };
+
+  Toast.info = function(option) {
+    toastMessage(option, 'info');
+  };
 
   return Toast;
 }));

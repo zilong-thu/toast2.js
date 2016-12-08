@@ -1,0 +1,98 @@
+@color-msg: #fdfdee;
+@info-color: #8ed5ea;
+@color-primary: #337ab7;
+
+@msg-box-width: 320px;
+@msg-box-height: 60px;
+
+
+/* message box */
+.toast-msg-stack {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  z-index: 100;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.toast-msg-stack .msg-box {
+  position: relative;
+  width: @msg-box-width;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: @color-msg;
+  border: 1px solid #d4d47e;
+  color: #333;
+  font-weight: normal;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 10px rgba(90, 90, 90, 0.25);
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: @msg-box-height;
+    height: @msg-box-height;
+    line-height: @msg-box-height;
+    border-left: 1px solid #e0e0ac;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: none;
+    color: #666;
+    opacity: 1;
+
+    &:focus,
+    &:hover {
+      color: #333;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 1;
+      background-color: #fff;
+    }
+
+    &:active {
+      text-shadow: none;
+      background-color: #ececec;
+    }
+  }
+
+  .body {
+    width: @msg-box-width - @msg-box-height;
+    float: left;
+    padding: 10px;
+    height: @msg-box-height;
+    text-align: left;
+    overflow: auto;
+  }
+}
+
+.toast-msg-stack .msg-box.theme-danger {
+  background-color: lighten(@error-color, 30%);
+  border: 1px solid @error-color;
+
+  &, .close, .close:hover {
+    color: darken(@error-color, 10%);
+  }
+
+  .close {
+    border-left-color: lighten(@error-color, 10%);
+  }
+}
+
+.toast-msg-stack .msg-box.theme-info {
+  background-color: @info-color;
+  border: 1px solid darken(@info-color, 10%);
+
+  &, .close, .close:hover {
+    color: @color-primary;
+  }
+
+  .close {
+    border-left-color: darken(@info-color, 8%);
+  }
+}
+/* end message box */
