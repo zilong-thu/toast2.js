@@ -140,8 +140,6 @@
   var GLOBAL_MESSAGE_STACK_ID = 'global-message-stack-container';
 
   var defaultOption = {
-    animation: true,
-
     // 对于 toast, postError, duration 规定了在多长时间（毫秒）后将其关闭
     duration: 3000,
 
@@ -161,6 +159,14 @@
 
     // UI config
     showCloseBtn: true,
+
+    // animation config
+    // TODO
+    animation: {
+      show: true,
+      in: 'slide-top',
+      out: 'slide-right'
+    },
   };
 
 
@@ -191,8 +197,10 @@
 
   // 模板4，中等尺寸的长方形。所有的 msg-box 在屏幕的右侧形成一个 error stack.
   function template_msg_box_generator(option) {
+    var animationInClassName = 'a-' + option.animation.in;
+
     var template_msg_box = '' +
-      '<div class="msg-box a-fade-in-right theme-{{theme}}">' +
+      '<div class="msg-box ' + animationInClassName +' theme-{{theme}}">' +
         '<div class="body">' +
           '<div><strong>{{title}}</strong></div>' +
           '<div>{{text}}</div>' +
@@ -351,10 +359,19 @@
     // var length = $msgStack.childNodes.length;
     var nowItBecomes = $msgStack.childNodes[0];
 
+    function fadeOutMsgBox(element) {
+      var oldTheme = /theme-[\w-]*/.exec(element.className)[0];
+      element.className = 'msg-box a-slide-out-right ' + oldTheme;
+
+      setTimeout(function() {
+        Util.remove(element);
+      }, ERROR_OUT_ANIMATION_DURATION);
+    }
+
     var errorTimeFlag = null;
     if (option.autoHide) {
       errorTimeFlag = setTimeout(function() {
-        Util.remove(nowItBecomes);
+        fadeOutMsgBox(nowItBecomes);
       }, option.duration);
     }
 
@@ -365,11 +382,7 @@
 
       if (role === 'close') {
         clearTimeout(errorTimeFlag);
-        nowItBecomes.className = 'msg-box a-fade-out-right';
-
-        setTimeout(function() {
-          Util.remove(nowItBecomes);
-        }, ERROR_OUT_ANIMATION_DURATION);
+        fadeOutMsgBox(nowItBecomes);
       }
     });
   }
@@ -397,7 +410,6 @@
       title: '',
       text: '',
       autoHide: false,
-      animation: false
     };
 
     try {
@@ -414,7 +426,6 @@
       title: '',
       text: '',
       autoHide: false,
-      animation: false
     };
 
     addContentToToastDiv(presetOption, userOption, 'confirm');
@@ -463,7 +474,8 @@
 
     var presetOption = {
       text: '',
-      autoHide: false,
+      // message 都是会自动隐藏的
+      autoHide: true,
       duration: 7000,
       theme: theme
     };

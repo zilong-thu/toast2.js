@@ -117,10 +117,12 @@ toast.alert({
     </div>
     <div class="col-sm-4">
       <button class="btn btn-info" name="message-info">toast.info(&#39;hello&#39;)</button>
+    </div>
   </div>
 </div>
 
-<p>不显示“关闭”按钮的例子：</p>
+
+<p>下面是一个不显示“关闭”按钮的例子。这样的消息框，最好不要把<code>autoHide</code>属性设置为<code>false</code>。</p>
 <pre><code>toast.message({
   text: &#39;This example shows a message box without close button.&#39;,
   showCloseBtn: false
@@ -137,5 +139,9 @@ toast.alert({
 });
 </code></pre><button class="btn btn-primary" name="confirm-and-toast">组合使用示例: confirm + toast</button>
 
+
+
 <p><br /></p>
+<hr>
+<p>2016 &copy; zilong-thu</p>
 <hr>

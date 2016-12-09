@@ -169,10 +169,12 @@ toast2 的 message 设计理念是尽可能不打断用户的交互流程，因�
     </div>
     <div class="col-sm-4">
       <button class="btn btn-info" name="message-info">toast.info('hello')</button>
+    </div>
   </div>
 </div>
 
-不显示“关闭”按钮的例子：
+
+下面是一个不显示“关闭”按钮的例子。这样的消息框，最好不要把`autoHide`属性设置为`false`。
 
 ```
 toast.message({
@@ -198,8 +200,13 @@ toast.confirm({
 
 <button class="btn btn-primary" name="confirm-and-toast">组合使用示例: confirm + toast</button>
 
+
+
 <br />
 
 ---------------------------
 
+2016 &copy; zilong-thu
+
+---------------------------
 

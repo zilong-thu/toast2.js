@@ -190,13 +190,17 @@
 }
 /* end toast btn */
 /* 定义动画 */
-.a-fade-in-right {
+.a-slide-in-right {
   -webkit-animation: fadeInRight 0.4s;
           animation: fadeInRight 0.4s;
 }
-.a-fade-out-right {
+.a-slide-out-right {
   -webkit-animation: fadeOutRight 0.4s;
           animation: fadeOutRight 0.4s;
+}
+.a-slide-top {
+  -webkit-animation: slideTop 0.4s;
+          animation: slideTop 0.4s;
 }
 /* end 定义动画 */
 /* animations */
@@ -299,11 +303,29 @@
     opacity: 0;
   }
 }
-@-webkit-keyframes shrink-out {
-  /* TODO */
+@-webkit-keyframes slideTop {
+  0% {
+    -ms-transform: -ms-translateX(-20%);
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%);
+  }
+  100% {
+    -ms-transform: -ms-translateX(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
-@keyframes shrink-out {
-  /* TODO */
+@keyframes slideTop {
+  0% {
+    -ms-transform: -ms-translateX(-20%);
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%);
+  }
+  100% {
+    -ms-transform: -ms-translateX(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 /* end animations */
 /* icons */
