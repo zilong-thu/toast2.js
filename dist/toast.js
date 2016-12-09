@@ -157,7 +157,10 @@
     // 它们与 callback 选项是互斥的关系
     // 即，在试用 toast.confirm() 方法时，不必传入 callback 属性
     onCancel: null,
-    onConfirm: null
+    onConfirm: null,
+
+    // UI config
+    showCloseBtn: true,
   };
 
 
@@ -187,14 +190,17 @@
     '</div>';
 
   // 模板4，中等尺寸的长方形。所有的 msg-box 在屏幕的右侧形成一个 error stack.
-  var template_msg_box = '' +
-    '<div class="msg-box a-fade-in-right theme-{{theme}}">' +
-      '<div class="body">' +
-        '<div><strong>{{title}}</strong></div>' +
-        '<div>{{text}}</div>' +
-      '</div>' +
-      '<div class="close" data-role="close">关闭</div>' +
-    '</div>';
+  function template_msg_box_generator(option) {
+    var template_msg_box = '' +
+      '<div class="msg-box a-fade-in-right theme-{{theme}}">' +
+        '<div class="body">' +
+          '<div><strong>{{title}}</strong></div>' +
+          '<div>{{text}}</div>' +
+        '</div>' +
+        (option.autoHide && !option.showCloseBtn ? '' : '<div class="close" data-role="close">关闭</div>') +
+      '</div>';
+    return template_msg_box;
+  }
 
   // 模板5，大正方形，有icon，目的是提示操作成功，并且有小段文本展示，带有遮罩层、一个“确定”按钮。 success 所用
   var templateHTML_success = '<div class="toast-mask"></div>' +
@@ -333,11 +339,7 @@
     }
 
     var $errorBox = Util.createElement(
-      compileTemplate(template_msg_box, {
-        text: option.text,
-        title: option.title,
-        theme: option.theme,
-      })
+      compileTemplate(template_msg_box_generator(option), option)
     );
 
     // 消息队列遵循“后来居上”的原则
@@ -422,7 +424,6 @@
     var userOption = Util.normalizeUserOption(option, onClose);
 
     var presetOption = {
-      title: '',
       text: '',
       autoHide: false,
       theme: 'success'
@@ -435,7 +436,6 @@
     var userOption = Util.normalizeUserOption(option, onClose);
 
     var presetOption = {
-      title: '',
       text: '',
       autoHide: false,
       theme: 'error'
@@ -448,7 +448,6 @@
     var userOption = Util.normalizeUserOption(errMsg);
 
     var presetOption = {
-      title: '出错了...',
       text: '',
       autoHide: false,
       duration: 7000
@@ -458,17 +457,18 @@
   }
 
   function toastMessage(option, theme) {
+    var userOption = Util.normalizeUserOption(option);
+
     theme = theme || 'message';
 
     var presetOption = {
-      title: '提示',
       text: '',
       autoHide: false,
       duration: 7000,
       theme: theme
     };
 
-    addMessage(presetOption, option);
+    addMessage(presetOption, userOption);
   };
 
   Toast.message = function(option) {

@@ -112,6 +112,13 @@
         });
         break;
 
+      case 'message-without-closebtn':
+        toast.message({
+          text: 'This example shows a message box without close button.',
+          showCloseBtn: false
+        });
+        break;
+
       case 'confirm-and-toast':
         toast.confirm({
           text: '点击确定吧~~',

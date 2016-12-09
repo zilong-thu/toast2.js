@@ -153,31 +153,35 @@ toast.postError({
 
 ### Toast.message()
 
-目前有2类 message：
+toast2 的 message 设计理念是尽可能不打断用户的交互流程，因此会以非阻塞的方式出现。目前设计了3类 message：
 
++ message，浅的米黄色，用于普通的消息提示
 + danger，比较醒目的红色，用于表示出错了
 + info，清爽的天蓝色，表示有值得注意的信息出现了
 
-<div class="row">
-  <div class="col-sm-4">
-    <pre>toast.message('hello');</pre>
-    <div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
       <button class="btn btn-warning" name="message">toast.message('hello')</button>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <pre>toast.danger('hello');</pre>
-    <div>
+    <div class="col-sm-4">
       <button class="btn btn-danger" name="message-danger">toast.danger('hello')</button>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <pre>toast.info('hello');</pre>
-    <div>
+    <div class="col-sm-4">
       <button class="btn btn-info" name="message-info">toast.info('hello')</button>
-    </div>
   </div>
 </div>
+
+不显示“关闭”按钮的例子：
+
+```
+toast.message({
+  text: 'This example shows a message box without close button.',
+  showCloseBtn: false
+});
+```
+
+<button class="btn btn-warning" name="message-without-closebtn">不显示“关闭”按钮</button>
 
 ### 组合使用
 

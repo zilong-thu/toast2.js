@@ -101,31 +101,31 @@ toast.alert({
 
 
 <h3 id="toast-message-">Toast.message()</h3>
-<p>目前有2类 message：</p>
+<p>toast2 的 message 设计理念是尽可能不打断用户的交互流程，因此会以非阻塞的方式出现。目前设计了3类 message：</p>
 <ul>
+<li>message，浅的米黄色，用于普通的消息提示</li>
 <li>danger，比较醒目的红色，用于表示出错了</li>
 <li>info，清爽的天蓝色，表示有值得注意的信息出现了</li>
 </ul>
-<div class="row">
-  <div class="col-sm-4">
-    <pre>toast.message(&#39;hello&#39;);</pre>
-    <div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
       <button class="btn btn-warning" name="message">toast.message(&#39;hello&#39;)</button>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <pre>toast.danger(&#39;hello&#39;);</pre>
-    <div>
+    <div class="col-sm-4">
       <button class="btn btn-danger" name="message-danger">toast.danger(&#39;hello&#39;)</button>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <pre>toast.info(&#39;hello&#39;);</pre>
-    <div>
+    <div class="col-sm-4">
       <button class="btn btn-info" name="message-info">toast.info(&#39;hello&#39;)</button>
-    </div>
   </div>
 </div>
+
+<p>不显示“关闭”按钮的例子：</p>
+<pre><code>toast.message({
+  text: &#39;This example shows a message box without close button.&#39;,
+  showCloseBtn: false
+});
+</code></pre><button class="btn btn-warning" name="message-without-closebtn">不显示“关闭”按钮</button>
 
 <h3 id="-">组合使用</h3>
 <p>先调用 confirm 方法，在点击确定后，立即用 toast(&#39;text&#39;) 提示点击了“确定”按钮。</p>
