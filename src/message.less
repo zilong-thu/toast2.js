@@ -25,7 +25,7 @@
   border-radius: 4px;
   overflow: hidden;
   background-color: @color-msg;
-  border: 1px solid #d4d47e;
+  // border: 1px solid #d4d47e;
   color: #a5a53a;
   font-weight: normal;
   margin-bottom: 10px;
@@ -36,7 +36,7 @@
     width: @msg-box-height;
     height: @msg-box-height;
     line-height: @msg-box-height;
-    border-left: 1px solid #e0e0ac;
+    // border-left: 1px solid #e0e0ac;
     font-size: 14px;
     text-align: center;
     text-shadow: none;
@@ -58,38 +58,44 @@
   }
 
   .body {
-    // width: @msg-box-width - @msg-box-height;
-    float: left;
+    width: @msg-box-width - @msg-box-height;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
     padding: 10px;
-    height: @msg-box-height;
     text-align: left;
     overflow: auto;
+
+    &.no-btn {
+      
+    }
   }
 }
 
 .toast-msg-stack .msg-box.theme-danger {
   background-color: lighten(@error-color, 30%);
-  border: 1px solid @error-color;
+  // border: 1px solid @error-color;
 
   &, .close, .close:hover {
     color: darken(@error-color, 10%);
   }
 
   .close {
-    border-left-color: lighten(@error-color, 10%);
+    // border-left-color: lighten(@error-color, 10%);
   }
 }
 
 .toast-msg-stack .msg-box.theme-info {
   background-color: @info-color;
-  border: 1px solid darken(@info-color, 10%);
+  // border: 1px solid darken(@info-color, 10%);
 
   &, .close, .close:hover {
     color: @color-primary;
   }
 
   .close {
-    border-left-color: darken(@info-color, 8%);
+    // border-left-color: darken(@info-color, 8%);
   }
 }
 /* end message box */

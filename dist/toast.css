@@ -453,7 +453,6 @@
   border-radius: 4px;
   overflow: hidden;
   background-color: #fdfdee;
-  border: 1px solid #d4d47e;
   color: #a5a53a;
   font-weight: normal;
   margin-bottom: 10px;
@@ -464,7 +463,6 @@
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-left: 1px solid #e0e0ac;
   font-size: 14px;
   text-align: center;
   text-shadow: none;
@@ -483,34 +481,29 @@
   background-color: #ececec;
 }
 .toast-msg-stack .msg-box .body {
-  float: left;
+  width: 260px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
   padding: 10px;
-  height: 60px;
   text-align: left;
   overflow: auto;
 }
 .toast-msg-stack .msg-box.theme-danger {
   background-color: #f6dbde;
-  border: 1px solid #d8606c;
 }
 .toast-msg-stack .msg-box.theme-danger,
 .toast-msg-stack .msg-box.theme-danger .close,
 .toast-msg-stack .msg-box.theme-danger .close:hover {
   color: #ce3746;
 }
-.toast-msg-stack .msg-box.theme-danger .close {
-  border-left-color: #e28992;
-}
 .toast-msg-stack .msg-box.theme-info {
   background-color: #8ed5ea;
-  border: 1px solid #63c5e2;
 }
 .toast-msg-stack .msg-box.theme-info,
 .toast-msg-stack .msg-box.theme-info .close,
 .toast-msg-stack .msg-box.theme-info .close:hover {
   color: #337ab7;
-}
-.toast-msg-stack .msg-box.theme-info .close {
-  border-left-color: #6cc8e4;
 }
 /* end message box */

@@ -107,7 +107,7 @@
 
       case 'message-info':
         toast.info({
-          text: 'It seems something is wrong...',
+          text: 'It seems something is wrong... And this is a message box with a very long text.......',
           autoHide: false
         });
         break;
