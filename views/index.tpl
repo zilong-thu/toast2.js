@@ -114,8 +114,16 @@
 
       case 'message-without-closebtn':
         toast.message({
-          text: 'This example shows a message box without close button.',
+          text: 'This example shows a message box without close button. And this is a message box with a very long text.......',
+          autoHide: true,
           showCloseBtn: false
+        });
+        break;
+
+      case 'message-autohide':
+        toast.danger({
+          text: 'This example shows a message box without close button. And this is a message box with a very long text.......',
+          autoHide: true
         });
         break;
 

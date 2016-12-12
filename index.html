@@ -36,9 +36,9 @@
     </p>
     <p>
       <i class="fa fa-tag" aria-hidden="true"></i> 
-      当前版本：<span class="label label-primary">0.2.1</span>
+      当前版本：<span class="label label-primary">0.2.2</span>
     </p>
-    <p>最近更新于 2016-12-09 18:22:10</p>
+    <p>最近更新于 2016-12-12 10:49:32</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -171,6 +171,9 @@ toast.alert({
 });
 </code></pre><button class="btn btn-warning" name="message-without-closebtn">不显示“关闭”按钮</button>
 
+
+<button class="btn btn-danger" name="message-autohide">“关闭”按钮+autoHide</button>
+
 <h3 id="-">组合使用</h3>
 <p>先调用 confirm 方法，在点击确定后，立即用 toast(&#39;text&#39;) 提示点击了“确定”按钮。</p>
 <pre><code>toast.confirm({
@@ -261,8 +264,16 @@ toast.alert({
 
       case 'message-without-closebtn':
         toast.message({
-          text: 'This example shows a message box without close button.',
+          text: 'This example shows a message box without close button. And this is a message box with a very long text.......',
+          autoHide: true,
           showCloseBtn: false
+        });
+        break;
+
+      case 'message-autohide':
+        toast.danger({
+          text: 'This example shows a message box without close button. And this is a message box with a very long text.......',
+          autoHide: true
         });
         break;
 

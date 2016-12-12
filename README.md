@@ -185,6 +185,9 @@ toast.message({
 
 <button class="btn btn-warning" name="message-without-closebtn">不显示“关闭”按钮</button>
 
+
+<button class="btn btn-danger" name="message-autohide">“关闭”按钮+autoHide</button>
+
 ### 组合使用
 
 先调用 confirm 方法，在点击确定后，立即用 toast('text') 提示点击了“确定”按钮。

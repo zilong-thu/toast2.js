@@ -159,6 +159,7 @@
 
     // UI config
     showCloseBtn: true,
+    closeBtnText: '关闭',
 
     // animation config
     // TODO
@@ -205,7 +206,7 @@
           '<div><strong>{{title}}</strong></div>' +
           '<div>{{text}}</div>' +
         '</div>' +
-        (option.autoHide && !option.showCloseBtn ? '' : '<div class="close" data-role="close">关闭</div>') +
+        (option.autoHide && !option.showCloseBtn ? '' : '<div class="close" data-role="close">{{closeBtnText}}</div>') +
       '</div>';
     return template_msg_box;
   }
