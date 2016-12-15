@@ -3,6 +3,7 @@
 @suc-color: #3ec59d;
 @error-color: #d8606c;
 
+@import "fix-scrollbars.less";
 
 .toast-container * {
   box-sizing: border-box;

@@ -1,3 +1,26 @@
+.toast-container ::-webkit-scrollbar,
+.toast-msg-stack ::-webkit-scrollbar {
+  width: 6px;
+}
+.toast-container ::-webkit-scrollbar-track,
+.toast-msg-stack ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.toast-container ::-webkit-scrollbar-track:window-inactive,
+.toast-msg-stack ::-webkit-scrollbar-track:window-inactive {
+  box-shadow: none;
+}
+.toast-container ::-webkit-scrollbar-thumb,
+.toast-msg-stack ::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background: rgba(100, 100, 100, 0.15);
+}
+.toast-container ::-webkit-scrollbar-thumb:window-inactive,
+.toast-msg-stack ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(200, 200, 200, 0.1);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+}
 .toast-container * {
   box-sizing: border-box;
 }
@@ -488,7 +511,8 @@
   bottom: 0;
   padding: 10px;
   text-align: left;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .toast-msg-stack .msg-box .body.fully-scaled {
   width: 100%;
