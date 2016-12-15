@@ -5,8 +5,11 @@
 
 @import "fix-scrollbars.less";
 
-.toast-container * {
-  box-sizing: border-box;
+.toast-container {
+  &, * {
+    box-sizing: border-box;
+    word-break: break-all;
+  }
 }
 
 .padding-box {

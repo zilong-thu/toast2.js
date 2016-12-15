@@ -107,7 +107,7 @@
 
       case 'message-info':
         toast.info({
-          text: 'It seems something is wrong... And this is a message box with a very long text.......',
+          text: 'It seems something is wrong... And this is a message box with a very long text.......And lonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnñg non-breaking word.',
           autoHide: false
         });
         break;
@@ -122,7 +122,7 @@
 
       case 'message-autohide':
         toast.danger({
-          text: 'This example shows a message box without close button. And this is a message box with a very long text.......',
+          text: 'This example shows a message box without close button. And this is a message box with a very long text........ And lonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnñg non-breaking word.',
           autoHide: true
         });
         break;
