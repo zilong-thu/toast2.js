@@ -199,14 +199,16 @@
   // 模板4，中等尺寸的长方形。所有的 msg-box 在屏幕的右侧形成一个 error stack.
   function template_msg_box_generator(option) {
     var animationInClassName = 'a-' + option.animation.in;
+    var hideBtn = option.autoHide && !option.showCloseBtn;
+    var bodyClassName = hideBtn ? 'body fully-scaled' : 'body';
 
     var template_msg_box = '' +
       '<div class="msg-box ' + animationInClassName +' theme-{{theme}}">' +
-        '<div class="body">' +
+        '<div class="' + bodyClassName + '">' +
           '<div><strong>{{title}}</strong></div>' +
           '<div>{{text}}</div>' +
         '</div>' +
-        (option.autoHide && !option.showCloseBtn ? '' : '<div class="close" data-role="close">{{closeBtnText}}</div>') +
+        (hideBtn ? '' : '<div class="close" data-role="close">{{closeBtnText}}</div>') +
       '</div>';
     return template_msg_box;
   }
