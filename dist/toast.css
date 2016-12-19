@@ -216,16 +216,16 @@
 /* end toast btn */
 /* 定义动画 */
 .a-slide-in-right {
-  -webkit-animation: fadeInRight 0.4s;
-          animation: fadeInRight 0.4s;
+  -webkit-animation: fadeInRight 0.5s;
+          animation: fadeInRight 0.5s;
 }
 .a-slide-out-right {
-  -webkit-animation: fadeOutRight 0.4s;
-          animation: fadeOutRight 0.4s;
+  -webkit-animation: fadeOutRight 0.5s;
+          animation: fadeOutRight 0.5s;
 }
 .a-slide-top {
-  -webkit-animation: slideTop 0.4s;
-          animation: slideTop 0.4s;
+  -webkit-animation: slideTop 0.5s;
+          animation: slideTop 0.5s;
 }
 /* end 定义动画 */
 /* animations */
@@ -479,7 +479,7 @@
   height: 60px;
   border-radius: 4px;
   overflow: hidden;
-  background-color: #ffffd3;
+  background-color: #fefeb9;
   color: #969631;
   font-weight: normal;
   margin-bottom: 10px;
@@ -501,11 +501,11 @@
   text-decoration: none;
   cursor: pointer;
   opacity: 1;
-  background-color: #fff;
+  background-color: #fefea0;
 }
 .toast-msg-stack .msg-box .close:active {
   text-shadow: none;
-  background-color: #ececec;
+  background-color: #fdfd91;
 }
 .toast-msg-stack .msg-box .body {
   width: 260px;
@@ -521,20 +521,26 @@
 .toast-msg-stack .msg-box .body.fully-scaled {
   width: 100%;
 }
-.toast-msg-stack .msg-box.theme-danger {
-  background-color: #fbb0b9;
-}
 .toast-msg-stack .msg-box.theme-danger,
-.toast-msg-stack .msg-box.theme-danger .close,
-.toast-msg-stack .msg-box.theme-danger .close:hover {
+.toast-msg-stack .msg-box.theme-danger .close {
+  background-color: #fbb0b9;
   color: #a72a36;
 }
-.toast-msg-stack .msg-box.theme-info {
-  background-color: #8ed5ea;
+.toast-msg-stack .msg-box.theme-danger .close:hover {
+  background-color: #faa1ac;
+}
+.toast-msg-stack .msg-box.theme-danger .close:active {
+  background-color: #fa98a3;
 }
 .toast-msg-stack .msg-box.theme-info,
-.toast-msg-stack .msg-box.theme-info .close,
-.toast-msg-stack .msg-box.theme-info .close:hover {
+.toast-msg-stack .msg-box.theme-info .close {
+  background-color: #8ed5ea;
   color: #276da9;
+}
+.toast-msg-stack .msg-box.theme-info .close:hover {
+  background-color: #81d0e8;
+}
+.toast-msg-stack .msg-box.theme-info .close:active {
+  background-color: #78cde6;
 }
 /* end message box */

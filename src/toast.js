@@ -7,14 +7,14 @@
 }(this, function () {
   'use strict';
   
-  // CSS3 动画的时常，目前默认都是 400ms，那么JS要在 350ms 后执行DOM操作
-  var CSS_ANIMATION_DURATION = 410;
+  // CSS3 动画的时常，目前默认都是 500ms，那么JS要在 350ms 后执行DOM操作
+  var CSS_ANIMATION_DURATION = 510;
 
   // postError 的 div 是350毫秒内就得删掉的
   var ERROR_OUT_ANIMATION_DURATION = 350;
 
   // toast('') 的默认停留时间
-  var DURATION_TOAST = 2500;
+  var DURATION_TOAST = 3000;
 
   var toastTimerId = null;
 
@@ -364,7 +364,7 @@
 
     function fadeOutMsgBox(element) {
       var oldTheme = /theme-[\w-]*/.exec(element.className)[0];
-      element.className = 'msg-box a-slide-out-right ' + oldTheme;
+      element.setAttribute('class', 'msg-box a-slide-out-right ' + oldTheme);
 
       setTimeout(function() {
         Util.remove(element);

@@ -161,15 +161,15 @@ toast2 的 message 设计理念是尽可能不打断用户的交互流程，因�
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
+    <p class="col-sm-3">
       <button class="btn btn-warning" name="message">toast.message('hello')</button>
-    </div>
-    <div class="col-sm-4">
+    </p>
+    <p class="col-sm-3">
       <button class="btn btn-danger" name="message-danger">toast.danger('hello')</button>
-    </div>
-    <div class="col-sm-4">
+    </p>
+    <p class="col-sm-3">
       <button class="btn btn-info" name="message-info">toast.info('hello')</button>
-    </div>
+    </p>
   </div>
 </div>
 

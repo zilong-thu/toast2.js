@@ -1,4 +1,4 @@
-@bd-color-msg: #ffffd3;
+@bg-color-msg: #fefeb9;
 @color-msg: #969631;
 @bg-color-danger: #fbb0b9;
 @color-danger: #a72a36;
@@ -28,7 +28,7 @@
   height: @msg-box-height;
   border-radius: 4px;
   overflow: hidden;
-  background-color: @bd-color-msg;
+  background-color: @bg-color-msg;
   color: @color-msg;
   font-weight: normal;
   margin-bottom: 10px;
@@ -50,12 +50,12 @@
       text-decoration: none;
       cursor: pointer;
       opacity: 1;
-      background-color: #fff;
+      background-color: darken(@bg-color-msg, 5%);
     }
 
     &:active {
       text-shadow: none;
-      background-color: #ececec;
+      background-color: darken(@bg-color-msg, 8%);
     }
   }
 
@@ -77,26 +77,32 @@
 }
 
 .toast-msg-stack .msg-box.theme-danger {
-  background-color: @bg-color-danger;
-
-  &, .close, .close:hover {
+  &, .close {
+    background-color: @bg-color-danger;
     color: @color-danger;
   }
 
-  .close {
-    // border-left-color: lighten(@error-color, 10%);
+  .close:hover {
+    background-color: darken(@bg-color-danger, 3%);
+  }
+
+  .close:active {
+    background-color: darken(@bg-color-danger, 5%);
   }
 }
 
 .toast-msg-stack .msg-box.theme-info {
-  background-color: @bg-color-info;
-
-  &, .close, .close:hover {
+  &, .close {
+    background-color: @bg-color-info;
     color: @color-info;
   }
 
-  .close {
-    // border-left-color: darken(@bg-color-info, 8%);
+  .close:hover {
+    background-color: darken(@bg-color-info, 3%);
+  }
+
+  .close:active {
+    background-color: darken(@bg-color-info, 5%);
   }
 }
 /* end message box */
