@@ -87,7 +87,7 @@
 
       case 'message':
         toast.message({
-          text: 'It seems something is wrong...',
+          text: '实现一个具有消息提示、成功提示、错误提示等功能的插件...',
           autoHide: false
         });
         break;

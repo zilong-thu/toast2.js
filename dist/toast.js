@@ -64,6 +64,11 @@
     }
   };
 
+  Util.getEventTarget = function(e) {
+    var target = (e && e.target) || window.event.srcElement;
+    return target;
+  };
+
   Util.normalizeUserOption = function(option, onClose) {
     var userOption = option || {};
     if (typeof option === 'string') {
@@ -90,7 +95,9 @@
       };
     }
 
-    element.parentNode.removeChild(element);
+    if (element && element.parentNode) {
+      element.parentNode.removeChild(element);
+    }
   };
 
   /**
@@ -316,7 +323,7 @@
 
     Util.addEventHandler($toast, 'click', function(e) {
       e.stopPropagation();
-      var target = (e && e.target) || window.event.srcElement;
+      var target = Util.getEventTarget(e);
       var role = target.getAttribute('data-role');
 
       if (['close', 'cancel', 'confirm'].indexOf(role) > -1) {
@@ -371,7 +378,6 @@
     // 下面要在消息队列的第一个子节点之前插入新的message box
     var theFirstMsgBox = $msgStack.firstChild;
     $msgStack.insertBefore($errorBox[0], theFirstMsgBox);
-    // => $errorBox[0] 现在将会变成 undefined
 
     // var length = $msgStack.childNodes.length;
     var nowItBecomes = $msgStack.childNodes[0];
@@ -384,13 +390,33 @@
     }
 
     Util.addEventHandler(nowItBecomes, 'click', function(e) {
-      var target = (e && e.target) || window.event.srcElement;
+      var target = Util.getEventTarget(e);
       var role = target.getAttribute('data-role');
       e.stopPropagation();
 
       if (role === 'close') {
         clearTimeout(errorTimeFlag);
+        var errorTimeFlag = null;
         Util.slideRightOut(nowItBecomes);
+      }
+    });
+
+    Util.addEventHandler(nowItBecomes, 'mouseenter', function(e) {
+      var target = Util.getEventTarget(e);
+
+      if (errorTimeFlag) {
+        clearTimeout(errorTimeFlag);
+        errorTimeFlag = null;
+      }
+    });
+
+    Util.addEventHandler(nowItBecomes, 'mouseleave', function(e) {
+      var target = Util.getEventTarget(e);
+
+      if (option.autoHide) {
+        errorTimeFlag = setTimeout(function() {
+          Util.slideRightOut(nowItBecomes);
+        }, option.duration);
       }
     });
   }
