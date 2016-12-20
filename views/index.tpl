@@ -85,13 +85,6 @@
         toast.error('操作失败！');
         break;
 
-      case 'postError':
-        toast.postError({
-          text: 'hello',
-          autoHide: false
-        });
-        break;
-
       case 'message':
         toast.message({
           text: 'It seems something is wrong...',

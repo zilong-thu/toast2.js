@@ -36,9 +36,9 @@
     </p>
     <p>
       <i class="fa fa-tag" aria-hidden="true"></i> 
-      当前版本：<span class="label label-primary">0.2.5</span>
+      当前版本：<span class="label label-primary">0.2.6</span>
     </p>
-    <p>最近更新于 2016-12-20 00:27:59</p>
+    <p>最近更新于 2016-12-20 11:01:32</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -132,16 +132,6 @@ toast.alert({
 </code></pre><button class="btn btn-primary" name="error">toast.error(&#39;操作失败！&#39;)</button>
 
 
-<h3 id="posterror">postError</h3>
-<pre><code>toast.postError({
-  title: &#39;提示&#39;,
-  text: &#39;server error...&#39;,
-  autoHide: true,
-  duration: 5000
-})
-</code></pre><button class="btn btn-primary" name="postError">toast.postError(&#39;hello&#39;)</button>
-
-
 <h3 id="toast-message-">Toast.message()</h3>
 <p>toast2 的 message 设计理念是尽可能不打断用户的交互流程，因此会以非阻塞的方式出现。目前设计了3类 message：</p>
 <ul>
@@ -233,13 +223,6 @@ toast.alert({
 
       case 'error':
         toast.error('操作失败！');
-        break;
-
-      case 'postError':
-        toast.postError({
-          text: 'hello',
-          autoHide: false
-        });
         break;
 
       case 'message':

@@ -9,9 +9,8 @@
   
   // CSS3 动画的时常，目前默认都是 500ms，那么JS要在 350ms 后执行DOM操作
   var CSS_ANIMATION_DURATION = 510;
-
-  // postError 的 div 是350毫秒内就得删掉的
-  var ERROR_OUT_ANIMATION_DURATION = 350;
+  // message 的 div 是350毫秒内就得删掉的
+  var CSS_FADEOUT_DURATION = 350;
 
   // toast('') 的默认停留时间
   var DURATION_TOAST = 3000;
@@ -129,6 +128,21 @@
   };
 
   /**
+   * 将右侧的message box向右侧滑动出去
+   * @param  {[type]} element [description]
+   * @return {[type]}         [description]
+   */
+  Util.slideRightOut = function(element) {
+    element.style.opacity = '0';
+    element.style.left = '110%';
+
+    setTimeout(function() {
+      element.style.display = 'none';
+      Util.remove(element);
+    }, CSS_ANIMATION_DURATION);
+  };
+
+  /**
    * 将元素缩小同时淡出
    * @param  {[type]} element [description]
    */
@@ -166,7 +180,7 @@
     animation: {
       show: true,
       in: 'slide-top',
-      out: 'slide-right'
+      out: ''
     },
   };
 
@@ -362,19 +376,10 @@
     // var length = $msgStack.childNodes.length;
     var nowItBecomes = $msgStack.childNodes[0];
 
-    function fadeOutMsgBox(element) {
-      var oldTheme = /theme-[\w-]*/.exec(element.className)[0];
-      element.setAttribute('class', 'msg-box a-slide-out-right ' + oldTheme);
-
-      setTimeout(function() {
-        Util.remove(element);
-      }, ERROR_OUT_ANIMATION_DURATION);
-    }
-
     var errorTimeFlag = null;
     if (option.autoHide) {
       errorTimeFlag = setTimeout(function() {
-        fadeOutMsgBox(nowItBecomes);
+        Util.slideRightOut(nowItBecomes);
       }, option.duration);
     }
 
@@ -385,7 +390,7 @@
 
       if (role === 'close') {
         clearTimeout(errorTimeFlag);
-        fadeOutMsgBox(nowItBecomes);
+        Util.slideRightOut(nowItBecomes);
       }
     });
   }

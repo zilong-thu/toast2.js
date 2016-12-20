@@ -137,20 +137,6 @@ toast.error({
 <button class="btn btn-primary" name="error">toast.error('操作失败！')</button>
 
 
-### postError
-
-```
-toast.postError({
-  title: '提示',
-  text: 'server error...',
-  autoHide: true,
-  duration: 5000
-})
-```
-
-<button class="btn btn-primary" name="postError">toast.postError('hello')</button>
-
-
 ### Toast.message()
 
 toast2 的 message 设计理念是尽可能不打断用户的交互流程，因此会以非阻塞的方式出现。目前设计了3类 message：
