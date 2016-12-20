@@ -5,6 +5,7 @@
 
 @import "fix-scrollbars.less";
 @import "font.less";
+@import "animations.less";
 
 
 .toast-container {
@@ -231,7 +232,6 @@
 /* end toast btn */
 
 
-@import "animations.less";
 @import "icons.less";
-@import "media.less";
 @import "message.less";
+@import "media.less";

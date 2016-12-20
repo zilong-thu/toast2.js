@@ -171,10 +171,16 @@ toast.message({
 });
 ```
 
-<button class="btn btn-warning" name="message-without-closebtn">不显示“关闭”按钮</button>
-
-
-<button class="btn btn-danger" name="message-autohide">“关闭”按钮+autoHide</button>
+<div class="container">
+  <div class="row">
+    <p class="col-sm-3">
+      <button class="btn btn-warning" name="message-without-closebtn">不显示“关闭”按钮</button>
+    </p>
+    <p class="col-sm-3">
+      <button class="btn btn-danger" name="message-autohide">“关闭”按钮+autoHide</button>
+    </p>
+  </div>
+</div>  
 
 ### 组合使用
 
