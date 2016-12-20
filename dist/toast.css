@@ -22,6 +22,11 @@
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
 }
 .toast-container,
+.toast-msg-stack {
+  font-size: 14px;
+  line-height: 20px;
+}
+.toast-container,
 .toast-container * {
   box-sizing: border-box;
   word-break: break-all;

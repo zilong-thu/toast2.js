@@ -51,6 +51,16 @@ import toast from 'toast';
 
 ## 示例代码
 
+### toast something
+
+```
+toast('this is a toast.');
+```
+
+任何时刻，toast 最多只能有一个。而且总是会自动消失。可以使用 `toast('this is a toast.')` 也可以 `toast.toast('this is a toast.')`。很明显前一个写法更方便~~
+
+<button class="btn btn-primary" name="toast">toast('this is a toast.')</button>
+
 ### alert
 
 如果要显示一个 alert，可以这样写：
@@ -76,16 +86,6 @@ toast.alert({
 带有 title 的 alert：
 
 <button class="btn btn-primary" name="alert-title">toast.alert('hello')</button>
-
-### toast something
-
-```
-toast('this is a toast.');
-```
-
-任何时刻，toast 最多只能有一个。而且总是会自动消失。
-
-<button class="btn btn-primary" name="toast">toast.toast('hello')</button>
 
 ### confirm 对话框：
 
@@ -144,6 +144,8 @@ toast2 的 message 设计理念是尽可能不打断用户的交互流程，因�
 + message，浅的米黄色，用于普通的消息提示
 + danger，比较醒目的红色，用于表示出错了
 + info，清爽的天蓝色，表示有值得注意的信息出现了
+
+当鼠标悬浮到 message 上方时，会延迟自动关闭。
 
 <div class="container">
   <div class="row">

@@ -382,9 +382,13 @@
     // var length = $msgStack.childNodes.length;
     var nowItBecomes = $msgStack.childNodes[0];
 
-    var errorTimeFlag = null;
+    var msgTimerFlag = null;
+    var msgTimerStamp;
+    var msgTimerLeft = option.duration;
+
     if (option.autoHide) {
-      errorTimeFlag = setTimeout(function() {
+      msgTimerStamp = +new Date();
+      msgTimerFlag = setTimeout(function() {
         Util.slideRightOut(nowItBecomes);
       }, option.duration);
     }
@@ -395,30 +399,38 @@
       e.stopPropagation();
 
       if (role === 'close') {
-        clearTimeout(errorTimeFlag);
-        var errorTimeFlag = null;
+        clearTimeout(msgTimerFlag);
+        var msgTimerFlag = null;
         Util.slideRightOut(nowItBecomes);
       }
     });
 
-    Util.addEventHandler(nowItBecomes, 'mouseenter', function(e) {
-      var target = Util.getEventTarget(e);
+    if (option.autoHide) {
+      Util.addEventHandler(nowItBecomes, 'mouseenter', function(e) {
+        var target = Util.getEventTarget(e);
 
-      if (errorTimeFlag) {
-        clearTimeout(errorTimeFlag);
-        errorTimeFlag = null;
-      }
-    });
+        if (msgTimerFlag) {
+          clearTimeout(msgTimerFlag);
+          msgTimerFlag = null;
+          msgTimerLeft = option.duration - (+new Date() - msgTimerStamp);
 
-    Util.addEventHandler(nowItBecomes, 'mouseleave', function(e) {
-      var target = Util.getEventTarget(e);
+          // 这样做的原因是，不要让message在用户的鼠标离开后立即消失，而是友好地等待1秒
+          if (msgTimerLeft < 1000) {
+            msgTimerLeft = 1000;
+          }
+        }
+      });
 
-      if (option.autoHide) {
-        errorTimeFlag = setTimeout(function() {
-          Util.slideRightOut(nowItBecomes);
-        }, option.duration);
-      }
-    });
+      Util.addEventHandler(nowItBecomes, 'mouseleave', function(e) {
+        var target = Util.getEventTarget(e);
+
+        if (option.autoHide) {
+          msgTimerFlag = setTimeout(function() {
+            Util.slideRightOut(nowItBecomes);
+          }, msgTimerLeft);
+        }
+      });
+    }
   }
 
 

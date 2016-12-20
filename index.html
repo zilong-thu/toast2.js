@@ -36,9 +36,9 @@
     </p>
     <p>
       <i class="fa fa-tag" aria-hidden="true"></i> 
-      当前版本：<span class="label label-primary">0.2.6</span>
+      当前版本：<span class="label label-primary">0.2.7</span>
     </p>
-    <p>最近更新于 2016-12-20 17:29:30</p>
+    <p>最近更新于 2016-12-20 20:01:41</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -69,6 +69,11 @@
 </code></pre><p>然后，还需要引用一下CSS文件，如果使用了诸如 less、sass、stylus或者postcss 等编译工具，可以像这样引用（以less为例）：</p>
 <pre><code>@import &quot;node_modules/toast2/dist/toast.css&quot;;
 </code></pre><h2 id="-">示例代码</h2>
+<h3 id="toast-something">toast something</h3>
+<pre><code>toast(&#39;this is a toast.&#39;);
+</code></pre><p>任何时刻，toast 最多只能有一个。而且总是会自动消失。可以使用 <code>toast(&#39;this is a toast.&#39;)</code> 也可以 <code>toast.toast(&#39;this is a toast.&#39;)</code>。很明显前一个写法更方便~~</p>
+<button class="btn btn-primary" name="toast">toast(&#39;this is a toast.&#39;)</button>
+
 <h3 id="alert">alert</h3>
 <p>如果要显示一个 alert，可以这样写：</p>
 <pre><code>// 方式1:
@@ -88,11 +93,6 @@ toast.alert({
 
 <p>带有 title 的 alert：</p>
 <button class="btn btn-primary" name="alert-title">toast.alert(&#39;hello&#39;)</button>
-
-<h3 id="toast-something">toast something</h3>
-<pre><code>toast(&#39;this is a toast.&#39;);
-</code></pre><p>任何时刻，toast 最多只能有一个。而且总是会自动消失。</p>
-<button class="btn btn-primary" name="toast">toast.toast(&#39;hello&#39;)</button>
 
 <h3 id="confirm-">confirm 对话框：</h3>
 <pre><code>toast.confirm({
@@ -139,6 +139,7 @@ toast.alert({
 <li>danger，比较醒目的红色，用于表示出错了</li>
 <li>info，清爽的天蓝色，表示有值得注意的信息出现了</li>
 </ul>
+<p>当鼠标悬浮到 message 上方时，会延迟自动关闭。</p>
 <div class="container">
   <div class="row">
     <p class="col-sm-3">

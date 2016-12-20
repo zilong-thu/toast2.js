@@ -4,6 +4,8 @@
 @error-color: #d8606c;
 
 @import "fix-scrollbars.less";
+@import "font.less";
+
 
 .toast-container {
   &, * {
