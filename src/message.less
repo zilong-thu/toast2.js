@@ -1,4 +1,5 @@
 @bg-color-msg: #fefeb9;
+@bg-color-msg-hover: #f7f79c;
 @color-msg: #969631;
 @bg-color-danger: #fbb0b9;
 @color-danger: #a72a36;
@@ -36,7 +37,7 @@
   font-weight: normal;
   margin-bottom: 10px;
   box-shadow: 0px 0px 4px rgba(90, 90, 90, 0.25);
-  transition: left 0.35s, opacity 0.35s;
+  transition: left 0.35s, opacity 0.35s, margin-top 0.35s;
 
   .close {
     float: right;
@@ -55,12 +56,12 @@
       text-decoration: none;
       cursor: pointer;
       opacity: 1;
-      background-color: darken(@bg-color-msg, 5%);
+      background-color: @bg-color-msg-hover;
     }
 
     &:active {
       text-shadow: none;
-      background-color: darken(@bg-color-msg, 8%);
+      background-color: darken(@bg-color-msg-hover, 5%);
     }
   }
 

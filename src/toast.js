@@ -7,10 +7,8 @@
 }(this, function () {
   'use strict';
   
-  // CSS3 动画的时常，目前默认都是 500ms，那么JS要在 350ms 后执行DOM操作
+  // CSS3 动画的时常，目前默认都是 500ms，那么JS要在 510ms 后执行DOM操作
   var CSS_ANIMATION_DURATION = 510;
-  // message 的 div 是350毫秒内就得删掉的
-  var CSS_FADEOUT_DURATION = 350;
 
   // toast('') 的默认停留时间
   var DURATION_TOAST = 3000;

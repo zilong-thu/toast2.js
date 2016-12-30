@@ -7,7 +7,7 @@
 }
 
 .a-slide-top {
-  animation: slideTop 0.5s;
+  animation: slideTop2 0.4s;
 }
 /* end 定义动画 */
 
@@ -72,6 +72,22 @@
   100% {
     -ms-transform: -ms-translateX(0);
         transform: translateY(0);
+  }
+}
+
+@keyframes slideTop2 {
+  0% {
+    margin-top: -12px;
+    opacity: 0.5;
+    -ms-transform: -ms-scale(0.9);
+        transform: scale(0.9);
+  }
+
+  100% {
+    margin-top: 0;
+    opacity: 1;
+    -ms-transform: -ms-scale(1);
+        transform: scale(1);
   }
 }
 /* end animations */
