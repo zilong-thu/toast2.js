@@ -40,13 +40,17 @@
     </p>
     <p>最近更新于 {{moment().format('YYYY-MM-DD HH:mm:ss')}}</p>
 
-    {% include "body.html" %}
+    {% include "./body.html" %}
   <div>
 </body>
 </html>
 
 <script type="text/javascript" src="dist/toast.js"></script>
+
 <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+{% include "./ga.html" %}
+
 <script type="text/javascript">
   $('button[name]').click(function(event) {
     switch($(this).attr('name')) {
@@ -140,3 +144,4 @@
     }
   });
 </script>
+
