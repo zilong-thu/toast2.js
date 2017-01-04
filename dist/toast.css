@@ -249,7 +249,7 @@
 }
 .toast-content .body {
   text-align: left;
-  padding: 5px 15px;
+  padding: 5px 15px 15px;
   max-height: 100px;
   overflow: auto;
 }
@@ -259,7 +259,6 @@
 .toast-content .footer {
   position: relative;
   line-height: 42px;
-  margin-top: 15px;
 }
 .toast-content .footer:after {
   content: ' ';
