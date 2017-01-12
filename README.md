@@ -61,6 +61,15 @@ toast('this is a toast.');
 
 <button class="btn btn-primary" name="toast">toast('this is a toast.')</button>
 
+toast 长文本的效果：
+
+```
+toast('this is a toast with long long long long long long long long long text......');
+```
+<button class="btn btn-primary" name="toast-long">toast('...')长文本</button>
+
+
+
 ### alert
 
 如果要显示一个 alert，可以这样写：
