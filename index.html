@@ -38,7 +38,7 @@
       <i class="fa fa-tag" aria-hidden="true"></i> 
       当前版本：<span class="label label-primary">0.2.11</span>
     </p>
-    <p>最近更新于 2017-01-12 17:33:20</p>
+    <p>最近更新于 2017-02-09 12:06:09</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -68,6 +68,8 @@
 <pre><code>import toast from &#39;toast&#39;;
 </code></pre><p>然后，还需要引用一下CSS文件，如果使用了诸如 less、sass、stylus或者postcss 等编译工具，可以像这样引用（以less为例）：</p>
 <pre><code>@import &quot;node_modules/toast2/dist/toast.css&quot;;
+</code></pre><p>在使用了 webpack 工具的开发环境中，也可以在 JS/JSX/ES6 文件里这样直接引用样式：</p>
+<pre><code>import &#39;toast2/dist/toast2.css&#39;;
 </code></pre><h2 id="-">示例代码</h2>
 <h3 id="toast-something">toast something</h3>
 <pre><code>toast(&#39;this is a toast.&#39;);

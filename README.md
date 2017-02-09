@@ -49,6 +49,12 @@ import toast from 'toast';
 @import "node_modules/toast2/dist/toast.css";
 ```
 
+在使用了 webpack 工具的开发环境中，也可以在 JS/JSX/ES6 文件里这样直接引用样式：
+
+```
+import 'toast2/dist/toast2.css';
+```
+
 ## 示例代码
 
 ### toast something
