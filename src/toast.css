@@ -68,8 +68,8 @@
 
 .toast-content .body {
   text-align: left;
-  padding: 15px;
-  max-height: 100px;
+  padding: 10px 15px;
+  max-height: 130px;
   overflow: auto;
 }
 

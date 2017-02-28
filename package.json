@@ -1,6 +1,6 @@
 {
   "name": "toast2",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "A toast tool written in JavaScript and CSS with very little 3rd party dependencies.",
   "main": "src/toast.js",
   "scripts": {
