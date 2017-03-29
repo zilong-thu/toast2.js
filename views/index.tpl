@@ -76,6 +76,8 @@
         toast.confirm({
           title: '提示',
           text: '请问你真的要退出吗？',
+          sureBtnText: '确定修改',
+          cancelBtnText: '取消修改',
           onConfirm: function() {
             console.log('你点击了“确定”按钮');
           },
