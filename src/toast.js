@@ -179,6 +179,8 @@
     // UI config
     showCloseBtn: true,
     closeBtnText: '关闭',
+    sureBtnText: '确定',
+    cancelBtnText: '取消',
 
     // animation config
     // TODO
@@ -189,14 +191,12 @@
     },
   };
 
-
-
   // 模板1，长方形，没有icon，目的是显示大段文本，带有遮罩层、一个“确定”按钮。alert 所用
   var templateHTML_alert = '<div class="toast-mask"></div>' +
     '<div class="toast-content toast-msg">' +
       '<div class="toast-header">{{title}}</div>' +
       '<div class="body">{{text}}</div>' +
-      '<div class="footer"><a data-role="close" href="javascript: void(0);">确定</a></div>' +
+      '<div class="footer"><a data-role="close" href="javascript: void(0);">{{sureBtnText}}</a></div>' +
     '</div>';
 
   // 模板2，长方形，没有icon，目的是显示大段文本以进行确认，带有遮罩层、两个按钮。confirm 所用
@@ -205,8 +205,8 @@
       '<div class="toast-header">{{title}}</div>' +
       '<div class="body">{{text}}</div>' +
       '<div class="footer">' +
-        '<a data-role="cancel" href="javascript: void(0);">取消</a>' +
-        '<a data-role="confirm" href="javascript: void(0);">确定</a>' +
+        '<a data-role="cancel" href="javascript: void(0);">{{cancelBtnText}}</a>' +
+        '<a data-role="confirm" href="javascript: void(0);">{{sureBtnText}}</a>' +
       '</div>' +
     '</div>';
 
