@@ -63,7 +63,9 @@ import 'toast2/dist/toast2.css';
 toast('this is a toast.');
 ```
 
-任何时刻，toast 最多只能有一个。而且总是会自动消失。可以使用 `toast('this is a toast.')` 也可以 `toast.toast('this is a toast.')`。很明显前一个写法更方便~~
+任何时刻，toast 最多只能有一个。而且总是会自动消失。toast('') 的默认停留时间是3秒。
+
+TODO：根据其中文本的数量计算默认的显示时间，不过需要处理的情形是：toast里面为 HTML 字符串时，该如何处理。
 
 <button class="btn btn-primary" name="toast">toast('this is a toast.')</button>
 

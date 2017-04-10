@@ -1,0 +1,9 @@
+html,
+body {
+  font-size: 14px;
+}
+header .jumbotron {
+  text-align: center;
+  color: #fff;
+  background-color: #337ab7;
+}

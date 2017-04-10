@@ -10,7 +10,7 @@
   // CSS3 动画的时常，目前默认都是 500ms，那么JS要在 510ms 后执行DOM操作
   var CSS_ANIMATION_DURATION = 510;
 
-  // toast('') 的默认停留时间
+  // toast() 的默认停留时间
   var DURATION_TOAST = 3000;
 
   var toastTimerId = null;

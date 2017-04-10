@@ -7,17 +7,7 @@
   <link rel="stylesheet" type="text/css" href="dist/toast.css">
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<style type="text/css">
-  html, body {
-    font-size: 14px;
-  }
-
-  header .jumbotron {
-    text-align: center;
-    color: #fff;
-    background-color: #337ab7;
-  }
-</style>
+  <link rel="stylesheet" type="text/css" href="./index.css">
 </head>
 <body>
   <header>

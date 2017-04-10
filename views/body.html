@@ -31,7 +31,8 @@
 </code></pre><h2 id="-">示例代码</h2>
 <h3 id="toast-something">toast something</h3>
 <pre><code>toast(&#39;this is a toast.&#39;);
-</code></pre><p>任何时刻，toast 最多只能有一个。而且总是会自动消失。可以使用 <code>toast(&#39;this is a toast.&#39;)</code> 也可以 <code>toast.toast(&#39;this is a toast.&#39;)</code>。很明显前一个写法更方便~~</p>
+</code></pre><p>任何时刻，toast 最多只能有一个。而且总是会自动消失。toast(&#39;&#39;) 的默认停留时间是3秒。</p>
+<p>TODO：根据其中文本的数量计算默认的显示时间，不过需要处理的情形是：toast里面为 HTML 字符串时，该如何处理。</p>
 <button class="btn btn-primary" name="toast">toast(&#39;this is a toast.&#39;)</button>
 
 <p>toast 长文本的效果：</p>

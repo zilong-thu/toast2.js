@@ -5,7 +5,8 @@
   "main": "src/toast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js && gulp css",
+    "dev": "NODE_ENV=development gulp build",
+    "build": "gulp build",
     "deploy-master": "git checkout master && git add --all && git commit -m 'source files update' && git push github master",
     "deploy-pages": "git checkout master && git branch -D gh-pages && git checkout -b gh-pages && git push github gh-pages -f && git checkout master",
     "deploy": "npm run build && npm run deploy-master && npm run deploy-pages"
