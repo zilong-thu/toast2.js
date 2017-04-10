@@ -45,12 +45,12 @@
   $('button[name]').click(function(event) {
     switch($(this).attr('name')) {
       case 'alert':
-        toast.alert('hello');
+        toast.alert('Hello World.');
         break;
       case 'alert-title':
         toast.alert({
           title: '提示',
-          text: 'This is an alert with title.'
+          text: '这是一个带有标题的警告框。'
         });
       break;
 
@@ -66,16 +66,30 @@
         toast.confirm({
           title: '提示',
           text: '请问你真的要退出吗？',
-          sureBtnText: '确定修改',
-          cancelBtnText: '取消修改',
           onConfirm: function() {
             console.log('你点击了“确定”按钮');
           },
           onCancel: function() {
             console.log('你点击了“取消”按钮');
           }
-        })
+        });
         break;
+
+      case 'confirm-btn-text': {
+        toast.confirm({
+          title: '提示',
+          text: '确定要进行修改吗？修改后，新的价格方案会立即生效。',
+          sureBtnText: '确定修改',
+          cancelBtnText: '取消',
+          onConfirm: function() {
+            console.log('你点击了“确定”按钮');
+          },
+          onCancel: function() {
+            console.log('你点击了“取消”按钮');
+          }
+        });
+        break;
+      }
 
       case 'success':
         toast.success('hello');

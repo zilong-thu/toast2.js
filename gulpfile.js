@@ -38,10 +38,15 @@ gulp.task('build-js', function() {
 
 gulp.task('build', ['build-js', 'build-css', 'build-page-css'], function() {
   // 做一些事
+  console.log('资源已重新打包');
 });
 
+
+/**
+ * 开发中监控文件变动
+ */
 if (process.env.NODE_ENV === 'development') {
-  const files = ['./src/*.*', './README.md', './package.json'];
-  console.log('gulp is watch files: ', files);
-  gulp.watch(files, ['build-css', 'build-js']);
+  const files = ['./src/*.*', './views/index.less', './views/index.tpl', './README.md', './package.json'];
+  console.log('gulp is watching files: ', files);
+  gulp.watch(files, ['build']);
 }

@@ -28,7 +28,7 @@
       <i class="fa fa-tag" aria-hidden="true"></i> 
       当前版本：<span class="label label-primary">0.2.13</span>
     </p>
-    <p>最近更新于 2017-04-10 11:29:08</p>
+    <p>最近更新于 2017-04-10 14:48:43</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -61,7 +61,7 @@
 </code></pre><p>在使用了 webpack 工具的开发环境中，也可以在 JS/JSX/ES6 文件里这样直接引用样式：</p>
 <pre><code>import &#39;toast2/dist/toast2.css&#39;;
 </code></pre><h2 id="-">示例代码</h2>
-<h3 id="toast-something">toast something</h3>
+<h3 id="-toast">最简单的 toast</h3>
 <pre><code>toast(&#39;this is a toast.&#39;);
 </code></pre><p>任何时刻，toast 最多只能有一个。而且总是会自动消失。toast(&#39;&#39;) 的默认停留时间是3秒。</p>
 <p>TODO：根据其中文本的数量计算默认的显示时间，不过需要处理的情形是：toast里面为 HTML 字符串时，该如何处理。</p>
@@ -88,12 +88,14 @@ toast.alert({
     ...
   }
 });
-</code></pre><button class="btn btn-primary" name="alert">toast.alert(&#39;hello&#39;)</button>
+</code></pre><button class="btn btn-primary" name="alert">toast.alert(&#39;&#39;)</button>
 
 <p>带有 title 的 alert：</p>
-<button class="btn btn-primary" name="alert-title">toast.alert(&#39;hello&#39;)</button>
+<button class="btn btn-primary" name="alert-title">toast.alert(&#39;&#39;)</button>
 
 <h3 id="confirm-">confirm 对话框：</h3>
+<button class="btn btn-primary" name="confirm">toast.confirm(&#39;&#39;)</button>
+
 <pre><code>toast.confirm({
   title: &#39;提示&#39;,  // title 是可选的
   text: &#39;请问你真的要退出吗？&#39;,
@@ -106,10 +108,20 @@ toast.alert({
     ...
   }
 })
-</code></pre><button class="btn btn-primary" name="confirm">toast.confirm(&#39;hello&#39;)</button>
+</code></pre><p>此外，<code>toast.confirm()</code> 方法可以修改确定和取消按钮的文本，分别通过 <code>sureBtnText</code>、<code>cancelBtnText</code> 来设置，例如：</p>
+<button class="btn btn-primary" name="confirm-btn-text">toast.confirm(&#39;&#39;)</button>
 
+<pre><code>toast.confirm({
+  title: &#39;提示&#39;,
+  text: &#39;确定要进行修改吗？修改后，新的价格方案会立即生效。&#39;,
+  sureBtnText: &#39;确定修改&#39;,
+  cancelBtnText: &#39;取消&#39;,
+  onConfirm: function() {},
+  onCancel: function() {}
+});
+</code></pre><h3 id="success-">success 提示</h3>
+<button class="btn btn-primary" name="success">toast.success(&#39;&#39;)</button>
 
-<h3 id="success-">success 提示</h3>
 <pre><code>toast.success({
   text: &#39;操作成功！&#39;,
   onClose: function() {
@@ -117,10 +129,9 @@ toast.alert({
     ...
   }
 })
-</code></pre><button class="btn btn-primary" name="success">toast.success(&#39;hello&#39;)</button>
+</code></pre><h3 id="error-">error 提示</h3>
+<button class="btn btn-primary" name="error">toast.error(&#39;&#39;)</button>
 
-
-<h3 id="error-">error 提示</h3>
 <pre><code>toast.error({
   text: &#39;操作失败！&#39;,
   onClose: function() {
@@ -128,10 +139,7 @@ toast.alert({
     ...
   }
 })
-</code></pre><button class="btn btn-primary" name="error">toast.error(&#39;操作失败！&#39;)</button>
-
-
-<h3 id="toast-message-">Toast.message()</h3>
+</code></pre><h3 id="toast-message-">Toast.message()</h3>
 <p>toast2 的 message 设计理念是尽可能不打断用户的交互流程，因此会以非阻塞的方式出现。目前设计了3类 message：</p>
 <ul>
 <li>message，浅的米黄色，用于普通的消息提示</li>
@@ -142,13 +150,13 @@ toast.alert({
 <div class="container">
   <div class="row">
     <p class="col-sm-3">
-      <button class="btn btn-warning" name="message">toast.message(&#39;hello&#39;)</button>
+      <button class="btn btn-warning" name="message">toast.message(&#39;&#39;)</button>
     </p>
     <p class="col-sm-3">
-      <button class="btn btn-danger" name="message-danger">toast.danger(&#39;hello&#39;)</button>
+      <button class="btn btn-danger" name="message-danger">toast.danger(&#39;&#39;)</button>
     </p>
     <p class="col-sm-3">
-      <button class="btn btn-info" name="message-info">toast.info(&#39;hello&#39;)</button>
+      <button class="btn btn-info" name="message-info">toast.info(&#39;&#39;)</button>
     </p>
   </div>
 </div>
@@ -178,7 +186,7 @@ toast.alert({
     toast(&#39;谢谢！&#39;);
   }
 });
-</code></pre><button class="btn btn-primary" name="confirm-and-toast">组合使用示例: confirm + toast</button>
+</code></pre><button class="btn btn-primary" name="confirm-and-toast">confirm + toast</button>
 
 
 
@@ -253,12 +261,12 @@ N.N=function(){"ga"!=gb&&J(49);var a=O[gb];if(!a||42!=a.answer){N.L=a&&a.l;N.loa
   $('button[name]').click(function(event) {
     switch($(this).attr('name')) {
       case 'alert':
-        toast.alert('hello');
+        toast.alert('Hello World.');
         break;
       case 'alert-title':
         toast.alert({
           title: '提示',
-          text: 'This is an alert with title.'
+          text: '这是一个带有标题的警告框。'
         });
       break;
 
@@ -274,16 +282,30 @@ N.N=function(){"ga"!=gb&&J(49);var a=O[gb];if(!a||42!=a.answer){N.L=a&&a.l;N.loa
         toast.confirm({
           title: '提示',
           text: '请问你真的要退出吗？',
-          sureBtnText: '确定修改',
-          cancelBtnText: '取消修改',
           onConfirm: function() {
             console.log('你点击了“确定”按钮');
           },
           onCancel: function() {
             console.log('你点击了“取消”按钮');
           }
-        })
+        });
         break;
+
+      case 'confirm-btn-text': {
+        toast.confirm({
+          title: '提示',
+          text: '确定要进行修改吗？修改后，新的价格方案会立即生效。',
+          sureBtnText: '确定修改',
+          cancelBtnText: '取消',
+          onConfirm: function() {
+            console.log('你点击了“确定”按钮');
+          },
+          onCancel: function() {
+            console.log('你点击了“取消”按钮');
+          }
+        });
+        break;
+      }
 
       case 'success':
         toast.success('hello');

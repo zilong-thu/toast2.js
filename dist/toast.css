@@ -202,9 +202,6 @@
   box-sizing: border-box;
   word-break: break-all;
 }
-.padding-box {
-  padding: 10px;
-}
 .toast-container .toast-mask {
   display: block;
   position: fixed;
@@ -228,7 +225,7 @@
   z-index: 2000;
 }
 .toast-container .toast-content.toast {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.82);
   padding: 0;
   color: #fff;
   width: 240px;
@@ -247,14 +244,17 @@
   font-weight: bold;
   padding: 10px;
 }
+.toast-content .toast-body,
 .toast-content .body {
-  text-align: left;
-  padding: 10px 15px;
+  text-align: center;
   max-height: 130px;
   overflow: auto;
 }
-.toast-content.toast .body {
-  text-align: center;
+.toast-content .body {
+  padding: 5px 15px 18px;
+}
+.toast-content .toast-body {
+  padding: 10px 18px;
 }
 .toast-content .footer {
   position: relative;
@@ -274,6 +274,9 @@
   -webkit-transform: scaleY(0.5);
       -ms-transform: scaleY(0.5);
           transform: scaleY(0.5);
+}
+.toast-content.toast .body {
+  text-align: center;
 }
 .toast-content .footer a {
   color: #DD403B;
@@ -338,14 +341,16 @@
 .toast-content.toast-success .footer:after {
   border-top: none;
 }
-.toast-success .success-icon {
+.toast-msg .success-icon {
   text-align: center;
   padding: 25px 0;
-  background: #3ec59d;
-  color: #fff;
-  height: 170px;
+  height: 100px;
 }
-.toast-success .body {
+.toast-msg .success-icon i {
+  background: #1fb922;
+  color: #fff;
+}
+.toast-msg .body {
   height: 60px;
   padding-top: 15px;
   text-align: center;
@@ -354,41 +359,12 @@
   font-size: 1.2em;
   line-height: 30px;
 }
-.toast-success .ticon-check-circle,
-.toast-success .ticon-cross-circle,
-.toast-success .ticon-frown-circle {
+.toast-msg .ticon-check-circle,
+.toast-msg .ticon-cross-circle,
+.toast-msg .ticon-frown-circle {
   font-size: 80px;
 }
 /* end success styles */
-/* toast btn */
-.toast-btn {
-  display: block;
-  margin: 0 auto;
-  padding: 10px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-.toast-btn-success {
-  background: #3ec59d;
-  color: #fff;
-}
-.toast-btn-success:hover {
-  background: #3abd96;
-}
-.toast-btn-success:active {
-  background: #30ab83;
-}
-.toast-btn-error {
-  background: #d8606c;
-  color: #fff;
-}
-.toast-btn-error:hover {
-  background: #ca5762;
-}
-.toast-btn-error:active {
-  background: #bb4d58;
-}
-/* end toast btn */
 /* icons */
 [class^="ticon-"] {
   display: inline-block;

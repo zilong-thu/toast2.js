@@ -212,7 +212,7 @@
 
   // 模板3，小长方形，没有icon，目的是显示小段文本，无遮罩层，无按钮，全局永远只有一个，会自动消失。toast 所用
   var templateHTML_toast = '<div class="toast-content toast">' +
-      '<div class="body">{{text}}</div>' +
+      '<div class="toast-body">{{text}}</div>' +
     '</div>';
 
   // 模板4，中等尺寸的长方形。所有的 msg-box 在屏幕的右侧形成一个 error stack.
@@ -234,24 +234,24 @@
 
   // 模板5，大正方形，有icon，目的是提示操作成功，并且有小段文本展示，带有遮罩层、一个“确定”按钮。 success 所用
   var templateHTML_success = '<div class="toast-mask"></div>' +
-    '<div class="toast-content toast-success">' +
+    '<div class="toast-content toast-msg">' +
       '<div class="success-icon">' +
         '<i class="ticon-check-circle"></i>' +
-        '<div class="padding-box">SUCCESS</div>' +
       '</div>' +
+      '<div class="toast-header">{{title}}</div>' +
       '<div class="body">{{text}}</div>' +
-      '<div class="footer"><buton class="toast-btn toast-btn-success" data-role="close">好的</button></div>' +
+      '<div class="footer"><a data-role="close" href="javascript: void(0);">{{sureBtnText}}</a></div>' +
     '</div>';
 
   // 模板6，大正方形，有icon，目的是提示操作失败，并且有小段文本展示，带有遮罩层、一个“确定”按钮。 error 所用
   var templateHTML_error = '<div class="toast-mask"></div>' +
-    '<div class="toast-content toast-success error">' +
+    '<div class="toast-content toast-msg error">' +
       '<div class="success-icon">' +
         '<i class="ticon-frown-circle"></i>' +
-        '<div class="padding-box">ERROR</div>' +
       '</div>' +
+      '<div class="toast-header">{{title}}</div>' +
       '<div class="body">{{text}}</div>' +
-      '<div class="footer"><buton class="toast-btn toast-btn-error" data-role="close">好的</button></div>' +
+      '<div class="footer"><a data-role="close" href="javascript: void(0);">{{sureBtnText}}</a></div>' +
     '</div>';
 
 
@@ -479,6 +479,7 @@
     var userOption = Util.normalizeUserOption(option, onClose);
 
     var presetOption = {
+      title: 'SUCCESS',
       text: '',
       autoHide: false,
       theme: 'success'
@@ -491,6 +492,7 @@
     var userOption = Util.normalizeUserOption(option, onClose);
 
     var presetOption = {
+      title: 'ERROR',
       text: '',
       autoHide: false,
       theme: 'error'

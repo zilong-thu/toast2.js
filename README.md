@@ -57,7 +57,7 @@ import 'toast2/dist/toast2.css';
 
 ## 示例代码
 
-### toast something
+### 最简单的 toast
 
 ```
 toast('this is a toast.');
@@ -98,13 +98,15 @@ toast.alert({
 });
 ```
 
-<button class="btn btn-primary" name="alert">toast.alert('hello')</button>
+<button class="btn btn-primary" name="alert">toast.alert('')</button>
 
 带有 title 的 alert：
 
-<button class="btn btn-primary" name="alert-title">toast.alert('hello')</button>
+<button class="btn btn-primary" name="alert-title">toast.alert('')</button>
 
 ### confirm 对话框：
+
+<button class="btn btn-primary" name="confirm">toast.confirm('')</button>
 
 ```
 toast.confirm({
@@ -121,10 +123,26 @@ toast.confirm({
 })
 ```
 
-<button class="btn btn-primary" name="confirm">toast.confirm('hello')</button>
+
+此外，`toast.confirm()` 方法可以修改确定和取消按钮的文本，分别通过 `sureBtnText`、`cancelBtnText` 来设置，例如：
+
+<button class="btn btn-primary" name="confirm-btn-text">toast.confirm('')</button>
+
+```
+toast.confirm({
+  title: '提示',
+  text: '确定要进行修改吗？修改后，新的价格方案会立即生效。',
+  sureBtnText: '确定修改',
+  cancelBtnText: '取消',
+  onConfirm: function() {},
+  onCancel: function() {}
+});
+```
 
 
 ### success 提示
+
+<button class="btn btn-primary" name="success">toast.success('')</button>
 
 ```
 toast.success({
@@ -136,10 +154,10 @@ toast.success({
 })
 ```
 
-<button class="btn btn-primary" name="success">toast.success('hello')</button>
-
 
 ### error 提示
+
+<button class="btn btn-primary" name="error">toast.error('')</button>
 
 ```
 toast.error({
@@ -150,9 +168,6 @@ toast.error({
   }
 })
 ```
-
-<button class="btn btn-primary" name="error">toast.error('操作失败！')</button>
-
 
 ### Toast.message()
 
@@ -167,13 +182,13 @@ toast2 的 message 设计理念是尽可能不打断用户的交互流程，因�
 <div class="container">
   <div class="row">
     <p class="col-sm-3">
-      <button class="btn btn-warning" name="message">toast.message('hello')</button>
+      <button class="btn btn-warning" name="message">toast.message('')</button>
     </p>
     <p class="col-sm-3">
-      <button class="btn btn-danger" name="message-danger">toast.danger('hello')</button>
+      <button class="btn btn-danger" name="message-danger">toast.danger('')</button>
     </p>
     <p class="col-sm-3">
-      <button class="btn btn-info" name="message-info">toast.info('hello')</button>
+      <button class="btn btn-info" name="message-info">toast.info('')</button>
     </p>
   </div>
 </div>
@@ -212,7 +227,7 @@ toast.confirm({
 });
 ```
 
-<button class="btn btn-primary" name="confirm-and-toast">组合使用示例: confirm + toast</button>
+<button class="btn btn-primary" name="confirm-and-toast">confirm + toast</button>
 
 
 
