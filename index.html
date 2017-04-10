@@ -28,7 +28,7 @@
       <i class="fa fa-tag" aria-hidden="true"></i> 
       当前版本：<span class="label label-primary">1.0.0</span>
     </p>
-    <p>最近更新于 2017-04-10 20:24:15</p>
+    <p>最近更新于 2017-04-10 20:33:38</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -70,6 +70,11 @@
 <p>toast 长文本的效果：</p>
 <pre><code>toast(&#39;this is a toast with long long long long long long long long long text......&#39;);
 </code></pre><button class="btn btn-primary" name="toast-long">toast(&#39;...&#39;)长文本</button>
+
+
+<p>提示成功，会显示一个正方形的、可以显示简短文本的也会自动消失的 toast。</p>
+<pre><code>toast.success(&#39;操作成功！&#39;);
+</code></pre><button class="btn btn-primary" name="toast-success">toast(&#39;操作成功！&#39;)</button>
 
 
 
@@ -289,6 +294,10 @@ N.N=function(){"ga"!=gb&&J(49);var a=O[gb];if(!a||42!=a.answer){N.L=a&&a.l;N.loa
 
       case 'toast-long':
         toast('this is a toast with long long long long long long long long long text......');
+        break;
+
+      case 'toast-success':
+        toast.success('操作成功！');
         break;
 
       case 'confirm':

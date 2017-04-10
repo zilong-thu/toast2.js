@@ -62,6 +62,10 @@
         toast('this is a toast with long long long long long long long long long text......');
         break;
 
+      case 'toast-success':
+        toast.success('操作成功！');
+        break;
+
       case 'confirm':
         toast.confirm({
           title: '提示',

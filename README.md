@@ -77,6 +77,15 @@ toast('this is a toast with long long long long long long long long long text...
 <button class="btn btn-primary" name="toast-long">toast('...')长文本</button>
 
 
+提示成功，会显示一个正方形的、可以显示简短文本的也会自动消失的 toast。
+
+```
+toast.success('操作成功！');
+```
+
+<button class="btn btn-primary" name="toast-success">toast('操作成功！')</button>
+
+
 
 ### 警告框 alert
 
