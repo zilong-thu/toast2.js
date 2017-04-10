@@ -92,9 +92,10 @@
       }
 
       case 'success':
-        toast.success({
+        toast.alert({
           title: '操作成功！',
           text: '您可以在“我的”页面看到刚才的订单。',
+          type: 'success',
           onClose: function() {
             console.log('success dialog is closed.');
           }
@@ -102,7 +103,13 @@
         break;
 
       case 'error':
-        toast.error('操作失败！');
+        toast.alert({
+          title: '操作失败！',
+          type: 'error',
+          onClose: function() {
+            console.log('error dialog is closed.');
+          }
+        });
         break;
 
       case 'message':

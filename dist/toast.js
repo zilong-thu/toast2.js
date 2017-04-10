@@ -159,7 +159,7 @@
   var GLOBAL_MESSAGE_STACK_ID = 'global-message-stack-container';
 
   var defaultOption = {
-    // 对于 toast, postError, duration 规定了在多长时间（毫秒）后将其关闭
+    // 对于 toast, duration 规定了在多长时间（毫秒）后将其关闭
     duration: 3000,
 
     // 只有 toast.alert 或者 toast.confirm 有标题
@@ -191,13 +191,38 @@
     },
   };
 
-  // 模板1，长方形，没有icon，目的是显示大段文本，带有遮罩层、一个“确定”按钮。alert 所用
-  var templateHTML_alert = '<div class="toast-mask"></div>' +
-    '<div class="toast-content toast-msg">' +
-      '<div class="toast-header">{{title}}</div>' +
-      '<div class="body">{{text}}</div>' +
-      '<div class="footer"><a data-role="close" href="javascript: void(0);">{{sureBtnText}}</a></div>' +
+  var htmlSuccessPart = '' +
+    '<div class="success-icon">' +
+      '<i class="ticon-check-circle"></i>' +
     '</div>';
+
+  var htmlErrorPart = '' +
+    '<div class="success-icon">' +
+      '<i class="ticon-frown-circle"></i>' +
+    '</div>';
+
+
+  // 模板1，长方形，没有icon，目的是显示大段文本，带有遮罩层、一个“确定”按钮。alert 所用
+  function template_alert_generator(option) {
+    var icon = '';
+    var alertTypeClassName = option.type || '';
+
+    if (option.type === 'success') {
+      icon = htmlSuccessPart;
+    } else if (option.type === 'error') {
+      icon = htmlErrorPart;      
+    }
+
+    var templateHTML_alert = '<div class="toast-mask"></div>' +
+      '<div class="toast-content toast-msg ' + alertTypeClassName + '">' +
+        icon +
+        '<div class="toast-header">{{title}}</div>' +
+        '<div class="body">{{text}}</div>' +
+        '<div class="footer"><a data-role="close" href="javascript: void(0);">{{sureBtnText}}</a></div>' +
+      '</div>';
+
+    return templateHTML_alert;
+  }
 
   // 模板2，长方形，没有icon，目的是显示大段文本以进行确认，带有遮罩层、两个按钮。confirm 所用
   var templateHTML_confirm = '<div class="toast-mask"></div>' +
@@ -231,29 +256,6 @@
       '</div>';
     return template_msg_box;
   }
-
-  // 模板5，大正方形，有icon，目的是提示操作成功，并且有小段文本展示，带有遮罩层、一个“确定”按钮。 success 所用
-  var templateHTML_success = '<div class="toast-mask"></div>' +
-    '<div class="toast-content toast-msg toast-success">' +
-      '<div class="success-icon">' +
-        '<i class="ticon-check-circle"></i>' +
-      '</div>' +
-      '<div class="toast-header">{{title}}</div>' +
-      '<div class="body">{{text}}</div>' +
-      '<div class="footer"><a data-role="close" href="javascript: void(0);">{{sureBtnText}}</a></div>' +
-    '</div>';
-
-  // 模板6，大正方形，有icon，目的是提示操作失败，并且有小段文本展示，带有遮罩层、一个“确定”按钮。 error 所用
-  var templateHTML_error = '<div class="toast-mask"></div>' +
-    '<div class="toast-content toast-msg error">' +
-      '<div class="success-icon">' +
-        '<i class="ticon-frown-circle"></i>' +
-      '</div>' +
-      '<div class="toast-header">{{title}}</div>' +
-      '<div class="body">{{text}}</div>' +
-      '<div class="footer"><a data-role="close" href="javascript: void(0);">{{sureBtnText}}</a></div>' +
-    '</div>';
-
 
   // 一个非常简易的模板引擎
   function compileTemplate(tpl, data) {
@@ -304,10 +306,10 @@
 
     var TemplateEnum = {
       toast: templateHTML_toast,
-      alert: templateHTML_alert,
+      alert: template_alert_generator(option),
       confirm: templateHTML_confirm,
-      success: templateHTML_success,
-      error: templateHTML_error
+      success: template_alert_generator(Util.mergeOjbects(option, {type: 'success'})),
+      error: template_alert_generator(Util.mergeOjbects(option, {type: 'error'}))
     };
 
     var compiled = compileTemplate(TemplateEnum[templateType], option);
@@ -475,6 +477,7 @@
     addContentToToastDiv(presetOption, userOption, 'confirm');
   };
 
+  // TODO
   Toast.success = function(option, onClose) {
     var userOption = Util.normalizeUserOption(option, onClose);
 
@@ -487,6 +490,7 @@
     addContentToToastDiv(presetOption, userOption, 'success');
   }
 
+  // TODO
   Toast.error = function(option, onClose) {
     var userOption = Util.normalizeUserOption(option, onClose);
 
@@ -497,18 +501,6 @@
     };
 
     addContentToToastDiv(presetOption, userOption, 'error');
-  }
-
-  Toast.postError = function(errMsg) {
-    var userOption = Util.normalizeUserOption(errMsg);
-
-    var presetOption = {
-      text: '',
-      autoHide: false,
-      duration: 7000
-    };
-
-    addMessage(presetOption, userOption);
   }
 
   function toastMessage(option, type) {

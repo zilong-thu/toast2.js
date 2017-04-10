@@ -41,8 +41,14 @@
 
 
 
-<h3 id="alert">alert</h3>
-<p>如果要显示一个 alert，可以这样写：</p>
+<h3 id="-alert">警告框 alert</h3>
+<p>alert 弹窗会打断用户的体验流，因此应该只在真的有必要的时候使用。toast2.js 提供的 alert 有三类：</p>
+<ul>
+<li>普通的警告</li>
+<li>成功提示</li>
+<li>错误、失败提示</li>
+</ul>
+<p>普通的 alert 可以这样写：</p>
 <pre><code>// 方式1:
 toast.alert(&#39;This is an alert.&#39;, () =&gt; {
   // do something after closing
@@ -61,7 +67,31 @@ toast.alert({
 <p>带有 title 的 alert：</p>
 <button class="btn btn-primary" name="alert-title">toast.alert(&#39;&#39;)</button>
 
-<h3 id="confirm-">confirm 对话框：</h3>
+
+<p>成功提示：</p>
+<button class="btn btn-primary" name="success">success</button>
+
+<pre><code>toast.alert({
+  title: &#39;操作成功！&#39;,
+  type: &#39;success&#39;,
+  text: &#39;您可以在“我的”页面看到刚才的订单。&#39;,
+  onClose: function() {
+    // 点击“确定”后的回调函数
+    ...
+  }
+})
+</code></pre><p>错误或者失败提示：</p>
+<button class="btn btn-primary" name="error">error</button>
+
+<pre><code>toast.alert({
+  text: &#39;操作失败！&#39;,
+  type: &#39;error&#39;,
+  onClose: function() {
+    // 点击“确定”后的回调函数
+    ...
+  }
+})
+</code></pre><h3 id="confirm-">confirm 对话框：</h3>
 <button class="btn btn-primary" name="confirm">toast.confirm(&#39;&#39;)</button>
 
 <pre><code>toast.confirm({
@@ -87,27 +117,6 @@ toast.alert({
   onConfirm: function() {},
   onCancel: function() {}
 });
-</code></pre><h3 id="success-">success 提示</h3>
-<button class="btn btn-primary" name="success">toast.success(&#39;&#39;)</button>
-
-<pre><code>toast.success({
-  title: &#39;操作成功！&#39;,
-  text: &#39;您可以在“我的”页面看到刚才的订单。&#39;,
-  onClose: function() {
-    // 点击“确定”后的回调函数
-    ...
-  }
-})
-</code></pre><h3 id="error-">error 提示</h3>
-<button class="btn btn-primary" name="error">toast.error(&#39;&#39;)</button>
-
-<pre><code>toast.error({
-  text: &#39;操作失败！&#39;,
-  onClose: function() {
-    // 点击“确定”后的回调函数
-    ...
-  }
-})
 </code></pre><h3 id="toast-message-">Toast.message()</h3>
 <p>toast2 的 message 设计理念是尽可能不打断用户的交互流程，因此会以非阻塞的方式出现。目前设计了3类 message：</p>
 <ul>

@@ -78,9 +78,15 @@ toast('this is a toast with long long long long long long long long long text...
 
 
 
-### alert
+### 警告框 alert
 
-如果要显示一个 alert，可以这样写：
+alert 弹窗会打断用户的体验流，因此应该只在真的有必要的时候使用。toast2.js 提供的 alert 有三类：
+
++ 普通的警告
++ 成功提示
++ 错误、失败提示
+
+普通的 alert 可以这样写：
 
 ```
 // 方式1:
@@ -103,6 +109,38 @@ toast.alert({
 带有 title 的 alert：
 
 <button class="btn btn-primary" name="alert-title">toast.alert('')</button>
+
+
+成功提示：
+
+<button class="btn btn-primary" name="success">success</button>
+
+```
+toast.alert({
+  title: '操作成功！',
+  type: 'success',
+  text: '您可以在“我的”页面看到刚才的订单。',
+  onClose: function() {
+    // 点击“确定”后的回调函数
+    ...
+  }
+})
+```
+
+错误或者失败提示：
+
+<button class="btn btn-primary" name="error">error</button>
+
+```
+toast.alert({
+  text: '操作失败！',
+  type: 'error',
+  onClose: function() {
+    // 点击“确定”后的回调函数
+    ...
+  }
+})
+```
 
 ### confirm 对话框：
 
@@ -139,36 +177,6 @@ toast.confirm({
 });
 ```
 
-
-### success 提示
-
-<button class="btn btn-primary" name="success">toast.success('')</button>
-
-```
-toast.success({
-  title: '操作成功！',
-  text: '您可以在“我的”页面看到刚才的订单。',
-  onClose: function() {
-    // 点击“确定”后的回调函数
-    ...
-  }
-})
-```
-
-
-### error 提示
-
-<button class="btn btn-primary" name="error">toast.error('')</button>
-
-```
-toast.error({
-  text: '操作失败！',
-  onClose: function() {
-    // 点击“确定”后的回调函数
-    ...
-  }
-})
-```
 
 ### Toast.message()
 
