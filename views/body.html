@@ -91,7 +91,8 @@ toast.alert({
 <button class="btn btn-primary" name="success">toast.success(&#39;&#39;)</button>
 
 <pre><code>toast.success({
-  text: &#39;操作成功！&#39;,
+  title: &#39;操作成功！&#39;,
+  text: &#39;您可以在“我的”页面看到刚才的订单。&#39;,
   onClose: function() {
     // 点击“确定”后的回调函数
     ...
@@ -125,6 +126,9 @@ toast.alert({
     </p>
     <p class="col-sm-3">
       <button class="btn btn-info" name="message-info">toast.info(&#39;&#39;)</button>
+    </p>
+    <p class="col-sm-3">
+      <button class="btn btn-success" name="message-success">{type: &#39;success&#39;}</button>
     </p>
   </div>
 </div>

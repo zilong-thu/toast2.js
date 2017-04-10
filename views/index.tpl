@@ -92,7 +92,13 @@
       }
 
       case 'success':
-        toast.success('hello');
+        toast.success({
+          title: '操作成功！',
+          text: '您可以在“我的”页面看到刚才的订单。',
+          onClose: function() {
+            console.log('success dialog is closed.');
+          }
+        });
         break;
 
       case 'error':
@@ -118,6 +124,15 @@
           autoHide: false
         });
         break;
+
+      case 'message-success': {
+        toast.message({
+          text: '请求成功！数据已经处理完毕。',
+          type: 'success',
+          duration: 10000000
+        });
+        break;
+      }
 
       case 'message-without-closebtn':
         toast.message({

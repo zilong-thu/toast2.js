@@ -5,6 +5,8 @@
 @color-danger: #a72a36;
 @bg-color-info: #8ed5ea;
 @color-info: #276da9;
+@bg-color-success: #56EF7A;
+@color-success: #333;
 
 @msg-box-width: 320px;
 @msg-box-height: 60px;
@@ -109,6 +111,21 @@
 
   .close:active {
     background-color: darken(@bg-color-info, 5%);
+  }
+}
+
+.toast-msg-stack .msg-box.theme-success {
+  &, .close {
+    background-color: @bg-color-success;
+    color: @color-success;
+  }
+
+  .close:hover {
+    background-color: darken(@bg-color-success, 5%);
+  }
+
+  .close:active {
+    background-color: darken(@bg-color-success, 8%);
   }
 }
 /* end message box */

@@ -1,7 +1,7 @@
 @suc-width: 350px;
 @suc-height: 330px;
-@suc-color: #1fb922;
-@error-color: #d8606c;
+@suc-color: #3fe666;
+@error-color: #f46e65;
 
 @import "fix-scrollbars.less";
 @import "font.less";
@@ -97,10 +97,6 @@
   }
 }
 
-.toast-content.toast .body {
-  text-align: center;
-}
-
 .toast-content .footer a {
   color: #DD403B;
   display: block;
@@ -147,38 +143,11 @@
 
 
 /* success styles */
-.toast-container .toast-content.toast-success {
-  background-color: #fff;
-  color: #333;
-  top: 50%;
-  width: @suc-width;
-  height: @suc-height;
-  max-height: none;
-  margin-top: -0.5 * @suc-height;
-  margin-left: -0.5 * @suc-width;
-  overflow: hidden;
-}
-
-.toast-success.error {
-  .success-icon {
-    background: @error-color;
-  }
-}
-
-.toast-content.toast-success .footer {
-  line-height: 1.2;
-  padding: 5px 40px;
-
-  &:after {
-    border-top: none;
-  }
-}
-
 .toast-msg {
   .success-icon {
     text-align: center;
     padding: 25px 0;
-    height: 100px;
+    height: 110px;
 
     i {
       background: @suc-color;
@@ -186,14 +155,10 @@
     }
   }
 
-  .body {
-    height: 60px;
-    padding-top: 15px;
-    text-align: center;
-    overflow: hidden;
-    word-break: break-all;
-    font-size: 1.2em;
-    line-height: 30px;
+  &.error {
+    .success-icon i {
+      background: @error-color;
+    }
   }
 
   .ticon-check-circle,

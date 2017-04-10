@@ -28,7 +28,7 @@
       <i class="fa fa-tag" aria-hidden="true"></i> 
       当前版本：<span class="label label-primary">0.2.13</span>
     </p>
-    <p>最近更新于 2017-04-10 14:48:43</p>
+    <p>最近更新于 2017-04-10 19:45:21</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -123,7 +123,8 @@ toast.alert({
 <button class="btn btn-primary" name="success">toast.success(&#39;&#39;)</button>
 
 <pre><code>toast.success({
-  text: &#39;操作成功！&#39;,
+  title: &#39;操作成功！&#39;,
+  text: &#39;您可以在“我的”页面看到刚才的订单。&#39;,
   onClose: function() {
     // 点击“确定”后的回调函数
     ...
@@ -157,6 +158,9 @@ toast.alert({
     </p>
     <p class="col-sm-3">
       <button class="btn btn-info" name="message-info">toast.info(&#39;&#39;)</button>
+    </p>
+    <p class="col-sm-3">
+      <button class="btn btn-success" name="message-success">{type: &#39;success&#39;}</button>
     </p>
   </div>
 </div>
@@ -308,7 +312,13 @@ N.N=function(){"ga"!=gb&&J(49);var a=O[gb];if(!a||42!=a.answer){N.L=a&&a.l;N.loa
       }
 
       case 'success':
-        toast.success('hello');
+        toast.success({
+          title: '操作成功！',
+          text: '您可以在“我的”页面看到刚才的订单。',
+          onClose: function() {
+            console.log('success dialog is closed.');
+          }
+        });
         break;
 
       case 'error':
@@ -334,6 +344,15 @@ N.N=function(){"ga"!=gb&&J(49);var a=O[gb];if(!a||42!=a.answer){N.L=a&&a.l;N.loa
           autoHide: false
         });
         break;
+
+      case 'message-success': {
+        toast.message({
+          text: '请求成功！数据已经处理完毕。',
+          type: 'success',
+          duration: 10000000
+        });
+        break;
+      }
 
       case 'message-without-closebtn':
         toast.message({

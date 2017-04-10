@@ -146,7 +146,8 @@ toast.confirm({
 
 ```
 toast.success({
-  text: '操作成功！',
+  title: '操作成功！',
+  text: '您可以在“我的”页面看到刚才的订单。',
   onClose: function() {
     // 点击“确定”后的回调函数
     ...
@@ -189,6 +190,9 @@ toast2 的 message 设计理念是尽可能不打断用户的交互流程，因�
     </p>
     <p class="col-sm-3">
       <button class="btn btn-info" name="message-info">toast.info('')</button>
+    </p>
+    <p class="col-sm-3">
+      <button class="btn btn-success" name="message-success">{type: 'success'}</button>
     </p>
   </div>
 </div>

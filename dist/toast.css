@@ -275,9 +275,6 @@
       -ms-transform: scaleY(0.5);
           transform: scaleY(0.5);
 }
-.toast-content.toast .body {
-  text-align: center;
-}
 .toast-content .footer a {
   color: #DD403B;
   display: block;
@@ -320,44 +317,17 @@
           transform-origin: 0 0;
 }
 /* success styles */
-.toast-container .toast-content.toast-success {
-  background-color: #fff;
-  color: #333;
-  top: 50%;
-  width: 350px;
-  height: 330px;
-  max-height: none;
-  margin-top: -165px;
-  margin-left: -175px;
-  overflow: hidden;
-}
-.toast-success.error .success-icon {
-  background: #d8606c;
-}
-.toast-content.toast-success .footer {
-  line-height: 1.2;
-  padding: 5px 40px;
-}
-.toast-content.toast-success .footer:after {
-  border-top: none;
-}
 .toast-msg .success-icon {
   text-align: center;
   padding: 25px 0;
-  height: 100px;
+  height: 110px;
 }
 .toast-msg .success-icon i {
-  background: #1fb922;
+  background: #3fe666;
   color: #fff;
 }
-.toast-msg .body {
-  height: 60px;
-  padding-top: 15px;
-  text-align: center;
-  overflow: hidden;
-  word-break: break-all;
-  font-size: 1.2em;
-  line-height: 30px;
+.toast-msg.error .success-icon i {
+  background: #f46e65;
 }
 .toast-msg .ticon-check-circle,
 .toast-msg .ticon-cross-circle,
@@ -531,34 +501,26 @@
 .toast-msg-stack .msg-box.theme-info .close:active {
   background-color: #78cde6;
 }
+.toast-msg-stack .msg-box.theme-success,
+.toast-msg-stack .msg-box.theme-success .close {
+  background-color: #56EF7A;
+  color: #333;
+}
+.toast-msg-stack .msg-box.theme-success .close:hover {
+  background-color: #3fed68;
+}
+.toast-msg-stack .msg-box.theme-success .close:active {
+  background-color: #31eb5d;
+}
 /* end message box */
 /* media queries */
 @media screen and (max-width: 388px) {
   .toast-container .toast-content {
-    top: auto;
-    bottom: 45%;
+    margin-top: -90px;
   }
   .toast-container .toast-content.toast-msg {
     width: 90%;
     margin-left: -45%;
-  }
-  .toast-container .toast-content.toast-success {
-    width: 90%;
-    margin-left: -45%;
-  }
-  .toast-msg-stack .error-box {
-    width: 240px;
-  }
-  .error-box .body {
-    height: 60px;
-  }
-  .error-box .banner {
-    height: 30px;
-    line-height: 30px;
-    font-size: 14px;
-  }
-  .error-box .close {
-    margin: 0.2em;
   }
   .toast-msg-stack {
     top: 0;

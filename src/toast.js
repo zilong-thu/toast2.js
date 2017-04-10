@@ -222,7 +222,7 @@
     var bodyClassName = hideBtn ? 'body fully-scaled' : 'body';
 
     var template_msg_box = '' +
-      '<div class="msg-box ' + animationInClassName +' theme-{{theme}}">' +
+      '<div class="msg-box ' + animationInClassName +' theme-{{type}}">' +
         '<div class="' + bodyClassName + '">' +
           '<div><strong>{{title}}</strong></div>' +
           '<div>{{text}}</div>' +
@@ -234,7 +234,7 @@
 
   // 模板5，大正方形，有icon，目的是提示操作成功，并且有小段文本展示，带有遮罩层、一个“确定”按钮。 success 所用
   var templateHTML_success = '<div class="toast-mask"></div>' +
-    '<div class="toast-content toast-msg">' +
+    '<div class="toast-content toast-msg toast-success">' +
       '<div class="success-icon">' +
         '<i class="ticon-check-circle"></i>' +
       '</div>' +
@@ -479,10 +479,9 @@
     var userOption = Util.normalizeUserOption(option, onClose);
 
     var presetOption = {
-      title: 'SUCCESS',
+      title: '成功',
       text: '',
-      autoHide: false,
-      theme: 'success'
+      autoHide: false
     };
 
     addContentToToastDiv(presetOption, userOption, 'success');
@@ -492,10 +491,9 @@
     var userOption = Util.normalizeUserOption(option, onClose);
 
     var presetOption = {
-      title: 'ERROR',
+      title: '出错了',
       text: '',
-      autoHide: false,
-      theme: 'error'
+      autoHide: false
     };
 
     addContentToToastDiv(presetOption, userOption, 'error');
@@ -513,24 +511,24 @@
     addMessage(presetOption, userOption);
   }
 
-  function toastMessage(option, theme) {
+  function toastMessage(option, type) {
     var userOption = Util.normalizeUserOption(option);
 
-    theme = theme || 'message';
+    type = type || 'message';
 
     var presetOption = {
       text: '',
       // message 都是会自动隐藏的
       autoHide: true,
       duration: 7000,
-      theme: theme
+      type: type
     };
 
     addMessage(presetOption, userOption);
   };
 
   Toast.message = function(option) {
-    toastMessage(option, 'message');
+    toastMessage(option);
   };
 
   Toast.danger = function(option) {
