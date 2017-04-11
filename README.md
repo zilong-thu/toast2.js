@@ -16,9 +16,13 @@
 + [animate.css](http://daneden.github.io/animate.css/)，参考了部分动画的解决方案
 + [ICONO](http://saeedalipoor.github.io/icono/)，参考其中若干图标的纯CSS解决方案，替换掉最开始由 font-awesome 实现的图标
 
-## 文档与示例
+## 源码&文档&包地址
 
-地址：[http://borninsummer.com/toast2.js/](http://borninsummer.com/toast2.js/)
+文档与示例地址：[http://borninsummer.com/toast2.js/](http://borninsummer.com/toast2.js/)
+
+npm 包地址：[https://www.npmjs.com/package/toast2](https://www.npmjs.com/package/toast2)
+
+源码地址：[https://github.com/zilong-thu/toast2.js](https://github.com/zilong-thu/toast2.js)
 
 ## 使用方式
 
@@ -36,10 +40,16 @@ toast.js 会将 toast 注册到 window 上面，成为全局变量。
 
 ### React + Bable
 
-首先，引入这个模块：
+安装：
 
 ```
-import toast from 'toast';
+npm i --save toast2
+```
+
+然后，引入这个模块：
+
+```
+import toast from 'toast2';
 ```
 
 然后，还需要引用一下CSS文件，如果使用了诸如 less、sass、stylus或者postcss 等编译工具，可以像这样引用（以less为例）：
@@ -263,7 +273,7 @@ toast.confirm({
 
 ---------------------------
 
-2016 &copy; zilong-thu
+2016 ~ 2017 &copy; zilong-thu
 
 ---------------------------
 

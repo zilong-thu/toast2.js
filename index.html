@@ -25,16 +25,11 @@
     <p>
       <i class="fa fa-user" aria-hidden="true"></i> <a href="https://github.com/zilong-thu/" target="_blank">zilong-thu</a>
     </p>
-
-    <p>
-      <i class="fa fa-github" aria-hidden="true"></i>
-      <a href="https://github.com/zilong-thu/toast2.js" target="_blank">https://github.com/zilong-thu/toast2.js</a>
-    </p>
     <p>
       <i class="fa fa-tag" aria-hidden="true"></i> 
-      当前版本：<span class="label label-primary">1.0.3</span>
+      当前版本：<span class="label label-primary">1.0.4</span>
     </p>
-    <p>最近更新于 2017-04-11 12:15:18</p>
+    <p>最近更新于 2017-04-11 12:35:33</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -52,16 +47,20 @@
 <li><a href="http://daneden.github.io/animate.css/">animate.css</a>，参考了部分动画的解决方案</li>
 <li><a href="http://saeedalipoor.github.io/icono/">ICONO</a>，参考其中若干图标的纯CSS解决方案，替换掉最开始由 font-awesome 实现的图标</li>
 </ul>
-<h2 id="-">文档与示例</h2>
-<p>地址：<a href="http://borninsummer.com/toast2.js/">http://borninsummer.com/toast2.js/</a></p>
+<h2 id="-">源码&amp;文档&amp;包地址</h2>
+<p>文档与示例地址：<a href="http://borninsummer.com/toast2.js/">http://borninsummer.com/toast2.js/</a></p>
+<p>npm 包地址：<a href="https://www.npmjs.com/package/toast2">https://www.npmjs.com/package/toast2</a></p>
+<p>源码地址：<a href="https://github.com/zilong-thu/toast2.js">https://github.com/zilong-thu/toast2.js</a></p>
 <h2 id="-">使用方式</h2>
 <h3 id="-">直接引用</h3>
 <pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;toast.css&quot;&gt;
 </code></pre><pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;toast.js&quot;&gt;&lt;/script&gt;
 </code></pre><p>toast.js 会将 toast 注册到 window 上面，成为全局变量。</p>
 <h3 id="react-bable">React + Bable</h3>
-<p>首先，引入这个模块：</p>
-<pre><code>import toast from &#39;toast&#39;;
+<p>安装：</p>
+<pre><code>npm i --save toast2
+</code></pre><p>然后，引入这个模块：</p>
+<pre><code>import toast from &#39;toast2&#39;;
 </code></pre><p>然后，还需要引用一下CSS文件，如果使用了诸如 less、sass、stylus或者postcss 等编译工具，可以像这样引用（以less为例）：</p>
 <pre><code>@import &quot;node_modules/toast2/dist/toast.css&quot;;
 </code></pre><p>在使用了 webpack 工具的开发环境中，也可以在 JS/JSX/ES6 文件里这样直接引用样式：</p>
@@ -219,7 +218,7 @@ toast.alert({
 
 <p><br /></p>
 <hr>
-<p>2016 &copy; zilong-thu</p>
+<p>2016 ~ 2017 &copy; zilong-thu</p>
 <hr>
 
   <div>

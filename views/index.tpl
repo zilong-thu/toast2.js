@@ -25,11 +25,6 @@
     <p>
       <i class="fa fa-user" aria-hidden="true"></i> <a href="https://github.com/zilong-thu/" target="_blank">zilong-thu</a>
     </p>
-
-    <p>
-      <i class="fa fa-github" aria-hidden="true"></i>
-      <a href="https://github.com/zilong-thu/toast2.js" target="_blank">https://github.com/zilong-thu/toast2.js</a>
-    </p>
     <p>
       <i class="fa fa-tag" aria-hidden="true"></i> 
       当前版本：<span class="label label-primary">{{app.version}}</span>
