@@ -34,7 +34,7 @@
     top: 52%;
     left: 50%;
     border-radius: 5px;
-    box-shadow: 0 0 7px rgba(40, 40, 40, 0.85);
+    box-shadow: 0 0 5px rgba(30, 30, 30, 0.85);
     text-align: center;
     animation: pop 0.4s;
     z-index: 2000;
@@ -59,7 +59,7 @@
   }
 
   .toast-content.toast-success {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.75);
     width: @toast-suc-size;
     height: @toast-suc-size;
     margin-left: -0.5 * @toast-suc-size;
