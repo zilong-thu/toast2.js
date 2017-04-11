@@ -1,4 +1,6 @@
 /* icons */
+@icon-width: 3px;
+
 
 [class^="ticon-"] {
   display: inline-block;
@@ -28,11 +30,11 @@
 
   &:before {
     width: 0.5em;
-    height: 2px;
+    height: @icon-width;
   }
 
   &:after {
-    width: 2px;
+    width: @icon-width;
     height: 0.25em;
   }
 }

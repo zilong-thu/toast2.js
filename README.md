@@ -3,25 +3,24 @@
 本组件使用 JavaScript 和 CSS 写成。目标有如下若干：
 
 + 实现一个具有消息提示、成功提示、错误提示等功能的插件
-+ 使用时，不依赖任何其他模块（图标也都是纯CSS实现的~~）
++ **使用时，不依赖任何其他模块（图标也都是纯CSS实现的~~）**
 + 浏览器兼容性：IE >= 9 ，Android >= 4.3，ios >= 6，其他浏览器 last 3 version
 + 响应式设计
 
 
 本组件的设计，参考了诸多类似功能的插件、组件的设计思路。在此列出，不一而足。
 
-+ [https://weui.io/](https://weui.io/#/)，参考了部分基本的样式设计方案
++ [iOS-Overlay](https://github.com/taitems/iOS-Overlay)，这是 toast2.js 最初参考的组件
++ [微信UI：weui](https://weui.io/#/)，参考了部分基本的样式设计方案
 + [http://eve.uedmei.com/doc](http://eve.uedmei.com/doc)，参考了部分动画解决方案
 + [animate.css](http://daneden.github.io/animate.css/)，参考了部分动画的解决方案
 + [ICONO](http://saeedalipoor.github.io/icono/)，参考其中若干图标的纯CSS解决方案，替换掉最开始由 font-awesome 实现的图标
 
-## Demo地址
+## 文档与示例
 
-[http://borninsummer.com/toast2.js/](http://borninsummer.com/toast2.js/)
+地址：[http://borninsummer.com/toast2.js/](http://borninsummer.com/toast2.js/)
 
 ## 使用方式
-
-**自0.1.6版本及之后，不再依赖 font-awesome 字体了**
 
 ### 直接引用
 
@@ -83,8 +82,7 @@ toast('this is a toast with long long long long long long long long long text...
 toast.success('操作成功！');
 ```
 
-<button class="btn btn-primary" name="toast-success">toast('操作成功！')</button>
-
+<button class="btn btn-primary" name="toast-success">toast.success()</button>
 
 
 ### 警告框 alert
@@ -122,7 +120,7 @@ toast.alert({
 
 成功提示：
 
-<button class="btn btn-primary" name="success">success</button>
+<button class="btn btn-primary" name="alert-success">success 弹窗</button>
 
 ```
 toast.alert({
@@ -138,7 +136,7 @@ toast.alert({
 
 错误或者失败提示：
 
-<button class="btn btn-primary" name="error">error</button>
+<button class="btn btn-primary" name="alert-error">error 弹窗</button>
 
 ```
 toast.alert({
@@ -173,7 +171,7 @@ toast.confirm({
 
 此外，`toast.confirm()` 方法可以修改确定和取消按钮的文本，分别通过 `sureBtnText`、`cancelBtnText` 来设置，例如：
 
-<button class="btn btn-primary" name="confirm-btn-text">toast.confirm('')</button>
+<button class="btn btn-primary" name="confirm-btn-text">confirm 按钮文本</button>
 
 ```
 toast.confirm({
@@ -214,8 +212,17 @@ toast2 的 message 设计理念是尽可能不打断用户的交互流程，因�
   </div>
 </div>
 
+`toast.message()` 也提供了 `success` 类型的消息框，是在配置项里添加 `type: 'success'` 来实现的：
 
-下面是一个不显示“关闭”按钮的例子。这样的消息框，最好不要把`autoHide`属性设置为`false`。
+```
+toast.message({
+  text: '请求成功！',
+  type: 'success'
+});
+```
+
+
+下面是一个不显示“关闭”按钮的例子。这样的消息框，最好不要把 `autoHide` 属性设置为 `false`。
 
 ```
 toast.message({

@@ -1,3 +1,4 @@
+@toast-suc-size: 120px;
 @suc-width: 350px;
 @suc-height: 330px;
 @suc-color: #3fe666;
@@ -56,12 +57,35 @@
     margin-left: -180px;
     overflow: hidden;
   }
+
+  .toast-content.toast-success {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: @toast-suc-size;
+    height: @toast-suc-size;
+    margin-left: -0.5 * @toast-suc-size;
+
+    .success-icon {
+      padding: 5px 0 0 0;
+      height: auto;
+
+      i {
+        font-size: 70px;
+        color: #fff;
+        border: none;
+        background-color: transparent;
+      }
+    }
+
+    .body {
+      color: #fff;
+    }
+  }
 }
 
 .toast-content {
   .toast-header {
     font-weight: bold;
-    padding: 10px;
+    padding: 15px 10px 7px 10px;
   }
 
   .toast-body,

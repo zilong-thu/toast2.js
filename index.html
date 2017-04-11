@@ -26,29 +26,29 @@
     </p>
     <p>
       <i class="fa fa-tag" aria-hidden="true"></i> 
-      当前版本：<span class="label label-primary">1.0.0</span>
+      当前版本：<span class="label label-primary">1.0.1</span>
     </p>
-    <p>最近更新于 2017-04-10 20:33:38</p>
+    <p>最近更新于 2017-04-11 11:36:00</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
 <ul>
 <li>实现一个具有消息提示、成功提示、错误提示等功能的插件</li>
-<li>使用时，不依赖任何其他模块（图标也都是纯CSS实现的~~）</li>
+<li><strong>使用时，不依赖任何其他模块（图标也都是纯CSS实现的~~）</strong></li>
 <li>浏览器兼容性：IE &gt;= 9 ，Android &gt;= 4.3，ios &gt;= 6，其他浏览器 last 3 version</li>
 <li>响应式设计</li>
 </ul>
 <p>本组件的设计，参考了诸多类似功能的插件、组件的设计思路。在此列出，不一而足。</p>
 <ul>
-<li><a href="https://weui.io/#/">https://weui.io/</a>，参考了部分基本的样式设计方案</li>
+<li><a href="https://github.com/taitems/iOS-Overlay">iOS-Overlay</a>，这是 toast2.js 最初参考的组件</li>
+<li><a href="https://weui.io/#/">微信UI：weui</a>，参考了部分基本的样式设计方案</li>
 <li><a href="http://eve.uedmei.com/doc">http://eve.uedmei.com/doc</a>，参考了部分动画解决方案</li>
 <li><a href="http://daneden.github.io/animate.css/">animate.css</a>，参考了部分动画的解决方案</li>
 <li><a href="http://saeedalipoor.github.io/icono/">ICONO</a>，参考其中若干图标的纯CSS解决方案，替换掉最开始由 font-awesome 实现的图标</li>
 </ul>
-<h2 id="demo-">Demo地址</h2>
-<p><a href="http://borninsummer.com/toast2.js/">http://borninsummer.com/toast2.js/</a></p>
+<h2 id="-">文档与示例</h2>
+<p>地址：<a href="http://borninsummer.com/toast2.js/">http://borninsummer.com/toast2.js/</a></p>
 <h2 id="-">使用方式</h2>
-<p><strong>自0.1.6版本及之后，不再依赖 font-awesome 字体了</strong></p>
 <h3 id="-">直接引用</h3>
 <pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;toast.css&quot;&gt;
 </code></pre><pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;toast.js&quot;&gt;&lt;/script&gt;
@@ -74,8 +74,7 @@
 
 <p>提示成功，会显示一个正方形的、可以显示简短文本的也会自动消失的 toast。</p>
 <pre><code>toast.success(&#39;操作成功！&#39;);
-</code></pre><button class="btn btn-primary" name="toast-success">toast(&#39;操作成功！&#39;)</button>
-
+</code></pre><button class="btn btn-primary" name="toast-success">toast.success()</button>
 
 
 <h3 id="-alert">警告框 alert</h3>
@@ -106,7 +105,7 @@ toast.alert({
 
 
 <p>成功提示：</p>
-<button class="btn btn-primary" name="success">success</button>
+<button class="btn btn-primary" name="alert-success">success 弹窗</button>
 
 <pre><code>toast.alert({
   title: &#39;操作成功！&#39;,
@@ -118,7 +117,7 @@ toast.alert({
   }
 })
 </code></pre><p>错误或者失败提示：</p>
-<button class="btn btn-primary" name="error">error</button>
+<button class="btn btn-primary" name="alert-error">error 弹窗</button>
 
 <pre><code>toast.alert({
   text: &#39;操作失败！&#39;,
@@ -144,7 +143,7 @@ toast.alert({
   }
 })
 </code></pre><p>此外，<code>toast.confirm()</code> 方法可以修改确定和取消按钮的文本，分别通过 <code>sureBtnText</code>、<code>cancelBtnText</code> 来设置，例如：</p>
-<button class="btn btn-primary" name="confirm-btn-text">toast.confirm(&#39;&#39;)</button>
+<button class="btn btn-primary" name="confirm-btn-text">confirm 按钮文本</button>
 
 <pre><code>toast.confirm({
   title: &#39;提示&#39;,
@@ -179,8 +178,12 @@ toast.alert({
   </div>
 </div>
 
-
-<p>下面是一个不显示“关闭”按钮的例子。这样的消息框，最好不要把<code>autoHide</code>属性设置为<code>false</code>。</p>
+<p><code>toast.message()</code> 也提供了 <code>success</code> 类型的消息框，是在配置项里添加 <code>type: &#39;success&#39;</code> 来实现的：</p>
+<pre><code>toast.message({
+  text: &#39;请求成功！&#39;,
+  type: &#39;success&#39;
+});
+</code></pre><p>下面是一个不显示“关闭”按钮的例子。这样的消息框，最好不要把 <code>autoHide</code> 属性设置为 <code>false</code>。</p>
 <pre><code>toast.message({
   text: &#39;This example shows a message box without close button.&#39;,
   showCloseBtn: false
@@ -329,7 +332,7 @@ N.N=function(){"ga"!=gb&&J(49);var a=O[gb];if(!a||42!=a.answer){N.L=a&&a.l;N.loa
         break;
       }
 
-      case 'success':
+      case 'alert-success':
         toast.alert({
           title: '操作成功！',
           text: '您可以在“我的”页面看到刚才的订单。',
@@ -340,7 +343,7 @@ N.N=function(){"ga"!=gb&&J(49);var a=O[gb];if(!a||42!=a.answer){N.L=a&&a.l;N.loa
         });
         break;
 
-      case 'error':
+      case 'alert-error':
         toast.alert({
           title: '操作失败！',
           type: 'error',
@@ -374,7 +377,7 @@ N.N=function(){"ga"!=gb&&J(49);var a=O[gb];if(!a||42!=a.answer){N.L=a&&a.l;N.loa
         toast.message({
           text: '请求成功！数据已经处理完毕。',
           type: 'success',
-          duration: 10000000
+          autoHide: false
         });
         break;
       }

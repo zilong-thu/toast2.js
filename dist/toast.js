@@ -202,7 +202,7 @@
     '</div>';
 
 
-  // 模板1，长方形，没有icon，目的是显示大段文本，带有遮罩层、一个“确定”按钮。alert 所用
+  // 模板1，长方形，目的是显示大段文本，带有遮罩层、一个“确定”按钮。alert 所用
   function template_alert_generator(option) {
     var icon = '';
     var alertTypeClassName = option.type || '';
@@ -257,6 +257,14 @@
     return template_msg_box;
   }
 
+
+  // 模板5，正方形，有icon，带有遮罩层。
+  var templateHTML_success = '' +
+    '<div class="toast-content toast-msg toast-success">' +
+      htmlSuccessPart +
+      '<div class="body">{{text}}</div>' +
+    '</div>';
+
   // 一个非常简易的模板引擎
   function compileTemplate(tpl, data) {
     var re = /{{([^}}]+)?}}/g;
@@ -284,7 +292,6 @@
 
     var option = Util.mergeOjbects(defaultOption, opt);
 
-
     var $toast = document.getElementById(GLOBAL_TOAST_ID);
     if (!$toast) {
       $toast = document.createElement('div');
@@ -308,14 +315,14 @@
       toast: templateHTML_toast,
       alert: template_alert_generator(option),
       confirm: templateHTML_confirm,
-      success: template_alert_generator(Util.mergeOjbects(option, {type: 'success'})),
+      success: templateHTML_success,
       error: template_alert_generator(Util.mergeOjbects(option, {type: 'error'}))
     };
 
     var compiled = compileTemplate(TemplateEnum[templateType], option);
     self.html(compiled).show();
 
-    if (templateType === 'toast') {
+    if (templateType === 'toast' || option.autoHide) {
       toastTimerId = setTimeout(function() {
         Util.fadeOut($toast);
       }, option.duration);
@@ -477,14 +484,15 @@
     addContentToToastDiv(presetOption, userOption, 'confirm');
   };
 
-  // TODO
   Toast.success = function(option, onClose) {
     var userOption = Util.normalizeUserOption(option, onClose);
+    delete userOption.autoHide;
 
     var presetOption = {
       title: '成功',
       text: '',
-      autoHide: false
+      autoHide: true,
+      duration: DURATION_TOAST + 500
     };
 
     addContentToToastDiv(presetOption, userOption, 'success');

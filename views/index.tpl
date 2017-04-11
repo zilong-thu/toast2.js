@@ -95,7 +95,7 @@
         break;
       }
 
-      case 'success':
+      case 'alert-success':
         toast.alert({
           title: '操作成功！',
           text: '您可以在“我的”页面看到刚才的订单。',
@@ -106,7 +106,7 @@
         });
         break;
 
-      case 'error':
+      case 'alert-error':
         toast.alert({
           title: '操作失败！',
           type: 'error',
@@ -140,7 +140,7 @@
         toast.message({
           text: '请求成功！数据已经处理完毕。',
           type: 'success',
-          duration: 10000000
+          autoHide: false
         });
         break;
       }
