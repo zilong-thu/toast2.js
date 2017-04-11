@@ -95,6 +95,15 @@ toast.success('操作成功！');
 <button class="btn btn-primary" name="toast-success">toast.success()</button>
 
 
+### 加载中提示
+
+<button class="btn btn-primary" name="toast-loading">toast.loading()</button>
+
+```
+toast.loading();
+```
+
+
 ### 警告框 alert
 
 alert 弹窗会打断用户的体验流，因此应该只在真的有必要的时候使用。toast2.js 提供的 alert 有三类：
@@ -267,6 +276,10 @@ toast.confirm({
 
 <button class="btn btn-primary" name="confirm-and-toast">confirm + toast</button>
 
+
+## 开发
+
+`npm run dev` 可以监控相关资源，自动编译。只需要自己刷新浏览器即可看到效果。
 
 
 <br />

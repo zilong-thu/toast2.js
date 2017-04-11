@@ -67,6 +67,10 @@
         toast.success('操作成功');
         break;
 
+      case 'toast-loading':
+        toast.loading();
+        break;
+
       case 'confirm':
         toast.confirm({
           title: '提示',

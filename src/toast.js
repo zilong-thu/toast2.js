@@ -496,7 +496,20 @@
     };
 
     addContentToToastDiv(presetOption, userOption, 'success');
-  }
+  };
+
+  Toast.loading = function(option, onClose) {
+    var userOption = Util.normalizeUserOption(option, onClose);
+    delete userOption.autoHide;
+
+    var presetOption = {
+      text: '加载中...',
+      autoHide: true,
+      duration: DURATION_TOAST + 500
+    };
+
+    addContentToToastDiv(presetOption, userOption, 'success');
+  };
 
   // TODO
   Toast.error = function(option, onClose) {
@@ -509,7 +522,7 @@
     };
 
     addContentToToastDiv(presetOption, userOption, 'error');
-  }
+  };
 
   function toastMessage(option, type) {
     var userOption = Util.normalizeUserOption(option);
