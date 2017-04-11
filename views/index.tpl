@@ -8,11 +8,17 @@
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="./index.css">
+  <link rel="icon" href="./favicon.png">
 </head>
 <body>
   <header>
     <div class="jumbotron">
-      <h1>{{title}}</h1>
+      <div class="container">
+        <h1>
+          <img class="logo" src="./favicon.png" />
+          {{title}}
+        </h1>
+      </div>
     </div>
   </header>
   <div class="container">

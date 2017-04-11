@@ -1,12 +1,18 @@
 html,
 body {
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 2;
 }
 header .jumbotron {
   text-align: center;
   color: #fff;
-  background-color: #337ab7;
+  background-color: #333;
+}
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
 }
 h1,
 h2,
@@ -15,6 +21,9 @@ h4,
 h5,
 h6 {
   margin-bottom: 15px;
+}
+h1 {
+  position: relative;
 }
 h2 {
   font-size: 24px;
@@ -31,5 +40,10 @@ h4 {
 .btn {
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 160px;
+  width: 170px;
+}
+@media screen and (max-width: 388px) {
+  .logo {
+    width: 50px;
+  }
 }

@@ -120,7 +120,7 @@ toast.alert({
 
 成功提示：
 
-<button class="btn btn-primary" name="alert-success">success 弹窗</button>
+<button class="btn btn-success" name="alert-success">success 弹窗</button>
 
 ```
 toast.alert({
@@ -136,7 +136,7 @@ toast.alert({
 
 错误或者失败提示：
 
-<button class="btn btn-primary" name="alert-error">error 弹窗</button>
+<button class="btn btn-danger" name="alert-error">error 弹窗</button>
 
 ```
 toast.alert({

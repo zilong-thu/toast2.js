@@ -8,11 +8,17 @@
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="./index.css">
+  <link rel="icon" href="./favicon.png">
 </head>
 <body>
   <header>
     <div class="jumbotron">
-      <h1>Toast2.js</h1>
+      <div class="container">
+        <h1>
+          <img class="logo" src="./favicon.png" />
+          Toast2.js
+        </h1>
+      </div>
     </div>
   </header>
   <div class="container">
@@ -28,7 +34,7 @@
       <i class="fa fa-tag" aria-hidden="true"></i> 
       当前版本：<span class="label label-primary">1.0.3</span>
     </p>
-    <p>最近更新于 2017-04-11 11:46:05</p>
+    <p>最近更新于 2017-04-11 12:15:18</p>
 
     <h2 id="-">简介</h2>
 <p>本组件使用 JavaScript 和 CSS 写成。目标有如下若干：</p>
@@ -105,7 +111,7 @@ toast.alert({
 
 
 <p>成功提示：</p>
-<button class="btn btn-primary" name="alert-success">success 弹窗</button>
+<button class="btn btn-success" name="alert-success">success 弹窗</button>
 
 <pre><code>toast.alert({
   title: &#39;操作成功！&#39;,
@@ -117,7 +123,7 @@ toast.alert({
   }
 })
 </code></pre><p>错误或者失败提示：</p>
-<button class="btn btn-primary" name="alert-error">error 弹窗</button>
+<button class="btn btn-danger" name="alert-error">error 弹窗</button>
 
 <pre><code>toast.alert({
   text: &#39;操作失败！&#39;,
