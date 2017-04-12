@@ -12,7 +12,7 @@ header .jumbotron {
   position: absolute;
   top: 0;
   left: 0;
-  width: 80px;
+  width: 60px;
 }
 h1,
 h2,
@@ -29,7 +29,8 @@ h2 {
   font-size: 24px;
   margin: 30px 0 15px 0;
   border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+  font-weight: bold;
 }
 h3 {
   font-size: 20px;
@@ -42,8 +43,18 @@ h4 {
   margin-bottom: 10px;
   width: 170px;
 }
+pre {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-color: #eee;
+}
 @media screen and (max-width: 388px) {
   .logo {
-    width: 50px;
+    width: 45px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .jumbotron h1 {
+    font-size: 54px;
   }
 }
