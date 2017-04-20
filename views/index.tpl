@@ -110,6 +110,7 @@
       case 'alert-error':
         toast.alert({
           title: '操作失败',
+          text: '因为某些原因，请求失败了，请检查或反馈。',
           type: 'error',
           onClose: function() {
             console.log('error dialog is closed.');
