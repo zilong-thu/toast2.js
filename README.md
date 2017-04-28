@@ -24,6 +24,7 @@ npm 包地址：[https://www.npmjs.com/package/toast2](https://www.npmjs.com/pac
 
 源码地址：[https://github.com/zilong-thu/toast2.js](https://github.com/zilong-thu/toast2.js)
 
+
 ## 使用方式
 
 ### 直接引用

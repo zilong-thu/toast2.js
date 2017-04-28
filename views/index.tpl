@@ -22,14 +22,31 @@
     </div>
   </header>
   <div class="container">
-    <p>
-      <i class="fa fa-user" aria-hidden="true"></i> <a href="https://github.com/zilong-thu/" target="_blank">zilong-thu</a>
-    </p>
-    <p>
-      <i class="fa fa-tag" aria-hidden="true"></i> 
-      当前版本：<span class="label label-primary">{{app.version}}</span>
-    </p>
-    <p>最近更新于 {{moment().format('YYYY-MM-DD HH:mm:ss')}}</p>
+    <div class="row">
+      <div class="col-sm-6">
+        <p>
+          <i class="fa fa-user" aria-hidden="true"></i> <a href="https://github.com/zilong-thu/" target="_blank">zilong-thu</a>
+        </p>
+        <p>
+          <i class="fa fa-tag" aria-hidden="true"></i> 
+          当前版本：<span class="label label-primary">{{app.version}}</span>
+        </p>
+        <p>最近更新于 {{moment().format('YYYY-MM-DD HH:mm:ss')}}</p>
+      </div>
+      <div class="col-sm-6 text-center">
+        <p style="margin-top: 15px;"><strong>下载可用于生产环境的代码：</strong></p>
+
+        <a href="./dist/toast.js" target="_blank" class="btn btn-default download-btn">
+          <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+          toast2.js
+        </a>
+
+        <a href="./dist/toast.css" target="_blank" class="btn btn-default download-btn">
+          <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+          toast2.css
+        </a>
+      </div>
+    </div>
 
     {% include "./body.html" %}
   <div>

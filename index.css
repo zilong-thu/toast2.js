@@ -43,6 +43,16 @@ h4 {
   margin-bottom: 10px;
   width: 170px;
 }
+.download-btn {
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  border-color: #444;
+}
+.download-btn:hover,
+.download-btn:active {
+  border-color: #333;
+}
 pre {
   padding: 10px;
   margin-bottom: 15px;
