@@ -15,6 +15,8 @@
 
   var toastTimerId = null;
 
+  var _eventListener = null;
+
   var Util = {};
   /**
    * 合并两个对象，其中以a的属性为基础，用b的属性来覆盖a
@@ -328,7 +330,12 @@
       }, option.duration);
     }
 
-    Util.addEventHandler($toast, 'click', function(e) {
+    // 每次生成一个新的 alert/toast 时（不包括 message），把之前的事件处理函数移除
+    if (_eventListener) {
+      Util.removeEventHandler($toast, 'click', _eventListener);
+    }
+
+    _eventListener = function(e) {
       e.stopPropagation();
       var target = Util.getEventTarget(e);
       var role = target.getAttribute('data-role');
@@ -358,7 +365,9 @@
         break;
         default: ;
       }
-    });
+    };
+
+    Util.addEventHandler($toast, 'click', _eventListener);
   }
 
   /**
