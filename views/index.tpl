@@ -33,7 +33,7 @@
         </p>
         <p>最近更新于 {{moment().format('YYYY-MM-DD HH:mm:ss')}}</p>
       </div>
-      <div class="col-sm-6 text-center">
+      <div class="col-sm-6 text-center down-load-container">
         <p style="margin-top: 15px;"><strong>下载可用于生产环境的代码：</strong></p>
 
         <a href="./dist/toast.js" target="_blank" class="btn btn-default download-btn">
