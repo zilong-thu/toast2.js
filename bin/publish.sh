@@ -1,4 +1,6 @@
 cp ./package.json ./dist
 
-cd ./dist && npm publish && cd ..
+cd ./dist && npm publish
+
+cd ..
 
