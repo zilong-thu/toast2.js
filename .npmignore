@@ -1,9 +1,6 @@
-./src
+src
 
-./views
+views
 
-./index.html
-./index.css
-./gulpfile.js
-./favicon.png
-./build.js
+gulpfile.js
+build.js
