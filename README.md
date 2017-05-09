@@ -269,6 +269,40 @@ toast.confirm({
 <button class="btn btn-primary" name="confirm-and-toast">confirm + toast</button>
 
 
+## For Developers Who Want to Contribute
+
+Folder structor of toast2 project is as follows. To guarantee a small published code volume, command `npm publish` should always be executed only in dir `./dist`.
+
+```
+.
+├── README.md
+├── build.js
+├── dist
+│   ├── toast.css
+│   └── toast.js
+├── favicon.png
+├── gulpfile.js
+├── index.css
+├── index.html
+├── node_modules
+│   │...dir and files
+├── package.json
+├── src
+│   ├── animations.less
+│   ├── fix-scrollbars.less
+│   ├── font.less
+│   ├── icons.less
+│   ├── media.less
+│   ├── message.less
+│   ├── toast-btn.less
+│   ├── toast.css
+│   └── toast.js
+└── views
+    ├── body.html
+    ├── ga.html
+    ├── index.less
+    └── index.tpl
+```
 
 <br />
 

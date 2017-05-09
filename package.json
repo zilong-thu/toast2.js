@@ -1,6 +1,6 @@
 {
   "name": "toast2",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A toast tool written in JavaScript and CSS with very little 3rd party dependencies.",
   "main": "src/toast.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "build": "gulp build",
     "deploy-master": "git checkout master && git add --all && git commit -m 'source files update' && git push github master",
     "deploy-pages": "git checkout master && git branch -D gh-pages && git checkout -b gh-pages && git push github gh-pages -f && git checkout master",
-    "deploy": "npm run build && npm run deploy-master && npm run deploy-pages"
+    "deploy": "npm run build && npm run deploy-master && npm run deploy-pages",
+    "publish": "cd ./dist && npm publish"
   },
   "repository": {
     "type": "git",
