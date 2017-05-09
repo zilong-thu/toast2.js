@@ -271,7 +271,7 @@ toast.confirm({
 
 ## For Developers Who Want to Contribute
 
-Folder structor of toast2 project is as follows. To guarantee a small published code volume, command `npm publish` should always be executed only in dir `./dist`.
+Folder structor of toast2 project is as follows.
 
 ```
 .
@@ -303,6 +303,8 @@ Folder structor of toast2 project is as follows. To guarantee a small published 
     ├── index.less
     └── index.tpl
 ```
+
+To guarantee a small published code volume, `.npmignore` file is presented in the root dir.
 
 <br />
 
