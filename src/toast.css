@@ -126,6 +126,7 @@
   display: block;
   border: none;
   text-decoration: none;
+  text-align: center;
 
   &:hover {
     color: #AC3429;
