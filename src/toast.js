@@ -238,7 +238,7 @@
     '</div>';
 
   // 模板3，小长方形，没有icon，目的是显示小段文本，无遮罩层，无按钮，全局永远只有一个，会自动消失。toast 所用
-  var templateHTML_toast = '<div class="toast-content toast">' +
+  var templateHTML_toast = '<div class="toast-content toast2">' +
       '<div class="toast-body">{{text}}</div>' +
     '</div>';
 

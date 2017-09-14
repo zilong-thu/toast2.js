@@ -224,7 +224,7 @@
           animation: pop 0.4s;
   z-index: 2000;
 }
-.toast-container .toast-content.toast {
+.toast-container .toast-content.toast2 {
   background-color: rgba(0, 0, 0, 0.82);
   padding: 0;
   color: #fff;
