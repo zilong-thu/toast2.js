@@ -534,7 +534,10 @@
 }
 /* end message box */
 /* media queries */
-@media screen and (max-width: 388px) {
+/**
+ * 414: iphone 7 plus 的屏幕宽度像素数
+ */
+@media screen and (max-width: 415px) {
   .toast-container .toast-content {
     margin-top: -90px;
   }
