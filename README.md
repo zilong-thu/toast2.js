@@ -96,6 +96,17 @@ toast.success('操作成功！');
 <button class="btn btn-primary" name="toast-success">toast.success()</button>
 
 
+### Loading
+
+<button class="btn btn-primary" name="toast-loading">toast.showLoading()</button>
+
+<button class="btn btn-primary" name="toast-hide-loading">toast.hideLoading()</button>
+
+```
+toast.showLoading();
+toast.hideLoading();
+```
+
 ### 警告框 alert
 
 alert 弹窗会打断用户的体验流，因此应该只在真的有必要的时候使用。toast2.js 提供的 alert 有三类：
@@ -251,7 +262,7 @@ toast.message({
       <button class="btn btn-danger" name="message-autohide">“关闭”按钮+autoHide</button>
     </p>
   </div>
-</div>  
+</div>
 
 ### 组合使用
 
@@ -311,7 +322,7 @@ To guarantee a small published code volume, `.npmignore` file is presented in th
 
 ---------------------------
 
-2016 ~ 2017 &copy; zilong-thu
+2016 ~ 2018 &copy; zilong-thu
 
 ---------------------------
 

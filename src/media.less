@@ -3,17 +3,21 @@
  * 414: iphone 7 plus 的屏幕宽度像素数
  */
 @media screen and (max-width: 415px){
-  .toast-container .toast-content {
-    margin-top: -90px;
-  }
-  .toast-container .toast-content.toast-msg {
-    width: 80%;
-    margin-left: -40%;
-  }
+  .toast-container {
+    .toast-content {
+      margin-top: -90px;
+    }
 
-  .toast-container .toast-content.toast-success {
-    width: 120px;
-    margin-left: -60px;
+    .toast-content.toast-msg {
+      width: 80%;
+      margin-left: -40%;
+    }
+
+    .toast-content.toast-success,
+    .toast-content.toast-loading {
+      width: 120px;
+      margin-left: -60px;
+    }
   }
 
   .toast-msg-stack {

@@ -6,7 +6,7 @@
     global.toast = factory();
 }(this, function () {
   'use strict';
-  
+
   // CSS3 动画的时常，目前默认都是 500ms，那么JS要在 510ms 后执行DOM操作
   var CSS_ANIMATION_DURATION = 510;
 
@@ -203,7 +203,6 @@
       '<i class="ticon-frown-circle"></i>' +
     '</div>';
 
-
   // 模板1，长方形，目的是显示大段文本，带有遮罩层、一个“确定”按钮。alert 所用
   function template_alert_generator(option) {
     var icon = '';
@@ -212,7 +211,7 @@
     if (option.type === 'success') {
       icon = htmlSuccessPart;
     } else if (option.type === 'error') {
-      icon = htmlErrorPart;      
+      icon = htmlErrorPart;
     }
 
     var templateHTML_alert = '<div class="toast-mask"></div>' +
@@ -267,6 +266,16 @@
       '<div class="body">{{text}}</div>' +
     '</div>';
 
+  // 模板6，正方形，有icon，带有遮罩层。
+  var templateHTML_loading = '' +
+    '<div class="toast-content toast-msg toast-loading">' +
+      '<div class="success-icon">' +
+        '<i class="ticon-loading"></i>' +
+      '</div>' +
+      '<div class="body">{{text}}</div>' +
+    '</div>';
+
+
   // 一个非常简易的模板引擎
   function compileTemplate(tpl, data) {
     var re = /{{([^}}]+)?}}/g;
@@ -318,7 +327,8 @@
       alert: template_alert_generator(option),
       confirm: templateHTML_confirm,
       success: templateHTML_success,
-      error: template_alert_generator(Util.mergeOjbects(option, {type: 'error'}))
+      loading: templateHTML_loading,
+      error: template_alert_generator(Util.mergeOjbects(option, {type: 'error'})),
     };
 
     var compiled = compileTemplate(TemplateEnum[templateType], option);
@@ -343,7 +353,7 @@
       if (['close', 'cancel', 'confirm'].indexOf(role) > -1) {
         Util.fadeOut($toast);
       }
-      
+
       switch(role) {
         case 'close':
           if (typeof option.onClose === 'function') {
@@ -506,6 +516,24 @@
 
     addContentToToastDiv(presetOption, userOption, 'success');
   }
+
+  Toast.showLoading = function(option) {
+    var userOption = Util.normalizeUserOption(option);
+    delete userOption.autoHide;
+
+    var presetOption = {
+      title: '',
+      text: 'Loading...',
+      autoHide: false,
+      duration: DURATION_TOAST + 500
+    };
+    addContentToToastDiv(presetOption, userOption, 'loading');
+  };
+
+  Toast.hideLoading = function() {
+    var $toast = document.getElementById(GLOBAL_TOAST_ID);
+    Util.fadeOut($toast);
+  };
 
   // TODO
   Toast.error = function(option, onClose) {

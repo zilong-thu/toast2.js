@@ -84,6 +84,16 @@
         toast.success('操作成功');
         break;
 
+      case 'toast-loading':
+        toast.showLoading({
+          text: '加载中',
+        });
+      break;
+
+      case 'toast-hide-loading':
+        toast.hideLoading();
+      break;
+
       case 'confirm':
         toast.confirm({
           title: '提示',

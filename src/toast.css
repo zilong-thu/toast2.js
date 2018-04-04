@@ -58,7 +58,8 @@
     overflow: hidden;
   }
 
-  .toast-content.toast-success {
+  .toast-content.toast-success,
+  .toast-content.toast-loading {
     background-color: rgba(0, 0, 0, 0.75);
     width: @toast-suc-size;
     height: @toast-suc-size;
@@ -78,6 +79,16 @@
 
     .body {
       color: #fff;
+    }
+  }
+
+  .toast-content.toast-loading {
+    .success-icon {
+      padding-top: 25px;
+
+      i {
+        font-size: 40px;
+      }
     }
   }
 }
@@ -175,14 +186,14 @@
     height: 110px;
 
     i {
-      background: @suc-color;
+      background-color: @suc-color;
       color: #fff;
     }
   }
 
   &.error {
     .success-icon i {
-      background: @error-color;
+      background-color: @error-color;
     }
   }
 
