@@ -85,13 +85,15 @@
         break;
 
       case 'toast-loading':
-        toast.showLoading({
-          text: '加载中',
-        });
-      break;
+        (function() {
+          toast.showLoading({
+            text: '加载中',
+          });
 
-      case 'toast-hide-loading':
-        toast.hideLoading();
+          setTimeout(function() {
+            toast.hideLoading();
+          }, 3000);
+        })();
       break;
 
       case 'confirm':

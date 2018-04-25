@@ -98,13 +98,18 @@ toast.success('操作成功！');
 
 ### Loading
 
+显示一个 loading 提示框，3秒后自动消失：
+
 <button class="btn btn-primary" name="toast-loading">toast.showLoading()</button>
 
-<button class="btn btn-primary" name="toast-hide-loading">toast.hideLoading()</button>
-
 ```
-toast.showLoading();
-toast.hideLoading();
+toast.showLoading({
+  text: '加载中',
+});
+
+setTimeout(function() {
+  toast.hideLoading();
+}, 3000);
 ```
 
 ### 警告框 alert

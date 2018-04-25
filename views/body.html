@@ -50,12 +50,16 @@
 
 
 <h3 id="loading">Loading</h3>
+<p>显示一个 loading 提示框，3秒后自动消失：</p>
 <button class="btn btn-primary" name="toast-loading">toast.showLoading()</button>
 
-<button class="btn btn-primary" name="toast-hide-loading">toast.hideLoading()</button>
+<pre><code>toast.showLoading({
+  text: &#39;加载中&#39;,
+});
 
-<pre><code>toast.showLoading();
-toast.hideLoading();
+setTimeout(function() {
+  toast.hideLoading();
+}, 3000);
 </code></pre><h3 id="-alert">警告框 alert</h3>
 <p>alert 弹窗会打断用户的体验流，因此应该只在真的有必要的时候使用。toast2.js 提供的 alert 有三类：</p>
 <ul>

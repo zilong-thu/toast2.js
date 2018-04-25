@@ -267,7 +267,7 @@
     '</div>';
 
   // 模板6，正方形，有icon，带有遮罩层。
-  var templateHTML_loading = '' +
+  var templateHTML_loading = '<div class="toast-mask"></div>' +
     '<div class="toast-content toast-msg toast-loading">' +
       '<div class="success-icon">' +
         '<i class="ticon-loading"></i>' +

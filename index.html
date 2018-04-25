@@ -29,9 +29,9 @@
         </p>
         <p>
           <i class="fa fa-tag" aria-hidden="true"></i> 
-          当前版本：<span class="label label-primary">2.1.0</span>
+          当前版本：<span class="label label-primary">2.1.1</span>
         </p>
-        <p>最近更新于 2018-04-04 16:11:20</p>
+        <p>最近更新于 2018-04-25 16:09:25</p>
       </div>
       <div class="col-sm-6 text-center down-load-container">
         <p style="margin-top: 15px;"><strong>下载可用于生产环境的代码：</strong></p>
@@ -100,12 +100,16 @@
 
 
 <h3 id="loading">Loading</h3>
+<p>显示一个 loading 提示框，3秒后自动消失：</p>
 <button class="btn btn-primary" name="toast-loading">toast.showLoading()</button>
 
-<button class="btn btn-primary" name="toast-hide-loading">toast.hideLoading()</button>
+<pre><code>toast.showLoading({
+  text: &#39;加载中&#39;,
+});
 
-<pre><code>toast.showLoading();
-toast.hideLoading();
+setTimeout(function() {
+  toast.hideLoading();
+}, 3000);
 </code></pre><h3 id="-alert">警告框 alert</h3>
 <p>alert 弹窗会打断用户的体验流，因此应该只在真的有必要的时候使用。toast2.js 提供的 alert 有三类：</p>
 <ul>
@@ -363,13 +367,15 @@ N.N=function(){"ga"!=gb&&J(49);var a=O[gb];if(!a||42!=a.answer){N.L=a&&a.l;N.loa
         break;
 
       case 'toast-loading':
-        toast.showLoading({
-          text: '加载中',
-        });
-      break;
+        (function() {
+          toast.showLoading({
+            text: '加载中',
+          });
 
-      case 'toast-hide-loading':
-        toast.hideLoading();
+          setTimeout(function() {
+            toast.hideLoading();
+          }, 3000);
+        })();
       break;
 
       case 'confirm':
